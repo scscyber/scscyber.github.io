@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>CURRICULO</title>
+<meta name="description" content="Input Types - Formulario">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="./arquivos/css" rel="stylesheet" type="text/css">
+<link href="./arquivos/css2" rel="stylesheet" type="text/css">
+<!--
+<link rel="stylesheet" href="./arquivos/base.css">
+-->
+<!--<link rel="stylesheet" href="./arquivos/skeleton.css">
+-->
+<link rel="stylesheet" href="./estilos/styles.css">
+
+<!--
+FUNÇÂO FORMATAR CAMPOS
+-->
+<script>
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i)
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+}
+</script>
+</head>
+<body>
+<form id="">
+	<div class="">
+		<img src="">
+		<h1>CURRICULO</h1>
+		
+<br>
+		
+		Nome:<input type="text" size="50" placeholder="">
+		<!-- row 1 -->
+		<div class="row"> 
+			<!-- Type = text -->
+			<div class=" ">
+
+	<span class="titulo" > Apresentação</span>
+	<hr>
+				<textarea name="message" rows="3" cols="100">
+				</textarea>
+			</div>
+					</div>
+<hr>
+		<div class="row"> 
+			<!-- Type = text -->
+			<div class="">
+				<span class="titulo"> Objetivo Profissional</span>
+				<input type="text" size="50" placeholder="">
+<hr>
+			</div>
+					</div>
+		<!-- row 3 -->
+			<!-- Type = date -->
+			<div class="">
+				<span class="titulo"> Dados Pessoais</span>
+<br>
+		 				 Data de Nascimento:
+    <input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="8" >	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- Type = search -->
+				Estado Civil:
+				<input type="search" list="online-stores" placeholder="">
+				<datalist id="online-stores" style="display:hidden;">
+					<option value="Solteiro(a)"></option>
+					<option value="Casado(a)"></option>
+					<option value="Divorciado(a)"></option>
+					<option value="Viuvo(a)"></option>
+				</datalist>
+<br>
+<br>
+				<!-- Type = tel -->
+				Telefone(s):
+				<input type="tel" placeholder="" pattern="[0-9]{10}"  maxlength="14" OnKeyPress="formatar('##-#####-####', this)"  size="10">
+				<input type="tel" placeholder="" pattern="[0-9]{10}"  maxlength="14" OnKeyPress="formatar('##-#####-####', this)" size="10" >
+&nbsp;&nbsp;&nbsp;&nbsp;		
+				E-Mail:
+				<input type="email" placeholder="" size="35">
+<br>
+<br>
+				Endereço: 
+
+				<input type="text" size="80" placeholder="">
+			</div>
+	
+<hr>			
+			<div class="">
+
+
+				<span class="titulo"> Escolaridade/Formação</span>
+				<input type="search" list="escolaridade" placeholder="">
+				<datalist id="escolaridade" style="display:hidden;">
+					<option value="Alfabetizado"></option>
+					<option value="1º Grau Incompleto"></option>
+					<option value="1º Grau Completo"></option>
+					<option value="2º Grau Incompleto"></option>
+					<option value="2º Grau Completo"></option>
+					<option value="Superior Incompleto"></option>
+					<option value="Superior Completo"></option>
+				</datalist>
+				<input type="text" size="35" placeholder="">
+			</div>
+<hr>	
+			<!-- Type = text -->
+			<div class="">
+				<span class="titulo"> Cursos/Outras Especializações</span>
+<br>
+				<textarea name="message" rows="4" cols="100">
+				</textarea>
+			</div>			
+<hr>
+			<div class="">
+
+				<span class="titulo"> Experência Profissional</span>
+<br>
+
+			Função:<input type="text" size="30" placeholder="">
+<br>
+<br>
+				Empresa:<input type="text" size="40" placeholder="">
+				Período:<input type="text" size="8" placeholder="">
+				A<input type="text" size="8" placeholder="">
+				</br>				
+<br>
+			Função:<input type="text" size="30" placeholder="">
+<br>
+<br>
+				Empresa:<input type="text" size="40" placeholder="">
+				Período:<input type="text" size="8" placeholder="">
+				A<input type="text" size="8" placeholder="">
+				</br>
+				<br>
+			Função:<input type="text" size="30" placeholder="">
+<br>
+<br>
+				Empresa:<input type="text" size="40" placeholder="">
+				Período:<input type="text" size="8" placeholder="">
+				A<input type="text" size="8" placeholder="">
+				</br>				
+				
+			</div>
+			<hr>
+		<!-- row 7 -->
+			<!-- Type = text -->
+			<div class="">
+
+				<span class="titulo"> Outras Informações</span>
+<br>
+				<textarea name="message" rows="2" cols="100">
+				</textarea>
+			</div>		
+	</div>
+</form></body></html>
