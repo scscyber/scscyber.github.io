@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mapa Isochrone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+		
+        /* Marker tweaks */
+        .mapboxgl-popup {
+          padding-bottom: 50px;
+        }
+
+        .mapboxgl-popup-close-button {
+          display:none;
+        }
+        .mapboxgl-popup-content {
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          padding:0;
+          width:180px;
+        }
+        .mapboxgl-popup-content-wrapper {
+          padding:1%;
+        }
+        .mapboxgl-popup-content h3 {
+          background:#91c949;
+          color:#fff;
+          margin:0;
+          display:block;
+          padding:10px;
+          border-radius:3px 3px 0 0;
+          font-weight:700;
+          margin-top:-15px;
+        }
+
+        .mapboxgl-popup-content h4 {
+          margin:0;
+          display:block;
+          padding: 10px 10px 10px 10px;
+          font-weight:400;
+        }
+
+        .mapboxgl-popup-content div {
+          padding:10px;
+        }
+
+        .mapboxgl-container .leaflet-marker-icon {
+          cursor:pointer;
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+          margin-top: 15px;
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+          border-bottom-color: #91c949;
+        }		
+		
+    </style>
+
+<!--ARQUIVO DE DADOS -->
+	<script src="dados_cad.geojson" type="text/javascript"></script>
+	
+</head>
+
+<body>
+    <div class='viewport-full relative scroll-hidden'>
+        <div id='map' class='bg-darken10 viewport-twothirds viewport-full-ml absolute top left right bottom'></div>
+        <div class="absolute top-ml left z1 w-full w300-ml py12 px12">
+            <div
+                class="viewport-third h-auto-ml hmax-full bg-gray-dark prose--dark round-ml shadow-lighten25 scroll-auto">
+                <div class="px12 py12 scroll-auto">
+                    <h3 class="txt-m txt-bold mb6">Mapa Isochrone</h3>
+                    <p>Use o Mapbox GL JS v1.9.0 + para selecionar pontos dentro de um determinado tempo de viagem de um local clicado.
+                    </p> <br>
+                    <form id="params">
+                        <h4 class="txt-m txt-bold mx6 my6">Escolha um modo de viagem:</h4>
+                        <div id="modality" class="mx12 my12 mr12 toggle-group align-center"> <label
+                                class="toggle-container"> <input name="profile" type="radio" value="walking" checked="">
+                                <div class="toggle toggle--active-null toggle--null">A pé</div>
+                            </label><label class="toggle-container"> <input name="profile" type="radio" value="cycling"
+                                    >
+                                <div class="toggle toggle--active-null toggle--null">Bicicleta</div>
+                            </label> </div>
+                        <h4 class="txt-m txt-bold mb6">Escolha a duração máxima:</h4>
+                        <div id="duration" class="mb12 mr12 toggle-group align-center"> <label class="toggle-container">
+                                <input name="duration" type="radio" value="10" checked="">
+                                <div class="toggle toggle--active-null toggle--null">10 min</div>
+                            </label> <label class="toggle-container"> <input name="duration" type="radio" value="20">
+                                <div class="toggle toggle--active-null toggle--null">20 min</div>
+                            </label><label class="toggle-container"> <input name="duration" type="radio" value="30">
+                                <div class="toggle toggle--active-null toggle--null">30 min</div>
+                            </label> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/dark-v10?optimize=true', //hosted style id
+center: [-43.265983,-22.855412], // starting position
+zoom: 13, // starting zoom
+minZoom: 9 // keep it local
+});
+
+        function getIsochroneURL(modality, time, long, lat) {
+            var isochrone_url = "https://api.mapbox.com/isochrone/v1/mapbox/" +
+                modality +
+                "/" +
+                long +
+                "," +
+                lat +
+                "?contours_minutes=" +
+                time +
+                "&polygons=true" +
+                "&access_token=" +
+                mapboxgl.accessToken;
+
+            return isochrone_url
+        }
+
+        const params = {
+            profile: "cycling",
+            minutes: "10"
+        };
+
+        params_html = document.getElementById('params')
+        params.profile = "walking";
+        params.minutes = 10;
+
+        params_html.addEventListener("change", e => {
+            if (e.target.name === "profile") {
+              params.profile = e.target.value;
+              console.log(params.profile);
+            } else if (e.target.name === "duration") {
+              params.minutes = e.target.value;
+              console.log(params.minutes);
+            } 
+          });
+
+        map.on('load', function () {
+		
+      map.addSource('earthquakes', {
+        'type': 'geojson',
+        'data': pontos
+      });
+
+            map.addLayer({
+                'id': 'population',
+                'type': 'circle',
+                'source': 'earthquakes',
+        'paint': {
+          // The feature-state dependent circle-radius expression will render
+          // the radius size according to its magnitude when
+          // a feature's hover state is set to true
+          'circle-radius': [
+            'case',
+            ['boolean',
+              ['feature-state', 'hover'],
+              true
+            ],
+            [
+              'interpolate', ['linear'],
+              ['get', 'Score'],
+              1, 8,
+              2, 10,
+              3, 12,
+              4, 14,
+              5, 16,
+            ],
+            5
+          ],
+          'circle-stroke-color': '#000',
+          'circle-stroke-width': 1,
+          // The feature-state dependent circle-color expression will render
+          // the color according to its magnitude when
+          // a feature's hover state is set to true
+          'circle-color': [
+            'case',
+            ['boolean',
+              ['feature-state', 'hover'],
+              true
+            ],
+            [
+              'interpolate', ['linear'],
+              ['get', 'Score'],
+              1, '#fff7ec',
+              2, '#fdd49e',
+              3, '#fc8d59',
+              4, '#d7301f',
+              5, '#cccccc',
+            ],
+            '#000'
+          ],
+            'circle-opacity': 0.6,
+        }
+            });
+			
+			
+//Camada LABELS			
+			
+map.addLayer({
+'id': 'poi-labels',
+'type': 'symbol',
+'source': 'earthquakes',
+'layout': {
+	'text-field': ['get', 'Nome'],
+	'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+	'text-justify': 'auto',
+	"text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+	"text-size": 14,
+	"text-offset": [0,0],
+	"text-transform" : "uppercase",
+	"text-pitch-alignment": "viewport",
+    "text-letter-spacing": 0.05,
+		"icon-pitch-alignment": "viewport",	
+		"icon-anchor": "bottom",
+		"icon-allow-overlap": true,
+		'icon-image': ['concat', ['get', 'icon'], '-15']
+},
+                "paint": {
+                    "text-color": "#202",
+                    "text-halo-color": "#fff",
+                    "text-halo-width": 2
+                },
+});			
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat([0, 0])
+                .addTo(map);
+
+            map.on('click', function (e) {
+                var long = e.lngLat.lng; // location to query
+                var lat = e.lngLat.lat;
+                marker.setLngLat([long, lat])
+                var isochrone_url = getIsochroneURL(params.profile, params.minutes, long, lat);
+
+                console.log(isochrone_url)
+
+                fetch(isochrone_url)
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data) => {
+                        // Get the isocrhone polygon
+                        var feature = data.features[0];
+                        // Filter features based on the isochrone polygon
+                        map.setFilter('population', ['within', feature])
+
+                        // Update the isochrone polygon visual representation for reference (optional)
+                        if (map.getLayer('isochrone_polygon')) {
+                            map.getSource('isocrhone').setData(feature);
+                        } else {
+                            map.addSource('isocrhone', {
+                                'type': 'geojson',
+                                'data': feature
+                            });
+
+                            map.addLayer({
+                                'id': 'isochrone_polygon',
+                                'source': 'isocrhone',
+                                'type': 'fill',
+                                'paint': {
+                                    'fill-opacity': 0.3,
+                                    'fill-color': ['get', 'color']
+                                }
+                            }, 'poi-label');
+                        }
+		
+                    });
+			
+            }
+		
+			);
+
+       });
+	
+    </script>
+
+</body>
+
+</html>
