@@ -1,4 +1,4 @@
-var bairros ={
+var bairros = {
 "type": "FeatureCollection",
 "name": "bairros_rj",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4674" } },
