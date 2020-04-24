@@ -84,7 +84,8 @@
 	}
 	/*TRECHO ADICIONADO */
 	.marker {
-	background-image: url('icone_mapa01.jpg');
+	background-image: url('ic_mapa.svg');
+background-color: #aaa;
 	background-size: cover;
 	width: 40px;
 	height: 40px;
@@ -148,10 +149,10 @@
 	var latY = '-22.903664'; 	var longX = '-43.190164';	  
 
 //LIMITES DA VISUALIZAÇÃO
-	var bounds = [
-	[-43.34196124490532, -22.894960192923506], // COORDENADAS SUDOESTE
-	[-43.20895130692733,-22.839096583402593]  // COORDENADAS NOROESTE
-	];	  
+//	var bounds = [
+//	[-43.34196124490532, -22.894960192923506], // COORDENADAS SUDOESTE
+//	[-43.20895130692733,-22.839096583402593]  // COORDENADAS NOROESTE
+//	];	  
 
 //DEFINIR PARAMETROS MAPA
 	  var map = new mapboxgl.Map({
@@ -159,10 +160,11 @@
 		style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
 //SELECIONAR ESTILO MAPBOX https://docs.mapbox.com/api/maps/#styles
 		center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
-		zoom: 9, // ZOOM INICIAL
+		zoom: 12, // ZOOM INICIAL
+		minZoom: 11, // 
 		maxZoom: 18,
-		maxBounds: bounds, // Sets bounds as max
 		transformRequest: transformRequest
+//		maxBounds: bounds, // Sets bounds as max
 	  });
 
 //ADICIONAR CONTROLE DE NAVEGAÇÃO
@@ -229,11 +231,11 @@
 	  }
 
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
-	var marker = new mapboxgl.Marker({
-	draggable: true
-	})
-	.setLngLat([longX,latY])
-	.addTo(map);
+//	var marker = new mapboxgl.Marker({
+	//draggable: true
+//	})
+//	.setLngLat([longX,latY])
+//	.addTo(map);
 
 //MOVIMENTAR A MARCA PARA ALGUM PONTO
 //AO FIXAR A MARCA, É INFORMADA A LONGITUDE/LATITUDE DA MARCA  	
