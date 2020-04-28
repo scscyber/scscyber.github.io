@@ -1,9 +1,7 @@
 	<!DOCTYPE html>
 	<html>
-
 	<head>
 	<meta charset="utf-8">
-
 	<title>Sheet Mapper</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +14,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
 	</head>
 	<style>
@@ -24,13 +27,8 @@
 	  padding: 0;
 	}
 
-	#map {
-	  border-left: 1px solid #fff;
-	  position: absolute;
-	  width: 100%;
-	  top: 10px;
-	  bottom: 0;
-	}
+#map { position:absolute; top:30px; bottom:0; width:100%; }
+
 
 	.mapboxgl-popup {
 	  padding-bottom: 5px;
@@ -41,7 +39,7 @@
 	}
 
 	.mapboxgl-popup-content {
-	  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+	  font: 200 12px/15px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 	  padding: 0;
 	  width: 200px;
 	  line-height:0.8;
@@ -58,7 +56,7 @@
 	  margin: 0;
 	  display: block;
 	  padding: 10px;
-	  font-weight: 700;
+	  font-weight: 300;
 	  margin-top: 5px;
 		  line-height:1.2;
 	}
@@ -67,7 +65,7 @@
 	  margin: 0;
 	  display: block;
 	  padding: 10px 3px 10px 10px;
-	  font-weight: 400;
+	  font-weight: 200;
 		  line-height:0.9;
 	}
 
@@ -87,8 +85,8 @@
 	background-image: url('ic_mapa.svg');
 background-color: #aaa;
 	background-size: cover;
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	border-radius: 50%;
 	cursor: pointer;
 	}	
@@ -126,9 +124,41 @@ background-color: #aaa;
 
 	<body>
 
-	<div id="map"><center><center><h1>Sheet Mapper </h1></center></center></div>
+<div id='map'></div>
 	<div id='geocoder' class='geocoder'></div>
 	<pre id='coordinates' class='coordinates'></pre>
+	
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>  <span class="w3-bar-item w3-center">Sheet Mapper</span>
+  <span class="w3-bar-item w3-right">SCSCYBER</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:250px; " id="mySidebar">
+
+  <hr>
+
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+
+
+					
+                    <h3 class="txt-m txt-bold mb2">Sheet Mapper</h3>
+					<div id='geocoder' class='geocoder'></div>
+
+					
+<p style="text-align:justify;margin:10px; "> Localização de pontos de interesse - salvos em planilha Google Sheet.  </p> <br>
+
+      
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>	
+	
+	
+	
 
 	<script>
 	  var transformRequest = (url, resourceType) => {
@@ -146,7 +176,7 @@ background-color: #aaa;
 	  mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 
 //LATITUDE/LOGITUDE VISUALIZAÇÃO
-	var latY = '-22.903664'; 	var longX = '-43.190164';	  
+	var latY = '-22.8565832'; 	var longX = '-43.259645';	  
 
 //LIMITES DA VISUALIZAÇÃO
 //	var bounds = [
@@ -267,6 +297,31 @@ background-color: #aaa;
 	document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 	
 	</script>
+	<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>	
+	
 	<div class="rodape">
 <h5> Desenvolvido por SCSCYBER Informática </h5>
 </div>

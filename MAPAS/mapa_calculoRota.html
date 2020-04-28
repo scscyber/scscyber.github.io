@@ -29,13 +29,13 @@
 
 <style>
 body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+#map { position:absolute; top:30px; bottom:0; width:100%; }
 
 .info-box {
 height: 300px;
 width: 150px;
 position: absolute;
-top: 20px;
+top: 180px;
 left: 10px;
 background-color: rgba(255, 255, 255, .9);
 padding: 15px;
@@ -50,8 +50,8 @@ border:1px solid black;
 height: 130px;
 width: 180px;
 position: absolute;
-top: 30px;
-left: 150px;
+top: 330px;
+left: 2px;
 background-color:#F0F8FF;
 padding: 5px;
 text-align: left;
@@ -70,9 +70,9 @@ content: "****** CÁLCULO ******";
 position:fixed;
 z-index:1;
 width:5%;
-left:85%;
-margin-left:-5%;
-top:10px;
+left:30%;
+
+top:20px;
 }
 
 .draw:after {
@@ -83,24 +83,56 @@ top:10px;
 position:fixed;
 z-index:1;
 width:50%;
-left:40%;
-margin-left:-15%;
-top:10px;
+left:10%;
+top:40px;
 }
 
 </style>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
 <body>
+
+
+
 <div id='map'></div>
-<div class='info-box'>
-<p>  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max). 
-Para finalizar a rota clique novamente no ultimo ponto.  
-Pode-se mover o Ponto/Linha, com um clique no mesmo.</p>
-<div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
-<div id='draw' class='draw'>Desenhar Rota</div>
-<div id='geocoder' class='geocoder'></div>
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">SCSCYBER</span>
 </div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:500px; " id="mySidebar">
+
+  <hr>
+
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+
+                    <h3 class="txt-m txt-bold mb2">Mapa Calculo Rota</h3>
+					
+<div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
+					<div id='geocoder' class='geocoder'></div>
+					<div id='info-box'></div>
+					
+<p style="text-align:justify;margin:10px; ">  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max). 
+Para finalizar a rota clique novamente no ultimo ponto.  
+Pode-se mover o Ponto/Linha, com um clique no mesmo.</p> <br>
+
+      
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+
+
+<div id='draw' class='draw'>Desenhar Rota</div>
+
+
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
@@ -628,5 +660,30 @@ map.getCanvas().style.cursor = '';
     });
 
 </script>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>	
 </body>
 </html>
