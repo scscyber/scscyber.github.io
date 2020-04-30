@@ -83,7 +83,7 @@
 	/*TRECHO ADICIONADO */
 	.marker {
 	background-image: url('ic_mapa.svg');
-background-color: #aaa;
+	background-color: #aaa;
 	background-size: cover;
 	width: 30px;
 	height: 30px;
@@ -129,8 +129,8 @@ background-color: #aaa;
 	<pre id='coordinates' class='coordinates'></pre>
 	
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>  <span class="w3-bar-item w3-center">Sheet Mapper</span>
+<div class="w3-bar w3-top w3-black w3-medium" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>  &nbsp&nbsp&nbsp&nbsp&nbsp Sheet Mapper
   <span class="w3-bar-item w3-right">SCSCYBER</span>
 </div>
 
@@ -141,24 +141,17 @@ background-color: #aaa;
 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+    <a href="..\Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>MAPAS</a>
 
-
-					
-                    <h3 class="txt-m txt-bold mb2">Sheet Mapper</h3>
 					<div id='geocoder' class='geocoder'></div>
-
 					
-<p style="text-align:justify;margin:10px; "> Localização de pontos de interesse - salvos em planilha Google Sheet.  </p> <br>
-
+<p style="text-align:justify; margin:10px; font-size:12px;"> Localização de pontos de interesse - salvos em planilha Google Sheet.  </p> <br>
       
   </div>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>	
-	
-	
-	
 
 	<script>
 	  var transformRequest = (url, resourceType) => {

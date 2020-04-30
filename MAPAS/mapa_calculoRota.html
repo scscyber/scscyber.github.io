@@ -50,7 +50,7 @@ border:1px solid black;
 height: 130px;
 width: 180px;
 position: absolute;
-top: 330px;
+top: 25%;
 left: 2px;
 background-color:#F0F8FF;
 padding: 5px;
@@ -69,10 +69,10 @@ content: "****** CÁLCULO ******";
 .draw {
 position:fixed;
 z-index:1;
-width:5%;
-left:30%;
+width:10%;
+left:50%;
 
-top:20px;
+top:50px;
 }
 
 .draw:after {
@@ -97,8 +97,8 @@ top:40px;
 <div id='map'></div>
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+<div class="w3-bar w3-top w3-black w3-medium" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>&nbsp&nbsp&nbsp&nbsp&nbsp Mapa Cálculo Rotas(UBER)
   <span class="w3-bar-item w3-right">SCSCYBER</span>
 </div>
 
@@ -109,14 +109,13 @@ top:40px;
 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-
-                    <h3 class="txt-m txt-bold mb2">Mapa Calculo Rota</h3>
+	    <a href="../Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>MAPAS</a>
 					
 <div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
 					<div id='geocoder' class='geocoder'></div>
 					<div id='info-box'></div>
 					
-<p style="text-align:justify;margin:10px; ">  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max). 
+<p style="text-align:justify;margin-top:150px;  ">  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max). 
 Para finalizar a rota clique novamente no ultimo ponto.  
 Pode-se mover o Ponto/Linha, com um clique no mesmo.</p> <br>
 

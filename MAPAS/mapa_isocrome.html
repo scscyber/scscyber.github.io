@@ -87,7 +87,7 @@
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>&nbsp&nbsp&nbsp&nbsp&nbsp Mapa Isocrone
   <span class="w3-bar-item w3-right">SCSCYBER</span>
 </div>
 
@@ -98,10 +98,11 @@
 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+	    <a href="../Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>MAPAS</a>
 
-                    <h3 class="txt-m txt-bold mb2">Mapa Isochrone</h3>
+
                     <p>Use o Mapbox GL JS v1.9.0 + para selecionar locais, dentro de um determinado tempo de viagem de um local clicado.
-                    </p> <br>
+                    </p> 
                     <form id="params">
                         <h4 class="txt-m txt-bold mx6 my6">Escolha um modo de viagem:</h4>
                         <div id="modality" class="mx12 my12 mr12 toggle-group align-center"> <label
@@ -129,7 +130,7 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
     <div class='viewport-full relative scroll-hidden'>
-        <div id='map' class='bg-darken10 viewport-twothirds viewport-full-ml absolute top left right bottom'></div>
+        <div id='map' class='bg-darken10  viewport-full-ml viewport-full-xs absolute top left right bottom'></div>
 
     </div>
     <script>
