@@ -10,9 +10,6 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
-	<link rel="stylesheet" href="<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -91,20 +88,6 @@
 	cursor: pointer;
 	}	
 
-	.coordinates {
-	background: rgba(0,0,0,0.5);
-	color: #fff;
-	position: absolute;
-	bottom: 40px;
-	left: 10px;
-	padding:5px 10px;
-	margin: 0;
-	font-size: 14px;
-	line-height: 18px;
-	border-radius: 3px;
-	display: block;
-	}	
-
 	.geocoder {
 	position:fixed;
 	z-index:10;
@@ -126,7 +109,6 @@
 
 <div id='map'></div>
 	<div id='geocoder' class='geocoder'></div>
-	<pre id='coordinates' class='coordinates'></pre>
 	
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-medium" style="z-index:4">
@@ -260,15 +242,6 @@
 //	.setLngLat([longX,latY])
 //	.addTo(map);
 
-//MOVIMENTAR A MARCA PARA ALGUM PONTO
-//AO FIXAR A MARCA, É INFORMADA A LONGITUDE/LATITUDE DA MARCA  	
-	function onDragEnd() {
-	var lngLat = marker.getLngLat();
-	coordinates.style.display = 'block';
-	coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-	}
-
-	marker.on('dragend', onDragEnd);
 
 	map.touchZoomRotate.enable();
 	map.touchZoomRotate.enableRotation();
