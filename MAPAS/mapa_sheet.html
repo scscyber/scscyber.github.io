@@ -79,7 +79,7 @@
 	}
 	/*TRECHO ADICIONADO */
 	.marker {
-	background-image: url('ic_mapa.svg');
+	background-image: url('commercial-15.svg');
 	background-color: #aaa;
 	background-size: cover;
 	width: 30px;
@@ -224,7 +224,7 @@
 
 // INFORMAÇÕES EXIBIDAS NO POPUP
 		  var popup = new mapboxgl.Popup()
-			.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' + row.Endereço + '</h4>' + '<h4>' + '<b>' + ' ' + '</b><a>' + row.Telefone + '</a></h4>'+ '<h3><a href = "https://www.google.com.br/maps/@'+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h3></a>'); // use the table to populate your popup with text
+			.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' + row.Endereço + '</h4>' + '<h4>' + '<b>' + ' ' + '</b><a>' + row.Celular + '</a></h4>'+ '<h3><a href = "https://www.google.com.br/maps/@'+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h3></a>'); // use the table to populate your popup with text
 			
 	//TRECHO ALTERADO		
 	//SUBSTITUIDO PARAMETRO MARKER(el)
