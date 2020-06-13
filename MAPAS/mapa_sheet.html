@@ -27,68 +27,55 @@
     document.onmousedown=protegercodigo
 </script>
 
-
-
-
 	</head>
 	<style>
 	body {
 	  margin: 0;
 	  padding: 0;
 	}
-
-#map { position:absolute; top:30px; bottom:0; width:100%; }
-
-
+	#map { position:absolute; top:30px; bottom:0; width:100%; }
 	.mapboxgl-popup {
 	  padding-bottom: 5px;
 	}
-
 	.mapboxgl-popup-close-button {
 	  display: block;
 	}
-
 	.mapboxgl-popup-content {
 	  font: 200 12px/15px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 	  padding: 0;
 	  width: 200px;
 	  line-height:0.8;
 	}
-
 	.mapboxgl-popup-content-wrapper {
 	  padding: 1%;
 	}
-
 	.mapboxgl-popup-content h3 {
-	  background: #c0c0c0;
-	  text-align: center;
-	  color: #fff;
-	  margin: 0;
-	  display: block;
-	  padding: 10px;
-	  font-weight: 300;
-	  margin-top: 5px;
-		  line-height:1.2;
+	background: #c0c0c0;
+	text-align: center;
+	color: #fff;
+	margin: 0;
+	display: block;
+	padding: 10px;
+	font-weight: 300;
+	margin-top: 5px;
+	line-height:1.2;
 	}
 
 	.mapboxgl-popup-content h4 {
-	  margin: 0;
-	  display: block;
-	  padding: 10px 3px 10px 10px;
-	  font-weight: 200;
-		  line-height:0.9;
+	margin: 0;
+	display: block;
+	padding: 10px 3px 10px 10px;
+	font-weight: 200;
+	line-height:0.9;
 	}
-
 	.mapboxgl-container {
-	  cursor: pointer;
+	cursor: pointer;
 	}
-
 	.mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
-	  margin-top: 3px;
+	margin-top: 3px;
 	}
-
 	.mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
-	  border-bottom-color: rgb(61, 59, 59);
+	border-bottom-color: rgb(61, 59, 59);
 	}
 	/*TRECHO ADICIONADO */
 	.marker {
@@ -100,7 +87,6 @@
 	border-radius: 50%;
 	cursor: pointer;
 	}	
-
 	.geocoder {
 	position:fixed;
 	z-index:10;
@@ -109,13 +95,18 @@
 	margin-left:-15%;
 	top:60px;
 	}	
-
 	.rodape {
 	position:fixed;
 	margin-left:5%;
 	bottom:4px;
     color: #800000;
 	}		
+	/*FORMATAR EXIBIÇÃO TELEFONE */	
+	a[href^="tel:"]:before {
+    content: "\260E";
+	color: #800000;
+    margin-right: 0.5em;
+}
 	</style>
 
 	<body>
@@ -215,7 +206,7 @@
 	  function init() {
 		Tabletop.init({
 // LINK COMPARTILHAVEL DA PLANILHA
-		  key: 'https://docs.google.com/spreadsheets/d/1KgGM5rJMue03YIPBdoAeyX19F7PWBvVbj_eDUosrods/edit?usp=sharing',
+		  key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
 // CHAMAR A FUNÇÃO ADDPOINTS
 		  callback: addPoints,
 		  simpleSheet: true
@@ -237,7 +228,7 @@
 
 // INFORMAÇÕES EXIBIDAS NO POPUP
 		  var popup = new mapboxgl.Popup()
-			.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' + row.Endereço + '</h4>' + '<h4>' + '<b>' + ' ' + '</b><a>' + row.Celular + '</a></h4>'+ '<h3><a href = "https://www.google.com.br/maps/@'+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h3></a>'); // use the table to populate your popup with text
+			.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' + row.Endereço + '</h4>' + '<h4><a href= "tel:  '+ row.Celular +' " >'+ row.Celular +' </a></h4>'+ '<h3><a href = "https://www.google.com.br/maps/@'+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h3></a>'); // use the table to populate your popup with text
 			
 	//TRECHO ALTERADO		
 	//SUBSTITUIDO PARAMETRO MARKER(el)
@@ -257,18 +248,17 @@
 //	.setLngLat([longX,latY])
 //	.addTo(map);
 
-
 	map.touchZoomRotate.enable();
 	map.touchZoomRotate.enableRotation();
 
 	var geocoder = new MapboxGeocoder({
 	accessToken: mapboxgl.accessToken,
 	flyTo: {
-	bearing: 280,
-	pitch: 200,
+	bearing: 0,
+	pitch: 0,
 	speed: 0.5, 
 	curve: 1, 
-	zoom:18,
+	zoom:15,
 	easing: function (t) { return t; }
 	},
 	mapboxgl: mapboxgl
