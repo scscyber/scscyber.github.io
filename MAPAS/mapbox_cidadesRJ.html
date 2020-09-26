@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset='utf-8' />
+      <title>Consultas Espaciais</title>
+      <meta name='robots' content='noindex, nofollow'>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+	  	  
+      <style>
+
+        body {
+          color:#404040;
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          margin:0;
+          padding:0;
+          -webkit-font-smoothing:antialiased;
+        }
+
+        * {
+          -webkit-box-sizing:border-box;
+          -moz-box-sizing:border-box;
+          box-sizing:border-box;
+        }
+
+        .sidebar {
+          position:absolute;
+          width:20.3333%;
+          height:100%;
+          top:0;left:0;
+          overflow:hidden;
+          border-right:1px solid rgba(0,0,0,0.25);
+        }
+        .pad2 {
+          padding:20px;
+        }
+
+        .map {
+          position:absolute;
+          left:20.3333%;
+          width:78.6666%;
+          top:0;bottom:0;
+        }
+
+        h1 {
+          font-size:22px;
+          margin:0;
+          font-weight:400;
+          line-height: 20px;
+          padding: 20px 2px;
+        }
+
+        a {
+          color:#404040;
+          text-decoration:none;
+        }
+
+        a:hover {
+          color:#101010;
+        }
+
+        .heading {
+          background:#fff;
+          border-bottom:1px solid #eee;
+          min-height:60px;
+          line-height:60px;
+          padding:0 10px;
+          background-color: #00853e;
+          color: #fff;
+        }
+
+        .listings {
+          width:100%;
+          height:40%;
+          overflow:auto;
+          padding-bottom:0;
+        }
+
+        .listings .item {
+          display:block;
+          border-bottom:1px solid #eee;
+          padding:10px;
+          text-decoration:none;
+        }
+
+        .listings .item:last-child { border-bottom:none; }
+        .listings .item .title {
+          display:block;
+          color:#00853e;
+          font-weight:700;
+        }
+
+        .listings .item .title small { font-weight:400; }
+        .listings .item.active .title,
+        .listings .item .title:hover { color:#8cc63f; }
+        .listings .item.active {
+          background-color:#f8f8f8;
+        }
+        ::-webkit-scrollbar {
+          width:3px;
+          height:3px;
+          border-left:0;
+          background:rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-track {
+          background:none;
+        }
+        ::-webkit-scrollbar-thumb {
+          background:#00853e;
+          border-radius:0;
+        }
+
+        .marker {
+          border: none;
+          cursor: pointer;
+          height: 30px;
+          width: 30px;
+/*         background-image: url(marker.png);  */ 
+          background-color: rgba(0, 0, 0, );
+        }
+
+        .clearfix { display:block; }
+        .clearfix:after {
+          content:'.';
+          display:block;
+          height:0;
+          clear:both;
+          visibility:hidden;
+        }
+
+        /* Marker tweaks */
+        .mapboxgl-popup {
+          padding-bottom: 50px;
+        }
+
+        .mapboxgl-popup-close-button {
+          display:none;
+        }
+        .mapboxgl-popup-content {
+          font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+          padding:0;
+          width:180px;
+        }
+        .mapboxgl-popup-content-wrapper {
+          padding:1%;
+        }
+        .mapboxgl-popup-content h3 {
+          background:#91c949;
+          color:#fff;
+          margin:0;
+          display:block;
+          padding:10px;
+          border-radius:3px 3px 0 0;
+          font-weight:700;
+          margin-top:-15px;
+        }
+
+        .mapboxgl-popup-content h4 {
+          margin:0;
+          display:block;
+          padding: 10px 10px 10px 10px;
+          font-weight:400;
+        }
+
+        .mapboxgl-popup-content div {
+          padding:10px;
+        }
+
+        .mapboxgl-container .leaflet-marker-icon {
+          cursor:pointer;
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+          margin-top: 15px;
+        }
+
+        .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+          border-bottom-color: #91c949;
+        }
+		
+ #instructions {
+   position:absolute;
+   left:0;
+   width: 20.3333%;
+   heigth:50%;
+   top:450px;
+   bottom:1%;
+   padding: 0px;
+   background-color: rgba(255,255,255,0.8);
+   overflow-y: scroll;
+   font-family: sans-serif;
+   font-size: 1em;
+   line-height: 2em;
+ }
+ .duration {
+   font-size: 1em;
+ }		
+ 
+   /* ADICIONADO */
+ 
+     .filter-ctrl {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+        width: 180px;
+    }
+
+    .filter-ctrl input[type=text] {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        width: 100%;
+        border: 0;
+        background-color: #fff;
+        height: 40px;
+        margin: 0;
+        color: rgba(0,0,0,.5);
+        padding: 10px;
+        box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        border-radius: 3px;
+    }
+ 
+      </style>
+  </head>
+
+  <body>
+    <div class='sidebar'>
+      <div class='heading'>
+        <h1>Rio de Janeiro - Cidades</h1>
+      </div>
+    <div id='listings' class='listings'></div>
+    </div>
+    <div id='map' class='map'> </div>
+<!-- LATERAL ESQUERDA -->
+	<div id="instructions"></div>
+	
+
+
+	<script src="geojson/cidades_rj.geojson" type="text/javascript"></script>
+	
+	  <script>
+  // Isso permitirá que você use a função .remove () mais tarde
+  if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+      if (this.parentNode) {
+          this.parentNode.removeChild(this);
+      }
+    };
+  }
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA&language=pt-BR';
+
+var bounds = [
+[-44.794344,-23.058757], // Southwest coordinates
+[-40.428599,-21.154359]  // Northeast coordinates
+];
+
+//var filterGroup = document.getElementById('filter-group');
+	var latY = '-22.152981'; 	var longX = '-42.933096'; // Rio de Janeiro zoom 8
+//Brasil zoom 4	var latY = '-13.399697'; 	var longX = '-52.031122';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
+    center: [longX,latY],
+    zoom: 8,
+	maxZoom: 19,
+maxBounds: bounds // Sets bounds as max
+});
+
+  
+  //inicialize a tela do mapa para interagir mais tarde
+  var canvas = map.getCanvasContainer();
+
+var poi = cidades_rj;
+//Alterar nas linhas
+// "data": poi
+//  buildLocationList(poi);
+//  poi.features.forEach(function(marker, i) 
+
+  //Isso adiciona os dados ao mapa
+  map.on('load', function (e) {
+    //Este é o lugar onde o seu '.addLayer ()' costumava ser, em vez adicionar apenas a fonte sem estilizar uma camada
+    map.addSource("places", {
+      "type": "geojson",
+      "data": poi
+    });
+    // Inicialize a lista
+    buildLocationList(poi);
+
+//INCLUIDO
+    poi.features.forEach(function(feature) {
+        var symbol = feature.properties['icone'];
+    //    var nome = feature.properties['Name'];
+        var layerID = 'poi-' + symbol;
+
+        // Add a layer for this symbol type if it hasn't been added already.
+        if (!map.getLayer(layerID)) {
+            map.addLayer({
+                "id": layerID,
+                "type": "symbol",
+                "source": "places",
+                "layout": {
+                    "icon-image": symbol + "-15",
+                    "icon-allow-overlap": true,
+                    "text-field": "",
+                    "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+                    "text-size": 11,
+                    "text-transform": "uppercase",
+                    "text-letter-spacing": 0.05,
+                    "text-offset": [0, 1.5]
+                },
+                "paint": {
+                    "text-color": "#202",
+                    "text-halo-color": "#fff",
+                    "text-halo-width": 2
+                },
+                "filter": ["==", "icone", symbol]
+            });
+
+            layerIDs.push(layerID);
+        }
+    });
+
+    filterInput.addEventListener('keyup', function(e) {
+        // If the input value matches a layerID set
+        // it's visibility to 'visible' or else hide it.
+        var value = e.target.value.trim().toLowerCase();
+        layerIDs.forEach(function(layerID) {
+            map.setLayoutProperty(layerID, 'visibility',
+                layerID.indexOf(value) > 1 ? 'visible' : 'none');
+				
+				
+        });
+    });	
+	
+	
+	
+	
+	
+  });
+  
+  
+  var layerIDs = []; // Will contain a list used to filter against.
+var filterInput = document.getElementById('filter-input');
+
+  
+
+  // Este é o lugar onde suas interações com a camada de símbolo costumavam ser
+  // Agora você tem interações com marcadores DOM
+  poi.features.forEach(function(marker, i) {
+    // Crie um elemento img para o marcador
+    var el = document.createElement('div');
+    el.id = "marker-" + i;
+    el.className = 'marker';
+    // Adicionar marcadores ao mapa em todos os pontos
+    new mapboxgl.Marker(el, {offset: [0, -23]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+
+    el.addEventListener('click', function(e){
+        // 1.Voe até o ponto
+        flyToStore(marker);
+
+        // 2.Feche todos os outros pop-ups e exiba o pop-up para o armazenamento clicado
+        createPopUp(marker);
+
+        // 3. Realce a listagem na barra lateral (e remova o destaque de todas as outras listagens)
+        var activeItem = document.getElementsByClassName('active');
+
+        e.stopPropagation();
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+
+        var listing = document.getElementById('listing-' + i);
+        listing.classList.add('active');
+
+    });
+  });
+
+  function flyToStore(currentFeature) {
+    map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 16,
+        duration: 20000,
+		bearing: 10,
+		curve:1,
+        pitch: 400,
+        speed: 0.3
+		
+      });
+  }
+
+  function createPopUp(currentFeature) {
+    var popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+
+
+    var popup = new mapboxgl.Popup({closeOnClick: false})
+          .setLngLat(currentFeature.geometry.coordinates)
+          .setHTML('<h3>'+ currentFeature.properties.Name +' </h3>' +
+            '<h4>' + currentFeature.properties.mag + ' Habitantes</h4>' +
+            '<h4>' + currentFeature.properties.descriptio + ' </h4>')
+          .addTo(map);
+  }
+
+  function buildLocationList(data) {
+    for (i = 0; i < data.features.length; i++) {
+      var currentFeature = data.features[i];
+      var prop = currentFeature.properties;
+
+      var listings = document.getElementById('listings');
+      var listing = listings.appendChild(document.createElement('div'));
+      listing.className = 'item';
+      listing.id = "listing-" + i;
+
+      var link = listing.appendChild(document.createElement('a'));
+      link.href = '#';
+      link.className = 'title';
+      link.dataPosition = i;
+      link.innerHTML = prop.Name;
+
+      var details = listing.appendChild(document.createElement('div'));
+      details.innerHTML = prop.mag;
+      if (prop.Name) {
+        details.innerHTML += ' &middot; ' + prop.mag;
+      }
+
+      link.addEventListener('click', function(e){
+        //Atualize o currentFeature para a loja associada ao link clicado
+        var clickedListing = data.features[this.dataPosition];
+
+        // 1. Voe até o ponto
+        flyToStore(clickedListing);
+
+        // 2. Feche todos os outros pop-ups e exiba o pop-up para o armazenamento clicado
+        createPopUp(clickedListing);
+
+        // 3. Realce a listagem na barra lateral (e remova o destaque de todas as outras listagens)
+        var activeItem = document.getElementsByClassName('active');
+
+        if (activeItem[0]) {
+           activeItem[0].classList.remove('active');
+        }
+        this.parentNode.classList.add('active');
+
+      });
+    }
+  }
+
+
+
+  
+  
+  
+  
+    </script>
+  </body>
+</html>

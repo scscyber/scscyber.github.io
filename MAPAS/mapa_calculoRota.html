@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lista de Pontos</title>
+<title>Calculo de Rota</title>
 
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
@@ -28,71 +28,23 @@
 	<script src='limite_ramos.geojson'></script>
 
 <style>
-body { margin:0; padding:0; }
-#map { position:absolute; top:30px; bottom:0; width:100%; }
-
-.info-box {
-height: 300px;
-width: 150px;
-position: absolute;
-top: 180px;
-left: 10px;
-background-color: rgba(255, 255, 255, .9);
-padding: 15px;
-text-align: left;
-font-family: 'Arial';
-margin: 0;
-font-size: 13px;
-}
-
-#calculated-line {
-border:1px solid black;
-height: 130px;
-width: 180px;
-position: absolute;
-top: 25%;
-left: 2px;
-background-color:#F0F8FF;
-padding: 5px;
-text-align: left;
-margin: 5px 10px;
-color:#2F4F4F;
-font:600 16px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-}
-
-#calculated-line:before {
-
-content: "****** CÁLCULO ******";
-
-}
-
-.draw {
-position:fixed;
-z-index:1;
-width:10%;
-left:50%;
-
-top:50px;
-}
-
-.draw:after {
-//content: "Desenho";
-}
-
-.geocoder {
-position:fixed;
-z-index:1;
-width:50%;
-left:10%;
-top:40px;
-}
 
 </style>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
+
+<!-- Estilo do Mapa -->
+	<link rel="stylesheet" href="../estilos/style_MapaCalc_Rota.css" type='text/css' />
+<!-- Script p/desabilitar ver código botao direito -->
+	<script language="JavaScript">
+	function protegercodigo() {
+	if (event.button==2||event.button==3){
+		alert('');}
+	}
+	document.onmousedown=protegercodigo;
+	</script>
+</head>
 <body>
-
-
 
 <div id='map'></div>
 
@@ -103,35 +55,26 @@ top:40px;
 </div>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:500px; " id="mySidebar">
-
-  <hr>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:350px; margin:40px; " id="mySidebar"><hr>
 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
 	    <a href="../Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>MAPAS</a>
 					
-<div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
 					<div id='geocoder' class='geocoder'></div>
-					<div id='info-box'></div>
+					<div id='info-box'>
 					
-<p style="text-align:justify;margin-top:150px;  ">  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max). 
-Para finalizar a rota clique novamente no ultimo ponto.  
-Pode-se mover o Ponto/Linha, com um clique no mesmo.</p> <br>
-
-      
+  Utilize a ferramenta de desenho para adicionar pontos e traçar a rota(25 pontos max).  Para finalizar a rota clique novamente no ultimo ponto.  Pode-se mover o Ponto/Linha, com um clique no mesmo. Utilize o icone de lixeira para excluir rota. <br>
+     </div>
   </div>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-
-
+<div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
 
 <div id='draw' class='draw'>Desenhar Rota</div>
-
-
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';

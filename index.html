@@ -1,207 +1,431 @@
 <!DOCTYPE html>
-<html>
-<!-- VERSÃO 2.1 ABRIL/2020 -->
-<title>SCSCyber Informática</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-</style>
-<body class="w3-light-grey">
-<!-- Conteudo Topo -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
-  <i class="fa fa-bars"></i>
-  Menu</button>
-  <span class="w3-bar-item w3-right">SCSCYBER</span>
-</div>
+<html lang="pt-br">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>SCSCyber</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  
+<!-- ICONE TITULO/ABA -->
+	<link rel="icon" href="G:\SILVIO\Programação\Projetos\SCSCyber\PROJETOS\Controle\site\images\Logo_02.jpg" size="50x50" />
+<link rel="icon" href="G:\SILVIO\Programação\Projetos\SCSCyber\PROJETOS\Controle\site\images\Logo_02.jpg" />
+<link rel="apple-touch-icon" href="G:\SILVIO\Programação\Projetos\SCSCyber\PROJETOS\Controle\site\images\Logo_02.jpg" />
+<meta name="msapplication-TileImage" content="" />
 
-<!-- Menu lateral -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
-  <div class="w3-container w3-row">
-    <div class="w3-col s4">
-      <img src="images/logo_01.jpg" class="w3-circle w3-margin-right" style="width:100%">
+
+  <style>
+  .jumbotron {
+    background-color: #123456;
+    color: #fff;
+    padding: 100px 25px;
+  }
+  .container-fluid {
+    padding: 10px 10px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6 ;
+	  }
+	    .logo-zap {
+    color: #00c853;
+    font-size: 20px;
+	    width: 90%;
+    height: 90%;
+    margin-bottom: 10px;
+	
+  }
+  .logo-small {
+    color: #3F729B;
+    font-size: 50px;
+  }
+    .logo-med {
+    color: #3F729B;
+    font-size: 100px;
+  }
+  .logo {
+    color: #3F729B;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 80%;
+    height: 80%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f4511e;
+  }
+  .carousel-indicators li {
+    border-color: #f4511e;
+  }
+  .carousel-indicators li.active {
+    background-color: #f4511e;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+    .item h3 {
+    font-size: 25px;
+    line-height: 1.375em;
+    font-weight: 500;
+    font-style: italic;
+    margin: 50px 50px;
+	    color: #0d47a1;
+
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid #80cbc4; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #80cbc4 !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+	    width: 80%;
+    height: 50%;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #80cbc4;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #1565c0;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: #fff;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+  }
+  body{
+  margin-top: 100px;
+  }
+   
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" >
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+
+	  <img src="./images/Logo_02.jpg" class="img-responsive" style="width:100px">
+      <a class="navbar-brand" href="#myPage"> SCSCyber Informática</a>	
+      <button class="btn btn-default"  ><a href = "https://wa.me/message/HSK6T7NILIGGI1" target="_blank" ><span class="glyphicon glyphicon-earphone logo-zap" title="WhatsApp"alt="WhatsApp"> WhatsApp </span></a> </button>
+
     </div>
-    <div class="w3-col s8 w3-bar">
-      <span>Bem Vindo, <strong>User01</strong></span><br>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">SOBRE</a></li>
+        <li><a href="#services">SERVIÇOS</a></li>
+        <li><a href="#portfolio">Serviços</a></li>
+        <li><a href="#pricing">PREÇOS</a></li>
+        <li><a href="#contact">CONTATO</a></li>
+      </ul>
     </div>
   </div>
-  <hr>
-  <div class="w3-container">
-    <h5>MENU</h5>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-6 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Visão Geral</a>
-	<a href="index_tabPrecos.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-copy fa-fw"></i>  Tabela de Preços</a>
-		<a href="Ficha_orçamento.html" target="_blank" class="w3-bar-item w3-button w3-padding"><i class="fa fa-copy fa-fw"></i>  Orçamento Serviço</a>
-	<a href="index_localiza.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map fa-fw"></i>  Localização</a><br><br>
-  </div>
+   
 </nav>
 
-	<!-- Efeito menu para celular/tablet -->
-	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-	<!-- Conteudo da pagina -->
-	<div class="w3-main" style="margin-left:250px;margin-top:20px;">
-
-  <!-- Cabeçalho -->
-  <header class="w3-container" style="padding-top:10px">
-    <h5><b><img src="images/logo_01.jpg" alt="" height="42" width="42">
-    SCSCyber Informática</b></h5>
-  </header>
-  
-  <!-- Quadros acesso -->
-  <div class="w3-row-padding w3-margin-bottom">
-    <button class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-6">
-    <a href="PG_AuxEmerg.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h5>Auxilio Emergencial</h5>
-		</div></a>
-          <h6>Cadastro,Consulta,Cadastro Unico</h6>
-      </div>
-    </button>
-
-    <button class="w3-quarter" >
-      <div class="w3-container w3-sand w3-padding-6" >
-    <a href="Serv_01.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h3>Serviços 1</h3>
-		</div></a>
-        <h6>CPF/Titulo/Detran/INSS/Min.Trabalho</h6>
-      </div>
-    </button>
-	
-    <button class="w3-quarter">
-      <div class="w3-container w3-green w3-padding-6">
-    <a href="Controle_MEI.html" target="" class="w3-bar-item w3-button w3-padding">	  
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h3>Serviços 2</h3>
-        </div></a>
-        <h6>MEI</h6>
-      </div>
-    </button>
-	
-    <button class="w3-quarter" >
-      <div class="w3-container w3-blue w3-padding-6">
-	      <a href="Serv_03.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-
-	  <div class="w3-center">
-          <h3>Serviços 3</h3>
-        </div></a>
-        <h6>Light/Celular/Cartões</h6>
-      </div>
-    </button>
-	
-    <button class="w3-quarter" >
-      <div class="w3-container w3-teal w3-padding-6">
-	      <a href="Serv_04.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-	  <div class="w3-center">
-          <h3>Obra</h3>
-        </div></a>
-        <h6>Orçamento</h6>
-      </div>
-    </button>
-
-    <button class="w3-quarter" >
-      <div class="w3-container w3-orange w3-padding-6">
-	      <a href="Serv_05.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-	  <div class="w3-center">
-          <h3>Curriculos</h3>
-        </div></a>
-          <h6>Curriculos</h6>
-      </div>
-    </button>	
-	
-    <button class="w3-quarter">
-      <div class="w3-container w3-yellow w3-padding-6">
-	      <a href="Serv_06.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h3>Tributos</h3>
-        </div></a>
-        <h6>IPVA,DUDA,DPVAT,GRT</h6>
-      </div>
-    </button>
-
-	    <button class="w3-quarter">
-      <div class="w3-container w3-gray w3-padding-6">
-	      <a href="Serv_07.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h3>MAPAS</h3>
-        </div></a>
-          <h6>MAPAS</h6>
-      </div>
-    </button>
-
-    <button class="w3-quarter">
-      <div class="w3-container w3-sand w3-padding-6">
-	      <a href="Serv_08.html" target="" class="w3-bar-item w3-button w3-padding">
-		<img src="images/logo_01.jpg" alt="" height="20%" width="20%"/>
-        <div class="w3-center">
-          <h3>Prefeitura</h3>
-        </div></a>
-          <h6>Serviços, Educação</h6>
-      </div>
-    </button>
-  </div>
-  <hr>
-  
-  <iframe src="" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
-  
-  <!-- Seção 2 -->  
-    <footer class="w3-container w3-padding-16 w3-light-grey">
- <div class="w3-container w3-dark-grey w3-padding-12">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Versão 2.1 - Abril/2020 </h5>
-      </div>
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid ">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Sobre</h2>
+      <h4>Informações</h4>      
+      <p>Serviços em Informática</p>
+	  <a href="G:\SILVIO\Programação\Projetos\SCSCyber\PROJETOS\Controle\site\Teste_Bootstrap - Copia - Copia.html" >
+      <button  class="btn btn-default btn-lg">Info</button>
+	  </a>
     </div>
-  <!-- Rodapé -->
-
-    <p style="font-size:120%; face:verdana; " > &copy <b>SCSCyber  2020</b></p>	
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-home logo-med"></span>
+    </div>
   </div>
-  </footer>
-
-  <!-- Fim conteúdo pagina  -->
 </div>
 
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo-med"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Valores</h2>
+      <h4><strong>MISSÃO:</strong> Serviços em informática</h4>      
+      <p><strong>VISÃO:</strong> Serviços em informática</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>SERVIÇOS</h2>
+  <h4>Serviços Oferecidos</h4>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-duplicate logo-small"></span>
+      <h4>XEROX</h4>
+      <p>Preto/Branco  ..........  Colorida</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-print logo-small"></span>
+      <h4>IMPRESSÂO</h4>
+      <p>Preto/Branco ...... Colorida</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-th logo-small"></span>
+      <h4>SERVIÇOS INTERNET</h4>
+      <p>2ª Via Contas / Boletos / Faturas</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-th logo-small"></span>
+      <h4>SERVIÇOS INTERNET</h4>
+      <p>Consultas / Agendamentos</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-file logo-small"></span>
+      <h4>DIGITALIZAÇÃO</h4>
+      <p>Digitalização de documentos e Imagens</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-user logo-small"></span>
+	  <span class="glyphicon glyphicon-cog logo-small"></span>
+      <h4 style="color:#303030;">TECNICO EM INFORMÁTICA</h4>
+      <p>Serviços diversos</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>Serviços</h2><br>
+  <h4>Modelos</h4>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="./images/Suporte.png" alt="Suporte" width="100" height="100">
+        <p><strong>Suporte</strong></p>
+        <p>Suporte</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Promoções</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+	  <img src="./images/Impressora1.jpg" alt="img1" width="300" height="100">
+        <h3>"Impressão P/B acima de 10 Páginas!"<br><strong><span>R$ 0,50/Pag</span></strong></h3>
+      </div>
+      <div class="item">
+	  <img src="./images/Impressora1.jpg" alt="img2" width="300" height="100">
+        <h3>"Impressão Colorida acima de 10 Páginas! !!"<br><strong><span>R$ 0,60/Pag</strong></span></h3>
+      </div>
+      <div class="item">
+	  <img src="./images/Impressora1.jpg" alt="img3" width="300" height="100">
+        <h3>"4 Fotos 10x15 POR"<br><strong><span>R$ 5,00</span></strong></h3>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid ">
+  <div class="text-center">
+    <h2>Preços</h2>
+    <h4>Preços R$</h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
+	  <div class="panel-heading">
+          <h1>Modelo 1</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Modelo 5 x 9</strong> 5 x 9</p>
+        </div>
+        <div class="panel-footer">
+          <h3>R$ 40,00</h3>
+          <h4>100 Unidades</h4>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
+	  <div class="panel-heading">
+          <h1>Modelo 2</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Modelo 5 x 9</strong> 5 x 9</p>
+        </div>
+        <div class="panel-footer">
+          <h3>R$ 60,00</h3>
+          <h4>100 Unidades</h4>
+
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+	
+      <div class="panel panel-default text-center">
+		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
+	  <div class="panel-heading">
+          <h1>Modelo 3</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Modelo 5 x 9</strong> 5 x 9</p>
+        </div>
+        <div class="panel-footer">
+          <h3>R$ 90,00</h3>
+          <h4>300 Unidades</h4>
+
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTATO</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contato</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Ramos, Rio de Janeiro</p>
+      <p><span class="glyphicon glyphicon-phone"></span> (21) 96928-1234</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> scscyber999@gmail.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="map.jpg" class="img-responsive" style="width:100%">
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up "></span>
+  </a>
+  <p>Powered by SCSCyber <a href="" title="Visit SCSCyber">SCSCyber </a></p>
+</footer>
+
 <script>
-// Barra lateral
-var mySidebar = document.getElementById("mySidebar");
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== ""){
+      // Prevent default anchor click behavior
+      event.preventDefault();
 
-// Efeito de sobreposição
-var overlayBg = document.getElementById("myOverlay");
+      // Store hash
+      var hash = this.hash;
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-    overlayBg.style.display = "none";
-  } else {
-    mySidebar.style.display = 'block';
-    overlayBg.style.display = "block";
-  }
-}
-// Close the sidebar with the close button
-function w3_close() {
-  mySidebar.style.display = "none";
-  overlayBg.style.display = "none";
-}
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1500, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
 </script>
+
 </body>
 </html>
