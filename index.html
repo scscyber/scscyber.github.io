@@ -42,6 +42,10 @@
     color: #3F729B;
     font-size: 50px;
   }
+    .logo-small2 {
+    color: #00695c;
+    font-size: 50px;
+  }
     .logo-med {
     color: #3F729B;
     font-size: 100px;
@@ -185,11 +189,12 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">SOBRE</a></li>
+		<li><a href="#about">PROMOÇÕES</a></li>
         <li><a href="#services">SERVIÇOS</a></li>
-        <li><a href="#portfolio">Serviços</a></li>
-        <li><a href="#pricing">PREÇOS</a></li>
+        <li><a href="#portfolio">DESTAQUES</a></li>
         <li><a href="#contact">CONTATO</a></li>
+        <li><a href="serviços.html">LINKS SERVIÇOS</a></li>
+
       </ul>
     </div>
   </div>
@@ -197,15 +202,12 @@
 </nav>
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid ">
+<div  class="container-fluid ">
   <div class="row">
     <div class="col-sm-8">
       <h2>Sobre</h2>
       <h4>Informações</h4>      
       <p>Serviços em Informática</p>
-	  <a href="Promos.html" >
-      <button  class="btn btn-default btn-lg">Info</button>
-	  </a>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-home logo-med"></span>
@@ -213,17 +215,58 @@
   </div>
 </div>
 
-<div class="container-fluid bg-grey">
+<div id="about" class="container-fluid bg-grey">
   <div class="row">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo-med"></span>
+	  <h2>Promoções</h2>
+      <span class="glyphicon glyphicon-tags logo-small"></span>
+      <span class="glyphicon glyphicon-usd logo-small2"></span>
     </div>
-    <div class="col-sm-8">
-      <h2>Valores</h2>
-      <h4><strong>MISSÃO:</strong> Serviços em informática</h4>      
-      <p><strong>VISÃO:</strong> Serviços em informática</p>
-    </div>
+
   </div>
+
+
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+	  <img src="./images/impressora2.jpg" alt="img1" width="300" height="100">
+        <h3>"Impressão P/B acima de 10 Páginas!"<br><strong><span>R$ 0,50/Pag</span></strong></h3>
+      </div>
+      <div class="item">
+	  <img src="./images/impressora1.jpg" alt="img2" width="300" height="100">
+        <h3>"Impressão Colorida acima de 10 Páginas! !!"<br><strong><span>R$ 0,60/Pag</strong></span></h3>
+      </div>
+      <div class="item">
+	  <img src="./images/foto_promo.jpg" alt="img3" width="300" height="100">
+        <h3>"4 Fotos 10x15 POR"<br><strong><span>R$ 5,00</span></strong></h3>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+  
+  
+  
+  
+  
+  
 </div>
 
 <!-- Container (Services Section) -->
@@ -246,14 +289,19 @@
       <span class="glyphicon glyphicon-th logo-small"></span>
       <h4>SERVIÇOS INTERNET</h4>
       <p>2ª Via Contas / Boletos / Faturas</p>
+      <p>Consultas / Agendamentos</p>
+
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-th logo-small"></span>
-      <h4>SERVIÇOS INTERNET</h4>
-      <p>Consultas / Agendamentos</p>
-    </div>
+      <h4>SERVIÇOS DIVERSOS</h4>
+      <p>Currículos</p>
+      <p>Textos / Planilhas / Tabelas</p>
+      <p>Fotos / Cartões / Etiquetas</p>
+
+	  </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-file logo-small"></span>
       <h4>DIGITALIZAÇÃO</h4>
@@ -270,7 +318,7 @@
 
 <!-- Container (Portfolio Section) -->
 <div id="portfolio" class="container-fluid text-center bg-grey">
-  <h2>Serviços</h2><br>
+  <h2>DESTAQUES</h2><br>
   <h4>Modelos</h4>
   <div class="row text-center">
     <div class="col-sm-4">
@@ -283,242 +331,10 @@
 
   </div>
 
-  <h2>Promoções</h2>
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-	  <img src="./images/Impressora1.jpg" alt="img1" width="300" height="100">
-        <h3>"Impressão P/B acima de 10 Páginas!"<br><strong><span>R$ 0,50/Pag</span></strong></h3>
-      </div>
-      <div class="item">
-	  <img src="./images/Impressora1.jpg" alt="img2" width="300" height="100">
-        <h3>"Impressão Colorida acima de 10 Páginas! !!"<br><strong><span>R$ 0,60/Pag</strong></span></h3>
-      </div>
-      <div class="item">
-	  <img src="./images/Impressora1.jpg" alt="img3" width="300" height="100">
-        <h3>"4 Fotos 10x15 POR"<br><strong><span>R$ 5,00</span></strong></h3>
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 </div>
 
 <!-- Container (Pricing Section) -->
-<div id="pricing" class="container-fluid ">
-  <div class="text-center">
-    <h2>Preços</h2>
-    <h4>Preços R$</h4>
-  </div>
-  <div class="row mb-5">
-    <div class="col-lg-2 col-md-6 mb-4">
-      <div class="panel panel-default text-center">
-		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
-	  <div class="panel-heading">
-          <h1>SERVIÇOS 1</h1>
-        </div>
-        <div class="panel-body">
-
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="https://agenciavirtual.light.com.br/AGV/" target="_blank">Light</a>    <span class="badge badge-primary badge-pill">1</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="http://www.detran.rj.gov.br/" target="_blank">Detran</a>
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="https://meu.inss.gov.br/central/#/login?redirectUrl=/" target="_blank">INSS</a> 
-    <span class="badge badge-primary badge-pill">3</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="https://receita.economia.gov.br/orientacao/tributaria/cadastros/cadastro-de-pessoas-fisicas-cpf" target="_blank">CPF</a>
-    <span class="badge badge-primary badge-pill">4</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="http://www.tse.jus.br/eleitor/titulo-e-local-de-votacao/copy_of_consulta-por-nome" target="_blank">Titulo Eleitor</a> 
-    <span class="badge badge-primary badge-pill">5</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-	<a href="https://www.gov.br/pt-br/servicos/solicitar-o-seguro-desemprego" target="_blank">Seguro Desemprego</a> 
-    <span class="badge badge-primary badge-pill">6</span>
-  </li>
-</ul>
-        </div>
-        <div class="panel-footer">
-          <h3>R$ 2,00</h3>
-          <h4>Cada</h4>
-        </div>
-      </div>      
-    </div>     
-    <div class="col-lg-2 col-md-6 mb-4">
-      <div class="panel panel-default text-center">
-		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
-	  <div class="panel-heading">
-          <h1>SERVIÇOS 2</h1>
-        </div>
-        <div class="panel-body">
-		
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://meutim.tim.com.br/novo" target="_blank">Tim</a>   <span class="badge badge-primary badge-pill">1</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.claro.com.br/atendimento/2-via-de-conta" target="_blank">Claro</a>
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.vivo.com.br/para-voce" target="_blank">Vivo</a>
-    <span class="badge badge-primary badge-pill">3</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.oi.com.br/minha-oi/segunda-via/" target="_blank">Oi</a>
-    <span class="badge badge-primary badge-pill">4</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.nextel.com.br/atendimento/fatura/segunda-via-de-fatura" target="_blank">Nextel</a>
-    <span class="badge badge-primary badge-pill">5</span>
-  </li>
-
-</ul>
-
-        </div>
-        <div class="panel-footer">
-          <h3>R$ 2,00</h3>
-          <h4>Cada</h4>
-
-        </div>
-      </div>      
-    </div>       
-    <div class="col-lg-2 col-md-6 mb-4">
-	
-      <div class="panel panel-default text-center">
-		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
-	  <div class="panel-heading">
-          <h1>SERVIÇOS 3</h1>
-        </div>
-        <div class="panel-body">
-
-		
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://casasbahia.digital/" target="_blank">Casas Bahia</a>  <span class="badge badge-primary badge-pill">1</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.marisa.com.br/comunicado-cartoes-marisa" target="_blank">Marisa</a>
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://contaonline.midwayfinanceira.com.br/contaonline/home" target="_blank">Riachuelo</a>
-    <span class="badge badge-primary badge-pill">3</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.portaldafatura.com.br/" target="_blank">Portal da Fatura</a>
-    <span class="badge badge-primary badge-pill">4</span>
-  </li>
-
-</ul>		
-	
-        </div>
-        <div class="panel-footer">
-          <h3>R$ 2,00</h3>
-          <h4>Cada</h4>
-
-        </div>
-      </div>      
-    </div>    
-
-    <div class="col-lg-2 col-md-6 mb-4">
-	
-      <div class="panel panel-default text-center">
-		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
-	  <div class="panel-heading">
-          <h1>SERVIÇOS 4</h1>
-        </div>
-        <div class="panel-body">
-
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Gmail</a> <span class="badge badge-primary badge-pill">1</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://login.live.com/" target="_blank">Hotmail/Outlook</a> 
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-
-</ul>			
-		
-        </div>
-        <div class="panel-footer">
-          <h3>R$ 2,00</h3>
-          <h4>Cada</h4>
-
-        </div>
-      </div>      
-    </div>    
-	
-    <div class="col-lg-2 col-md-6 mb-4">
-	
-      <div class="panel panel-default text-center">
-		<img src="./images/Impressora1.jpg" alt="img1" width="100" height="100">
-	  <div class="panel-heading">
-          <h1>SERVIÇOS 5</h1>
-        </div>
-        <div class="panel-body">
-
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="https://www.stm.jus.br/servicos-stm/certidao-negativa/emitir-certidao-negativa" target="_blank">Justiça Militar</a>   <span class="badge badge-primary badge-pill">1</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="http://procweb.jfrj.jus.br/certidao/emissao_cert.asp" target="_blank">Justiça Federal</a>
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="http://www.tse.jus.br/eleitor/certidoes/certidao-de-quitacao-eleitoral" target="_blank">Justiça Eleitoral</a>
-    <span class="badge badge-primary badge-pill">3</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="http://www.tse.jus.br/eleitor/certidoes/certidao-de-crimes-eleitorais" target="_blank">Crimes Eleitorais</a>
-    <span class="badge badge-primary badge-pill">4</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="http://atestadodic.detran.rj.gov.br/" target="_blank">Antecedentes</a>
-    <span class="badge badge-primary badge-pill">5</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="http://certidaoiifppcerj.detran.rj.gov.br/" target="_blank">Certidão Inteiro Teor</a> 
-    <span class="badge badge-primary badge-pill">6</span>
-  </li>
-</ul>		
-		
-        </div>
-        <div class="panel-footer">
-          <h3>R$ 3,00</h3>
-          <h4>Cada</h4>
-
-        </div>
-      </div>      
-    </div>  
-	
-  </div>
-</div>
 
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
