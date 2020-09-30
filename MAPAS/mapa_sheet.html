@@ -112,43 +112,42 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 	init();
   });
 // INICIALIZAR Tabletop PARA ACESSAR A TABELA(PLANILHA)
-  function init() {
-	Tabletop.init({
-// LINK COMPARTILHAVEL DA PLANILHA
-	  key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
-// CHAMAR A FUNÇÃO ADDPOINTS
-	  callback: addPoints,
-	  simpleSheet: true
-	});
-  }
+      function init() {
+        Tabletop.init({
+          // YOUR TURN: change 'key' value to point to your spreadsheet
+          key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
+          // once Tabletop has loaded the data, it passes it to the 'callback' function, 'addPoints', defined below
+          callback: addPoints,
+          simpleSheet: true
+        });
+      }
+  
+  
+  
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
 // CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
-  function addPoints(data) {
-	data.forEach(function(row) {
-//TRECHO ADICIONADO		
-// CODIGO PARA MARCA PERSONALIZADA
-var el = document.createElement('div');
-el.className = 'marker';
-el.style.backgroundImage = 'url(img_mapa/marca_azul.svg)';
+      function addPoints(data) {
 
-//TRECHO ADICIONADO		
-// INFORMAÇÕES EXIBIDAS NO POPUP
-	var popup = new mapboxgl.Popup()
-		.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' 
-						+ row.Endereço + '</h4>' + '<h4><a href= "tel:  '+ row.Celular +' " >'
-						+ row.Celular +' </a></h4>'+ '<h4><a href = "https://www.google.com.br/maps/@'
-						+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h4></a>');
-// use a tabela para preencher seu pop-up com texto
-//TRECHO ALTERADO		
-//SUBSTITUIDO PARAMETRO MARKER(el)
-//PASSANDO 
-// crie uma variável para sua marcação e adicione-a ao mapa
-	  var marker = new mapboxgl.Marker(el)
-		.setLngLat([row.Longitude, row.Latitude])
-		.setPopup(popup)
-		.addTo(map); // add the marker to the map
-	});
-  }
+        // iterate through your table to set the marker to lat/long values for each row
+
+        data.forEach(function(row) {
+
+          // create a variable for your popup and populate your popup with information from your table
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' + '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
+
+          // create a variable for your markup and add it to the map 
+          var marker = new mapboxgl.Marker({
+          // PERSONALIZAR MARCADOR 
+
+            })
+            .setLngLat([row.Longitude, row.Latitude])
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map
+
+
+        });
+      }
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
 //	var marker = new mapboxgl.Marker({
 //draggable: true

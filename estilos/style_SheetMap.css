@@ -14,8 +14,8 @@
 	padding: 0;
 	width: auto;
 	height: auto;
-	border-radius: 40%;
-	opacity: 0.8;
+	border-radius: 20%;
+	opacity: 0.9;
 	line-height:0.8;
 	}
 	.mapboxgl-popup-content-wrapper {
@@ -24,7 +24,7 @@
 	.mapboxgl-popup-content h3 {
 	font: bold 2vw 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
 	color: #6a5acd;
-	text-align: center;
+	text-align: left;
 	margin: 0;
 	display: block;
 	padding: 10px;
@@ -33,7 +33,7 @@
 	}
 	.mapboxgl-popup-content h4 {
 	font: bold 2vw 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-	text-align: center;
+	text-align: left;
 	margin: 0;
 	display: block;
 	padding: 10px 3px 10px 10px;
@@ -54,8 +54,8 @@
 //	background-image: url('img_mapa/marca_azul.svg');
 	background-color: #;
 	background-size: cover;
-	width: 30px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -82,7 +82,7 @@
     #zoom  {
         display: block;
         position: absolute;
-        margin: 30px 300px 20px;
+        margin: 30px 200px 20px;
         width: 20%;
         height: 40px;
         padding: 10px;
@@ -96,7 +96,7 @@
 	    #inicial  {
         display: block;
         position: absolute;
-        margin: 80px 300px 20px;
+        margin: 80px 200px 20px;
         width: 20%;
         height: 40px;
         padding: 10px;
