@@ -14,7 +14,7 @@
 	padding: 0;
 	width: auto;
 	height: auto;
-	border-radius: 20%;
+	border-radius: 10%;
 	opacity: 0.9;
 	line-height:0.8;
 	}
@@ -22,23 +22,23 @@
 	padding: 1%;
 	}
 	.mapboxgl-popup-content h3 {
-	font: bold 2vw 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
-	color: #6a5acd;
+	font: bold 15px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
+	color: #0404B4;
 	text-align: left;
 	margin: 0;
 	display: block;
-	padding: 10px;
+	padding: 5px;
 	margin-top: 5px;
 	line-height:1.2;
 	}
 	.mapboxgl-popup-content h4 {
-	font: bold 2vw 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+	font: bold 12px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 	text-align: left;
 	margin: 0;
 	display: block;
-	padding: 10px 3px 10px 10px;
+	padding: 5px;
 	line-height:0.9;
-	color: #6a5acd;
+	color: #0174DF;
 	}
 	.mapboxgl-container {
 	cursor: pointer;
@@ -69,8 +69,8 @@
 	}
 	.rodape {
 	position:fixed;
-	margin-left:5%;
-	bottom:4px;
+	margin-left:25%;
+	bottom:8px;
     color: #800000;
 	}
 	/*FORMATAR EXIBIÇÃO TELEFONE */
