@@ -18,6 +18,8 @@
 <meta name="msapplication-TileImage" content="" />
 
 
+
+
   <style>
   .jumbotron {
     background-color: #123456;
@@ -40,15 +42,15 @@
   }
   .logo-small {
     color: #3F729B;
-    font-size: 50px;
+    font-size: 40px;
   }
     .logo-small2 {
     color: #00695c;
-    font-size: 50px;
+    font-size: 30px;
   }
     .logo-med {
     color: #3F729B;
-    font-size: 100px;
+    font-size: 60px;
   }
   .logo {
     color: #3F729B;
@@ -60,8 +62,8 @@
     border-radius: 0;
   }
   .thumbnail img {
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     margin-bottom: 10px;
   }
   .carousel-control.right, .carousel-control.left {
@@ -184,7 +186,9 @@
 
 	  <img src="./images/Logo_02.jpg" class="img-responsive" style="width:100px">
       <a class="navbar-brand" href="#myPage"> SCSCyber Informática</a>	
-      <button class="btn btn-default"  ><a href = "https://wa.me/message/HSK6T7NILIGGI1" target="_blank" ><span class="glyphicon glyphicon-earphone logo-zap" title="WhatsApp"alt="WhatsApp"> WhatsApp </span></a> </button>
+      <a href = "https://wa.me/message/HSK6T7NILIGGI1" target="_blank" ><span class="" title="WhatsApp"alt="WhatsApp">
+<img src="./images/whattsapp2.png" class="img-responsive" style="width:40px">
+	   </span></a> 
 
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -193,7 +197,6 @@
         <li><a href="#services">SERVIÇOS</a></li>
         <li><a href="#portfolio">DESTAQUES</a></li>
         <li><a href="#contact">CONTATO</a></li>
-        <li><a href="servicos.html">LINKS SERVIÇOS</a></li>
 
       </ul>
     </div>
@@ -230,18 +233,22 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-	  <img src="./images/Impressora2.jpg" alt="img1" width="200" height="50">
-        <h3>"Impressão P/B acima de 10 Páginas!"<br><strong><span>R$ 0,50/Pag</span></strong></h3>
+    <div class="carousel-inner" role="listbox" align="center"  width="200" height="50" >
+      <div class="item ">
+	          <h3>"Impressão P/B acima de 10 Páginas !"<br><strong><span>R$ 0,50/Pag</span></strong></h3>
+	  <img src="./images/Impressora2.jpg" alt="img1"   width="200" height="50">
+
       </div>
       <div class="item">
+	          <h3>"Impressão Colorida acima de 10 Páginas! !!"<br><strong><span>R$ 0,60/Pag
+			  </strong></span></h3>
 	  <img src="./images/Impressora1.jpg" alt="img2" width="200" height="50">
-        <h3>"Impressão Colorida acima de 10 Páginas! !!"<br><strong><span>R$ 0,60/Pag</strong></span></h3>
+
       </div>
-      <div class="item">
+      <div class="item active">
+	          <h3>"4 Fotos 10x15 POR"<br><strong><span>R$ 5,00</span></strong></h3>
 	  <img src="./images/foto_promo.jpg" alt="img3" width="200" height="50">
-        <h3>"4 Fotos 10x15 POR"<br><strong><span>R$ 5,00</span></strong></h3>
+
       </div>
     </div>
 
@@ -255,6 +262,12 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  
+    <!-- Carousel #2 -->  
+
+
+    <!-- Carousel #2 -->  
+  
   
 </div>
 
@@ -377,6 +390,61 @@ $(document).ready(function(){
     } // End if
   });
 })
+// popovers initialization - on hover
+$('[data-toggle="popover-hover"]').popover({
+  html: true,
+  trigger: 'hover',
+  placement: 'bottom',
+  content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+});
+
+// popovers initialization - on click
+$('[data-toggle="popover-click"]').popover({
+  html: true,
+  trigger: 'click',
+  placement: 'bottom',
+  content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+});
+
+//bar
+var ctxB = document.getElementById("barChart").getContext('2d');
+var myBarChart = new Chart(ctxB, {
+type: 'bar',
+data: {
+labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+datasets: [{
+label: '# of Votes',
+data: [12, 19, 3, 5, 2, 3],
+backgroundColor: [
+'rgba(255, 99, 132, 0.2)',
+'rgba(54, 162, 235, 0.2)',
+'rgba(255, 206, 86, 0.2)',
+'rgba(75, 192, 192, 0.2)',
+'rgba(153, 102, 255, 0.2)',
+'rgba(255, 159, 64, 0.2)'
+],
+borderColor: [
+'rgba(255,99,132,1)',
+'rgba(54, 162, 235, 1)',
+'rgba(255, 206, 86, 1)',
+'rgba(75, 192, 192, 1)',
+'rgba(153, 102, 255, 1)',
+'rgba(255, 159, 64, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero: true
+}
+}]
+}
+}
+});
+
 </script>
 
 </body>
