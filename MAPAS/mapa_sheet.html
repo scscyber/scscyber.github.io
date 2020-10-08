@@ -11,7 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  
 	
 	<!-- ICONE TITULO/ABA -->
 <link rel="icon" href="./images/Logo_02.jpg" size="50x50" />
@@ -61,14 +60,14 @@
 	<span class="w3-bar-item w3-right">SCSCYBER</span>
 	</div>
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:350px; margin:40px; " id="mySidebar"><hr>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:200px; height:230px; margin:60px 20px ; " id="mySidebar"><hr>
 	<div class="w3-bar-block" style="text-align:justify; margin:10px; font-size:1em;">
 	<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
 	<i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-	<a href="..\Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
-	<i class="fa fa-map fa-fw"></i>MAPAS</a>
+	<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
+	<i class="fa fa-map fa-fw"></i>Principal</a>
 	<div id='geocoder' class='geocoder'></div>
-	<p style="text-align:justify; margin:20px; font-size:1em;"> Localização de pontos de interesse - salvos em planilha Google Sheet.</p> <br>
+	<p style="text-align:justify; margin:20px; font-size:1em;">Pontos de interesse - armazenados em planilha.</p> 
 	</div>
 </nav>
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
@@ -130,14 +129,12 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
       function init() {
         Tabletop.init({
           // YOUR TURN: change 'key' value to point to your spreadsheet
-          key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
+          key: 'https://docs.google.com/spreadsheets/d/1mJmEYJV_Oyuw9tQvE1_hbcUp_7DnZlDJ6ILQ83Qg4KM/edit?usp=sharing',
           // once Tabletop has loaded the data, it passes it to the 'callback' function, 'addPoints', defined below
           callback: addPoints,
           simpleSheet: true
         });
       }
-  
-  
   
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
 // CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
@@ -153,13 +150,11 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker({
-          // PERSONALIZAR MARCADOR 
-
+              color: 'purple'
             })
             .setLngLat([row.Longitude, row.Latitude])
             .setPopup(popup)
             .addTo(map); // add the marker to the map
-
 
         });
       }

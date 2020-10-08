@@ -51,7 +51,7 @@
 	}
 	/*TRECHO ADICIONADO */
 	.marker {
-//	background-image: url('img_mapa/marca_azul.svg');
+	background-image: url('/img_mapa/building.svg');
 	background-color: #;
 	background-size: cover;
 	width: 20px;
@@ -62,7 +62,7 @@
 	.geocoder {
 	position:fixed;
 	z-index:2;
-	width:70%;
+	width:40%;
 	left:1%;
 	margin-left:1%;
 	top:5%;
@@ -82,7 +82,7 @@
     #zoom  {
         display: block;
         position: absolute;
-        margin: 30px 200px 20px;
+        margin: 30px 250px 20px;
         width: 20%;
         height: 40px;
         padding: 10px;
@@ -96,7 +96,7 @@
 	    #inicial  {
         display: block;
         position: absolute;
-        margin: 80px 200px 20px;
+        margin: 80px 250px 20px;
         width: 20%;
         height: 40px;
         padding: 10px;
