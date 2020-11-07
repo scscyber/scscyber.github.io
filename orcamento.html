@@ -22,7 +22,7 @@
 		padding: 100px 25px;
 	}
 	.container-fluid {
-		padding: 10px 10px;
+		padding: 0px 0px;
 	}
 	.bg-grey {
 		background-color: #f6f6f6 ;
@@ -156,7 +156,7 @@
 	}
 	@media screen and (max-width: 768px) {
     .col-sm-4 {
-		text-align: center;
+		text-align: left;
 		margin: 25px 0;
     }
   }
@@ -364,8 +364,8 @@ img {
 }
 
 div{
-
-width:700px;
+margin:1px;
+width:400px;
 
 }   
    
@@ -424,33 +424,33 @@ function formatar(mascara, documento){
 </nav>
 
 
+<body class="">
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
+<div id="services" class="">
 
 
 
-<body class="w3-theme-8">
 
  <div class="w3-container">
 <span class ="titulo">
 <!--FOTO-->
-     <img src="./imagens/logo_01.jpg" align="left" class="w3-circle" style="height:120px;width:120px" alt="LOGO" > 
+     <img src="./images/Logo_02.jpg" align="left" class="w3-circle" style="height:120px;width:120px" alt="LOGO" > 
 <h1>ORÇAMENTO</h1>
 
 </span>	 
 
  </div>
 
-	        <div class="container-fluid text-left">
+	
 
  Nº:<input type="text" size="5" placeholder=""/>		
  Data:<input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="9" />	
-
+<br>
 			 				 Prev/Entrega:
     <input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="9" />	
 
 	  <hr>	
-      </div>
+   
 	  
 	        <div class="container-fluid text-left">
 				<span class="titulo"> Dados do Cliente </span>
@@ -458,25 +458,25 @@ function formatar(mascara, documento){
 				Nome: 
 <input type="text" size="40" placeholder="">
 <br>
-<br>
+
 				<!-- Type = tel -->
 				Telefone:
-				<input type="tel" placeholder="" pattern="[0-9]{10}"  maxlength="13" OnKeyPress="formatar('##-#####-####', this)" size="15" >
-
-
-
-				E-Mail:<input type="email" placeholder="" size="30">
+				<input type="tel" placeholder="" pattern="[0-9]{10}"  maxlength="13" OnKeyPress="formatar('##-#####-####', this)" size="13" >
+				<input type="tel" placeholder="" pattern="[0-9]{10}"  maxlength="13" OnKeyPress="formatar('##-#####-####', this)" size="13" >
 <br>
+
+				E-Mail:<input type="email" placeholder="" size="40">
 <br>
+
 				<span class="titulo"> Endereço</span>
-				<textarea name="message" rows="1" cols="50">
+				<textarea name="message" rows="1" cols="48">
 				</textarea>
-	  <hr>
+
 				</div>
 
       	    
 	        <div class="container-fluid text-left">
-        <div class="">
+
 				<span class="titulo"> Equipamento </span>
 				<input type="search" list="equipamento" placeholder="" size="35">
 				<datalist id="equipamento" style="display:hidden;">
@@ -488,16 +488,16 @@ function formatar(mascara, documento){
 					<option value="HD"></option>
 					<option value="Outros"></option>
 				</datalist>
-        </div>
-		<br>
+
+
       </div> 
 
 	        <div class="container-fluid text-left">
-       <div class="w3-row-padding">   
+  
         <div class="">
 				<span class="titulo"> Problema/Defeito </span>
 				<input type="search" list="defeito" placeholder="" size="40">
-				<input type="search" list="defeito" placeholder="" size="58">
+				<input type="search" list="defeito" placeholder="" size="40">
 
 				<datalist id="defeito" style="display:hidden;">
 					<option value="Processamento Lento"></option>
@@ -510,9 +510,8 @@ function formatar(mascara, documento){
 				</datalist>
         </div>
    
-            </div>
-			
-<hr>
+
+
           </div>
 	        <div class="container-fluid text-left">
 				<span class="titulo"> Serviços executados</span><br>
@@ -520,7 +519,7 @@ function formatar(mascara, documento){
 				</textarea>
 				
 					<br>
-					<br>
+
 								</div>	
 					
 				<span class="titulo"> Valor</span>
@@ -538,7 +537,7 @@ function formatar(mascara, documento){
 
 
 
-		  <hr>
+
 
   </div>
 </body>
