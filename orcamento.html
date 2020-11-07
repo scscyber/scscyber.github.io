@@ -202,7 +202,7 @@ h5 {
 }
 img {
 	display: block;
-    margin: 1px;
+    margin: 0px;
 }
 
 	input[type="text"]
@@ -365,7 +365,7 @@ img {
 
 div{
 margin:1px;
-width:400px;
+width:390px;
 
 }   
    
@@ -434,7 +434,7 @@ function formatar(mascara, documento){
  <div class="w3-container">
 <span class ="titulo">
 <!--FOTO-->
-     <img src="./images/Logo_02.jpg" align="left" class="w3-circle" style="height:120px;width:120px" alt="LOGO" > 
+     <img src="./images/Logo_02.jpg" align="left" class="w3-circle" style="height:80px;width:80px" alt="LOGO" > 
 <h1>ORÇAMENTO</h1>
 
 </span>	 
@@ -443,11 +443,11 @@ function formatar(mascara, documento){
 
 	
 
- Nº:<input type="text" size="5" placeholder=""/>		
- Data:<input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="9" />	
-<br>
+ Nº:<input type="text" size="4" placeholder=""/>		
+ Data:<input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="8" />	
+
 			 				 Prev/Entrega:
-    <input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="9" />	
+    <input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="8" />	
 
 	  <hr>	
    
@@ -478,7 +478,7 @@ function formatar(mascara, documento){
 	        <div class="container-fluid text-left">
 
 				<span class="titulo"> Equipamento </span>
-				<input type="search" list="equipamento" placeholder="" size="35">
+				<input type="search" list="equipamento" placeholder="" size="40">
 				<datalist id="equipamento" style="display:hidden;">
 					<option value="Desktop"></option>
 					<option value="Notebook"></option>
@@ -515,7 +515,7 @@ function formatar(mascara, documento){
           </div>
 	        <div class="container-fluid text-left">
 				<span class="titulo"> Serviços executados</span><br>
-				<textarea name="message" rows="3" cols="50">
+				<textarea name="message" rows="3" cols="48">
 				</textarea>
 				
 					<br>
@@ -523,17 +523,17 @@ function formatar(mascara, documento){
 								</div>	
 					
 				<span class="titulo"> Valor</span>
-    <input type="text" placeholder="" name="valor" maxlength="10" OnKeyPress="formatar('####,##', this)" size="8" >	
+    <input type="text" placeholder="" name="valor" maxlength="7" OnKeyPress="formatar('####,##', this)" size="7" >	
 
 
 	
 
-				<span class="titulo"> Data Entrega</span>
+				<span class="titulo"> Data:</span>
     <input type="text" placeholder="" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="8">	
 	<br>
 	<br>
 				<span class="titulo"> Responsável</span>
-<input type="text" size="45" placeholder="">
+<input type="text" size="40" placeholder="">
 
 
 
