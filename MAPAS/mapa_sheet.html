@@ -135,19 +135,15 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
           simpleSheet: true
         });
       }
-  
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
 // CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
       function addPoints(data) {
-
         // iterate through your table to set the marker to lat/long values for each row
-
         data.forEach(function(row) {
-
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
-            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' + '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
-
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker({
               color: 'purple'
@@ -155,7 +151,6 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
             .setLngLat([row.Longitude, row.Latitude])
             .setPopup(popup)
             .addTo(map); // add the marker to the map
-
         });
       }
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
@@ -164,7 +159,7 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 //	})
 //	.setLngLat([longX,latY])
 //	.addTo(map);
-map.touchZoomRotate.enable();
+map.touchZoomRotate.enable(); 
 map.touchZoomRotate.enableRotation();
 var geocoder = new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
@@ -180,10 +175,11 @@ mapboxgl: mapboxgl
 });
 //INSERE A MARCA NO DEVIDO LOCAL PESQUISADO
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-//Zoom
+//Zoom Máximo 18
 document.getElementById('zoom').addEventListener('click', function () {
     map.zoomTo(18, {duration: 9000});
 });
+//Visualização padrão 12
 document.getElementById('inicial').addEventListener('click', function () {
     map.zoomTo(12, {duration: 9000});
 });
@@ -211,7 +207,7 @@ mySidebar.style.display = "none";
 overlayBg.style.display = "none";
 }
 </script>
-<!-- Info Rodapé -->
+<!-- Rodapé -->
 <div class="rodape">
 <h5> Desenvolvido por SCSCYBER Informática </h5>
 </div>
