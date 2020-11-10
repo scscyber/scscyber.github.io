@@ -70,7 +70,7 @@ background-color: #330000;
 	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 200px; }
 }
 @media (max-width: 400px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 300px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 200px; }
 }
 
 /*MENU*/
@@ -131,7 +131,7 @@ body {
 }
 h2 {
 	font-size: 2em;
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 24px;
