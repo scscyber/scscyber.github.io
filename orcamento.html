@@ -419,12 +419,25 @@ function formatar(mascara, documento){
 
 		</ul>
 	</div>
+	<div class="">
+<button class="btn-billet-md" onclick="imprimirBoleto()">
+<span class="tooltiptext" id="myTooltip">
+Imprimir</span>
+<i class="icon-print-alt"></i>
+</button>
+</div>
 	</div>
 
 </nav>
 
 
 <body class="">
+
+
+
+
+
+
 <!-- Container (Services Section) -->
 <div id="services" class="">
 
@@ -641,6 +654,136 @@ beginAtZero: true
 });
 
 </script>
+
+<script>
+        window.onload = function() {
+            let urlTemp = document.location.href;
+            const print = urlTemp.indexOf('?print') > 0;
+            if(print){
+                imprimirBoleto();
+            }
+        }
+        
+        function imprimirBoleto() {
+            window.print();
+        }
+
+        function copiarCodigoBarra(ev, code) {
+            const textarea = document.createElement('textarea');
+            textarea.value = code;
+            document.body.appendChild(textarea);
+
+            textarea.select();
+            document.execCommand('copy');
+            
+            textarea.setSelectionRange(0, 0, 'none');
+            document.body.removeChild(textarea);
+
+            var tooltip = ev.target.firstElementChild;
+            tooltip.innerHTML = "Copiado";
+
+            setTimeout(() => {
+            tooltip.innerHTML = "Copiar linha digitável";
+            }, 2000);
+        }
+
+        function pdf() {
+            let url = document.location.href.split(/(emissao\/|exibir\/cobranca\/)/);
+            let urlid = url[2].replace(/(\/[\w\d]{4}-)/, '/');
+            urlid = urlid.replace(/^[\w]{2}\//, '');
+
+            url = 'https://download.gerencianet.com.br/' + urlid + '.pdf'; 
+            downloadPdf(url);
+        }
+
+        function getViewParcela(lam)  {
+            let url = document.location.href+'/'+ lam;
+
+            window.open(url, '_blank');
+        }
+
+        function compartilharWhatsapp() {
+            let link = document.location.href;
+            var jsonString = document.getElementById("data-element");
+            let itens = JSON.parse(jsonString.dataset.itens);
+            let descricao = itens[0].descricao;
+
+            if (itens.length > 1) {
+                descricao = itens[0].descricao +' e outros';
+            }
+            
+            let shareLink = 'https://api.whatsapp.com/send';
+            shareLink += '?text=Olá, segue o boleto no valor de R$ 45,90. ';
+            shareLink += 'Cobrança referente à '+descricao+', ';
+            shareLink += 'emitida por Virtual Giga Soluções, ';
+            shareLink += 'com vencimento para 10/11/2020. ';
+            shareLink += 'Acesse o boleto pelo link: '+link;
+            shareLink += ' ou pague usando o código de barras: 36490.00068 00007.618002 00000.157313 5 84350000004590';
+
+            window.open(shareLink, '_blank');
+        }
+
+        function compartilharCarneWhatsapp() {
+            let emitido = "Virtual Giga Soluções";
+            let link = document.location.href;
+            let itens = [{"descricao":"VG Home 10Mbps C Fidelidade","preco":"R$ 45,90","qtde":"1","valor":"R$ 45,90","desconto":"--"}];
+            let valor = itens[0].valor;
+            let descricao = itens[0].descricao;
+
+
+            if (itens.length > 1 ) {
+                descricao = itens[0].descricao +' e outros';
+            }
+
+            let shareLink = 'https://api.whatsapp.com/send';
+            shareLink += '?text=Olá, segue o carnê, ';
+            shareLink += 'no valor de '+valor+', ';
+            shareLink += 'referente à '+descricao+', ';
+            shareLink += 'emitida por '+emitido+', ';
+            shareLink += 'acesse as parcelas pelo link: '+link;
+
+            window.open(shareLink, '_blank');
+        };
+
+        function compartilharLaminaCarneWhatsapp() {
+            let emitido = "Virtual Giga Soluções";
+            let link = document.location.href;
+            let itens = [{"descricao":"VG Home 10Mbps C Fidelidade","preco":"R$ 45,90","qtde":"1","valor":"R$ 45,90","desconto":"--"}];
+            let parcela = [{"titulo":"COBRAN\u00c7A","informacao":"260149249"},{"titulo":"VENCIMENTO","informacao":"10\/11\/2020"},{"titulo":"VALOR FINAL","informacao":"R$ 45,90"}];
+            parcela = parcela[2].titulo.replace('VALOR PARCELA','');
+
+            let valor = 'R$ 45,90';
+            let descricao = itens[0].descricao;
+
+
+            if (itens.length > 1 ) {
+                descricao = itens[0].descricao +' e outros';
+            }
+
+            let shareLink = 'https://api.whatsapp.com/send';
+            shareLink += '?text=Olá, segue a parcela '+ parcela +', ';
+            shareLink += 'no valor de '+valor+', ';
+            shareLink += 'referente à '+descricao+', ';
+            shareLink += 'emitida por '+emitido+', ';
+            shareLink += 'acesse a parcela pelo link: '+link;
+
+            window.open(shareLink, '_blank');
+        };
+
+        function downloadPdf(url) {
+            let a = document.createElement("a");
+            a.href = url;
+            a.target = 'blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function outFunc() {
+            let tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copiado";
+        }
+    </script>
 
 </body>
 </html>
