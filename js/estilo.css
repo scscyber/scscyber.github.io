@@ -109,8 +109,8 @@ body {
 }
 .produtos .fundo {
 	position: relative;
-	background-image: url('img/fundo.jpg');
-    padding-top: 100px;
+	background-image: url('../images/Logo_02.jpg');
+    padding-top: 60px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
