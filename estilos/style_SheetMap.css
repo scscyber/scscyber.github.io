@@ -4,6 +4,12 @@
 	}
 
 	#map { position:absolute; top:30px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
+			    #menu {
+	text-align: center;
+        background: black;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+    }
 	.mapboxgl-popup {
 	padding-bottom: 5px;
 	}
@@ -82,9 +88,9 @@
     #zoom  {
         display: block;
         position: absolute;
-        margin: 30px 250px 20px;
-        width: 20%;
-        height: 40px;
+        margin: 5px 80px 20px;
+        width: 10%;
+        height: 30px;
         padding: 10px;
         border: none;
         border-radius: 3px;
@@ -96,9 +102,9 @@
 	    #inicial  {
         display: block;
         position: absolute;
-        margin: 80px 250px 20px;
-        width: 20%;
-        height: 40px;
+        margin: 5px 250px 20px;
+        width: 10%;
+        height: 30px;
         padding: 10px;
         border: none;
         border-radius: 3px;
