@@ -23,9 +23,9 @@
 <!--
 
 	-->
-	<script src='bairros_rj.geojson'></script>
-	<script src='earthquakes.geojson'></script>
-	<script src='limite_ramos.geojson'></script>
+	<script src='geojson/bairros_rj.geojson'></script>
+	<script src='geojson/earthquakes.geojson'></script>
+	<script src='geojsonlimite_ramos.geojson'></script>
 
 <style>
 
@@ -59,7 +59,7 @@
 
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-	    <a href="../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>INICIO</a>
+	    <a href="../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>PRINCIPAL</a>
 					
 					<div id='geocoder' class='geocoder'></div>
 					<div id='info-box'>
@@ -74,7 +74,7 @@
 
 <div id='calculated-line'> <span style="color:blue; font-size: 25px; align:center; " > </span></div>
 
-<div id='draw' class='draw'>Desenhar Rota</div>
+<div id='draw' class='draw'></div>
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
@@ -192,10 +192,10 @@ tempoMinut = tempoMinut;
 var tempoSeg = Math.floor(jsonResponse.routes[0].duration%60);
 
 // Adiciona os totais na caixa de informação
-document.getElementById('calculated-line').innerHTML = '<br>Distância: ' + distance.toFixed(2) + ' km<br>Duração: ' 
-+ tempoHora + ':' + tempoMinut + ':'+ tempoSeg + '<br>' 
-+ 'Valor Total: <span style="color:blue; font-size: 20px; background-color: lightgrey; " > R$  '  + (jsonResponse.routes[0].distance*0.00225).toFixed(2) +
-'</span>';
+document.getElementById('calculated-line').innerHTML = '<p>Distância: ' + distance.toFixed(2)+ ' km</p>'
++'<p>Duração: ' + tempoHora + ':' + tempoMinut + ':'+ tempoSeg + '</p>' 
++'<p>' + 'Valor Total: <span style="color:blue; font-size: 20px; background-color: lightgrey; " >&nbspR$  '  
++ (jsonResponse.routes[0].distance*0.00225).toFixed(2) +'&nbsp</span></p>';
 var coords = jsonResponse.routes[0].geometry;
 // add the route to the map
 addRoute(coords);

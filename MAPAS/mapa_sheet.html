@@ -49,6 +49,7 @@
 <body>
 <!-- Aproximar local -->
 	<div id='map'></div>
+<div id='draw' class='draw'>...</div>
 
 <!-- Top container -->
 	<div class="w3-bar w3-top w3-black w3-medium"  style="z-index:4">
@@ -92,7 +93,7 @@
 	<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
 	<i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
 	<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
-	<i class="fa fa-map fa-fw"></i>INICIO</a>
+	<i class="fa fa-map fa-fw"></i>PRINCIPAL</a>
 	<div id='geocoder' class='geocoder'></div>
 	<p style="text-align:justify; margin:20px; font-size:1em;">Locais Salvos</p> 
 	</div>
@@ -194,10 +195,7 @@ for (var i = 0; i < inputs.length; i++) {
             .addTo(map); // add the marker to the map
         });
       }
-	
-
-
-	
+		
 // add markers to map
       function addPoints(data) {
         // iterate through your table to set the marker to lat/long values for each row
@@ -210,8 +208,7 @@ for (var i = 0; i < inputs.length; i++) {
   // Cria um elemento/Imagem para cada local(img definida em .marker no arquivo de estilos
   var el = document.createElement('div');
   el.className = 'marker_'+ row.Categoria;
-			
-			
+						
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker(el)
             .setLngLat([row.Longitude, row.Latitude])
@@ -219,10 +216,6 @@ for (var i = 0; i < inputs.length; i++) {
             .addTo(map); // add the marker to the map
         });
       }
-
-
-
-
 	  
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
 //	var marker = new mapboxgl.Marker({
@@ -244,6 +237,9 @@ easing: function (t) { return t; }
 },
 mapboxgl: mapboxgl
 });
+
+document.getElementById('draw').appendChild(nav.onAdd(map));
+
 //INSERE A MARCA NO DEVIDO LOCAL PESQUISADO
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 //Zoom Máximo 18

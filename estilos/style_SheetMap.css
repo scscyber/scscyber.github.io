@@ -3,7 +3,7 @@
 	padding: 0;
 	}
 
-	#map { position:absolute; top:30px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
+	#map { position:absolute; top:60px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
 			    #menu {
 	text-align: center;
         background: black;
@@ -216,7 +216,6 @@
         border-radius: 3px;
         font-size: 1em;
         text-align: center;
-
         background: #ee8a65;
         background-image: url('../MAPAS/img_mapa/search-plus.svg');
         background-position: left;
@@ -228,7 +227,7 @@
 	    #inicial  {
         display: block;
         position: absolute;
-        margin: 1px 250px 20px;
+        margin: 1px 180px 20px;
         width: 10%;
         height: 2em;
         padding: 10px;
@@ -246,4 +245,10 @@
         text-indent: 25px; 		
 
     }
-
+.draw {
+position:absolute;
+z-index:1;
+width:10%;
+right:20px;
+top:10%;
+}

@@ -22,15 +22,14 @@ right: 60px;
 background-color:#F0F8FF;
 padding: 5px;
 text-align: left;
-margin: 5px 10px;
+line-height:1em;
+margin: 1px 1px;
 color:#2F4F4F;
 font:600 16px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 }
 
 #calculated-line:before {
-
 content: "****** CÁLCULO ******";
-
 }
 
 .draw {
@@ -38,11 +37,15 @@ position:fixed;
 z-index:1;
 width:10%;
 right:20px;
-top:22%;
+top:30%;
+
+}
+.draw:before {
+content: "Definir";
 }
 
 .draw:after {
-//content: "Desenho";
+content: "Rota";
 }
 
 .geocoder {
@@ -51,4 +54,10 @@ z-index:1;
 width:50%;
 left:10%;
 top:40px;
+}
+
+p{
+line-height:0.6;	
+	
+	
 }
