@@ -3,7 +3,7 @@
 <html lang="pt-br">
 	<head>
 	<meta charset="utf-8">
-	<title>Sheet Mapper</title>
+	<title>Mapa Locais</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,7 +17,7 @@
 <link rel="icon" href="./images/Logo_02.jpg" />
 <link rel="apple-touch-icon" href="./images/Logo_02.jpg" />
 <meta name="msapplication-TileImage" content="" />
-
+	<link rel="icon" href="./images/Logo_02.jpg">
 <!-- Mapbox  -->
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
@@ -38,8 +38,6 @@
 <!-- Estilo do Mapa -->
 	<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css' />
 <!-- Script p/desabilitar ver código botao direito -->
-
-
 	<script language="JavaScript">
 	function protegercodigo() {
 	if (event.button==2||event.button==3){
@@ -55,37 +53,37 @@
 <!-- Top container -->
 	<div class="w3-bar w3-top w3-black w3-medium"  style="z-index:4">
 	<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
-	<i class="fa fa-bars"></i>  Menu</button>
+	<i class="fa fa-bars"></i>Menu</button>
 	
 <div id='menu'>
     <input id='basic-v9' type='radio' name='rtoggle' value='basic'>
     <label for='basic'>Basic</label>
     <input id='streets-v10' type='radio' name='rtoggle' value='streets'>
     <label for='streets'>Streets</label>
+<!-- ***
     <input id='bright-v9' type='radio' name='rtoggle' value='bright'>
     <label for='bright'>Bright</label>
     <input id='light-v9' type='radio' name='rtoggle' value='light'>
     <label for='light'>Light</label>
     <input id='dark-v9' type='radio' name='rtoggle' value='dark'>
     <label for='dark'>Dark</label>
-    <input id='satellite-streets-v10' type='radio' name='rtoggle' value='satellite'>
-    <label for='satellite'>Satellite</label>
     <input id='navigation-guidance-day-v2' type='radio' name='rtoggle' value='navigation-guidance-day'>
     <label for='navigation-guidance-day'>Naveg-Dia</label>
     <input id='navigation-guidance-night-v2' type='radio' name='rtoggle' value='navigation-guidance-night'>
     <label for='navigation-guidance-night'>Naveg-Noite</label>
+ -->
+    <input id='satellite-streets-v10' type='radio' name='rtoggle' value='satellite'>
+    <label for='satellite'>Satellite</label>
     <input id='navigation-preview-day-v2' type='radio' name='rtoggle' value='navigation-preview-day'>
     <label for='navigation-preview-day'> Visual Dia</label>
     <input id='navigation-preview-night-v2' type='radio' name='rtoggle' value='navigation-preview-night-v2'>
     <label for='navigation-preview-night'>Visual Noite</label>
 
 </div>
-	<button id='zoom'>Zoom Máximo</button>
-	<button id='inicial'>Exibição Normal </button>
+	<button id='zoom'>Z+</button>
+	<button id='inicial'>Z- </button>
 
-
-
-	Sheet Mapper
+	Meu Mapa
 	<span class="w3-bar-item w3-right">SCSCYBER</span>
 	</div>
 <!-- Sidebar/menu -->
@@ -96,7 +94,7 @@
 	<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
 	<i class="fa fa-map fa-fw"></i>INICIO</a>
 	<div id='geocoder' class='geocoder'></div>
-	<p style="text-align:justify; margin:20px; font-size:1em;">Pontos de interesse - armazenados em planilha.</p> 
+	<p style="text-align:justify; margin:20px; font-size:1em;">Locais Salvos</p> 
 	</div>
 </nav>
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
@@ -147,10 +145,6 @@ for (var i = 0; i < inputs.length; i++) {
     inputs[i].onclick = switchLayer;
 }
   
-  
-  
-  
-  
 //ADICIONAR CONTROLE DE NAVEGAÇÃO
 		var nav = new mapboxgl.NavigationControl();
 		map.addControl(nav, 'top-right');
@@ -183,7 +177,8 @@ for (var i = 0; i < inputs.length; i++) {
       }
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
 // CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
-      function addPoints(data) {
+
+      function addPoints2(data) {
         // iterate through your table to set the marker to lat/long values for each row
         data.forEach(function(row) {
           // create a variable for your popup and populate your popup with information from your table
@@ -199,6 +194,36 @@ for (var i = 0; i < inputs.length; i++) {
             .addTo(map); // add the marker to the map
         });
       }
+	
+
+
+	
+// add markers to map
+      function addPoints(data) {
+        // iterate through your table to set the marker to lat/long values for each row
+        data.forEach(function(row) {
+          // create a variable for your popup and populate your popup with information from your table
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
+			
+  // Cria um elemento/Imagem para cada local(img definida em .marker no arquivo de estilos
+  var el = document.createElement('div');
+  el.className = 'marker_'+ row.Categoria;
+			
+			
+          // create a variable for your markup and add it to the map 
+          var marker = new mapboxgl.Marker(el)
+            .setLngLat([row.Longitude, row.Latitude])
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map
+        });
+      }
+
+
+
+
+	  
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
 //	var marker = new mapboxgl.Marker({
 //draggable: true
@@ -223,11 +248,11 @@ mapboxgl: mapboxgl
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 //Zoom Máximo 18
 document.getElementById('zoom').addEventListener('click', function () {
-    map.zoomTo(18, {duration: 9000});
+    map.zoomTo(18, {duration: 30000});
 });
 //Visualização padrão 12
 document.getElementById('inicial').addEventListener('click', function () {
-    map.zoomTo(12, {duration: 9000});
+    map.zoomTo(12, {duration: 30000});
 });
 </script>
 <!-- FIM SCRIPT MAPA -->
@@ -255,7 +280,7 @@ overlayBg.style.display = "none";
 </script>
 <!-- Rodapé -->
 <div class="rodape">
-<h5> Desenvolvido por SCSCYBER Informática </h5>
+<h5> Developer By SCSCYBER Informática </h5>
 </div>
 </body>
 </html>
