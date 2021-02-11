@@ -24,9 +24,6 @@
 <link rel='stylesheet' id='wc-block-vendors-style-css'  href='https://mdbootstrap.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/vendors-style.css?ver=3.1.0' type='text/css' media='all' />
 <link rel='stylesheet' id='wc-block-style-css'  href='https://mdbootstrap.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css?ver=3.1.0' type='text/css' media='all' />
 <link rel='stylesheet' id='contact-form-7-css'  href='https://mdbootstrap.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.2.2' type='text/css' media='all' />
-<style id='woocommerce-inline-inline-css' type='text/css'>
-.woocommerce form .form-row .required { visibility: visible; }
-</style>
 <link rel='stylesheet' id='wsl-widget-css'  href='https://mdbootstrap.com/wp-content/plugins/wordpress-social-login/assets/css/style.css?ver=5.5.1' type='text/css' media='all' />
 <link rel='stylesheet' id='compiled.css-css'  href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.19.1.min.css?ver=4.19.1' type='text/css' media='all' />
 <script type='text/javascript' src='https://mdbootstrap.com/wp-admin/load-scripts.php?c=gzip&amp;load%5Bchunk_0%5D=jquery-core&amp;ver=5.5.1'></script>
@@ -43,8 +40,7 @@
 <link rel="alternate" type="application/json+oembed" href="https://mdbootstrap.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmdbootstrap.com%2Fdocs%2Fjquery%2Fcomponents%2Fdemo%2F" />
 <link rel="alternate" type="text/xml+oembed" href="https://mdbootstrap.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmdbootstrap.com%2Fdocs%2Fjquery%2Fcomponents%2Fdemo%2F&#038;format=xml" />
 
-
-	<title>SCSCYBER</title>
+	<title>SCSCYBER Informática</title>
 	<link rel="icon" href="./images/Logo_02.jpg">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -93,7 +89,7 @@
 			<a href=""><img src="./images/Logo_02.jpg" alt="SCSCyber" align="absmiddle" /></a>
 			<ul>
 				<li><a href="index.html">Página Principal</a></li>
-				<li><a href="#produtos">Produtos</a></li>
+				<li><a href="#produtos">Produtos/Serviços</a></li>
 			</ul>
 			<div class="abre_menu"><span></span></div>
 		</div>
@@ -101,7 +97,7 @@
 			<div class="menuMobile">
 				<ul>
 					<li><a href="index.html">Página Principal</a></li>
-					<li><a href="#produtos">Produtos</a></li>
+					<li><a href="#produtos">Produtos/Serviços</a></li>
 				</ul>
 			</div>
 		</div>
@@ -123,11 +119,9 @@
 						<option value="">Filtre por categoria</option>
 						<option value=".cat1">2ª Via Contas/Internet</option>
 						<option value=".cat2">Suporte</option>
-						<option value=".cat3">Preços</option>						
+						<option value=".cat3">Preços</option>				
 						<option value=".cat4">Fotos</option>
 						<option value=".cat5">Cartões de Visita</option>
-						
-						
 					</select>
 				</div>
 	<!-- FILTRO -->					
@@ -153,7 +147,24 @@
 					<button class="btn peach-gradient btn-rounded">
 					<a href="http://sal.receita.fazenda.gov.br/PortalSalInternet/faces/pages/index.xhtml" target="_blank" class="w3-bar-item w3-button w3-padding">
 					INSS - GPS	</a>
-					</button>					
+					</button>	
+					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
+							<div class="prod">
+								<div class="topo">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
+									<div class="hover">
+										<div class="icone"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="categoria">Serviços</div>
+									<div class="nome">Favoritos</div>
+								</div>
+							</div>
+						</div>
+					
+	<!-- CATEGORIA 1 FAVORITOS -->
+					<div class="itemProduto col-md-4 col-sm-6 mix all cat1" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Favoritos" data-categoria="Favoritos" data-descricao='<div>
 					<hr>
 					<h5>Trabalho</h5>	
 					<button class="btn btn-outline-default btn-rounded waves-effect btn btn-mdb-color">
@@ -172,6 +183,23 @@
 					<a href="http://trabalho.gov.br/contato/formulario-de-contato" target="_blank" class="w3-bar-item w3-button w3-padding">
 					Min.Trabaho-Formulário	</a>
 					</button>
+					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
+							<div class="prod">
+								<div class="topo">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
+									<div class="hover">
+										<div class="icone"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="categoria">Serviços</div>
+									<div class="nome">Trabalho</div>
+								</div>
+							</div>
+						</div>
+
+	<!-- CATEGORIA 1 FAVORITOS -->
+					<div class="itemProduto col-md-4 col-sm-6 mix all cat1" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Favoritos" data-categoria="Favoritos" data-descricao='<div>
 					<hr>	
 					<h5>Titulo Eleitor</h5>	
 					<button class="btn aqua-gradient btn-rounded btn btn-blue-grey">
@@ -198,6 +226,23 @@
 					<a href="http://www.tse.jus.br/eleitor-e-eleicoes/eleitor/certidoes/certidao-de-quitacao-eleitoral" target="_blank" class="w3-bar-item w3-button w3-padding">
 					Certidão</a>
 					</button>
+					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
+							<div class="prod">
+								<div class="topo">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
+									<div class="hover">
+										<div class="icone"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="categoria">Serviços</div>
+									<div class="nome">Titulo Eleitor</div>
+								</div>
+							</div>
+						</div>
+
+	<!-- CATEGORIA 1 FAVORITOS -->
+					<div class="itemProduto col-md-4 col-sm-6 mix all cat1" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Favoritos" data-categoria="Favoritos" data-descricao='<div>
 					<hr>	
 					<h5>CPF</h5>	
 					<button class="btn btn-outline-info btn-rounded waves-effect btn btn-indigo">
@@ -208,6 +253,23 @@
 					<a href="https://receita.economia.gov.br/orientacao/tributaria/cadastros/cadastro-de-pessoas-fisicas-cpf" target="_blank" class="w3-bar-item w3-button w3-padding">
 					2ª VIA</a>
 					</button>
+					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
+							<div class="prod">
+								<div class="topo">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
+									<div class="hover">
+										<div class="icone"></div>
+									</div>
+								</div>
+								<div class="bottom">
+									<div class="categoria">Serviços</div>
+									<div class="nome">CPF</div>
+								</div>
+							</div>
+						</div>
+
+	<!-- CATEGORIA 1 FAVORITOS -->
+					<div class="itemProduto col-md-4 col-sm-6 mix all cat1" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Favoritos" data-categoria="Favoritos" data-descricao='<div>
 					<hr>
 					<h5>MEI</h5>	
 					<button class="btn aqua-gradient btn-rounded">
@@ -239,21 +301,21 @@
 						COD ACESSO-Consulta Decl</a>
 					</button>	
 					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
-
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
 								</div>
 								<div class="bottom">
 									<div class="categoria">Serviços</div>
-									<div class="nome">Favoritos</div>
+									<div class="nome">MEI</div>
 								</div>
 							</div>
 						</div>
-	<!-- CATEGORIA 1 FAVORITOS -->
+
+
 	<!-- CATEGORIA 1 CARTÕES/FATURAS-->
 					<div class="itemProduto col-md-4 col-sm-6 mix all cat1" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Cartões/Faturas" data-categoria="Serviços" data-descricao='<div>
 					<button class="btn aqua-gradient btn-rounded">
@@ -311,10 +373,9 @@
 					SINAF</a>
 					</button>
 					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
-											
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -348,6 +409,10 @@
 					OI
 					</a>
 					</button>
+					<button class="btn aqua-gradient btn-rounded">
+					<a href="https://https://minhaclaronxt.claro.com.br/nxt" target="iframe_a" class="w3-bar-item w3-button w3-padding">
+					Nextel	</a>
+					</button>
 					<hr>
 					<h5>E-Mail</h5>	
 					<button class="btn peach-gradient btn-rounded">
@@ -362,7 +427,7 @@
 												
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -399,6 +464,10 @@
 					B.O. - Delegacia Online	</a>
 					</button>
 					<button class="btn aqua-gradient btn-rounded">
+					<a href="https://https://buscacepinter.correios.com.br/app/endereco/index.php" target="iframe_a" class="w3-bar-item w3-button w3-padding">
+					CEP	</a>
+					</button>
+					<button class="btn aqua-gradient btn-rounded">
 					<a href="https://www2.correios.com.br/sistemas/rastreamento/" target="iframe_a" class="w3-bar-item w3-button w3-padding">
 					Correios/Rastreamento</a>
 					</button>	
@@ -432,11 +501,14 @@
 					<a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/encceja" target="iframe_a" class="w3-bar-item w3-button w3-padding">
 					ENCCEJA	</a>
 					</button>
+					<button class="btn aqua-gradient btn-rounded">
+					<a href="https://https://buscacepinter.correios.com.br/app/endereco/index.php" target="iframe_a" class="w3-bar-item w3-button w3-padding">
+					CEP	</a>
+					</button>
 					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
-												
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -484,10 +556,9 @@
 					Licenciamento Anual</a>
 					</button>
 					</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
-												
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -503,7 +574,7 @@
 							<div class="itemProduto col-md-4 col-sm-6 mix all cat2" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Digitalização" data-categoria="Digitalização" data-descricao='<p>Digitalização</p><p><i><strong>R$ 1,00</strong>&nbsp;R$ 1,00</i></p><p><i><strong>R$ 1,00 &nbsp;</strong>R$ 1,00</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -538,10 +609,9 @@
 						4 EXPERIENCIAS</a>
 						</button>
 						</div>' data-toggle="modal" data-target="#modalProduto" data-bound>
-												
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -563,7 +633,7 @@
 												
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -579,7 +649,7 @@
 						<div class="itemProduto col-md-4 col-sm-6 mix all cat3" data-myorder="1" data-image="./images/impressora_x.jpg" data-titulo="Serviços" data-categoria="Xerox" data-descricao='<p><strong>Preto/Branco</strong></p><p><i><strong>***R$ 0,30</strong>&nbsp;/Documento</i></p><p><i><strong>***R$ 0,25</strong>&nbsp;(5 copias mesmo documento)</i></p>									<p><strong>Colorida</strong></p><p><i><strong>***R$ 0,80</strong>&nbsp;/Documento</i></p><p><i><strong>***R$ 0,60</strong>&nbsp;(5 copias mesmo documento)</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -596,7 +666,7 @@
 						<p><strong>Colorida</strong></p><p><i><strong>***R$ 2,00</strong>&nbsp;/Página</i></p><p><i><strong>***R$ 1,00</strong>&nbsp;(Acima 10 Páginas)</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -613,7 +683,7 @@
 						<p><strong>2ª Via CPF/Multa Eleição</strong></p><p><i><strong>***R$ 5,00</strong>&nbsp;/Documento</i></p>						<p><strong>Agendamento(Detran/INSS/Outros)</strong></p><p><i><strong>***R$ 10,00</strong>&nbsp;/Documento</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -630,7 +700,7 @@
 						<p>Envio e-mail</p><p><i><strong>***R$ 5,00</strong>&nbsp;/Documento</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -648,7 +718,7 @@
 						<p>20x30</p><p><i><strong>***R$ 5,00</strong>&nbsp;</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -664,7 +734,7 @@
 						<div class="itemProduto col-md-4 col-sm-6 mix all cat4" data-myorder="1" data-image="./images/Fotos.jpg" data-titulo="Fotos " data-categoria="Fotos" data-descricao='<p style="text-align: left;"><font color="#b06400"></font>Fotos<br></p><p style="text-align: left;"><i><strong>10x15</strong> R$ 2,00</i></p><p style="text-align: left;"><i><strong>15x21</strong>&nbsp;R$ 3,00</i></p><p style="text-align: left;"><i><strong>20x30</strong>&nbsp;R$ 5,00</i></p> ' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -682,7 +752,7 @@
 						<div class="itemProduto col-md-4 col-sm-6 mix all cat5" data-myorder="1" data-image="./images/Cartão_Visita_5x9.jpeg" data-titulo="Cartão de Visita" data-categoria="Cartão de Visita" data-descricao='<p style="text-align: left;"><font color="#b06400"></font>100 Unidades<br></p><p style="text-align: left;"><i><strong>R$ 40,00</strong> R$ 40,00</i></p><p style="text-align: left;"><i><strong>R$ 40,00</strong>&nbsp;R$ 40,00</i></p>' data-toggle="modal" data-target="#modalProduto" data-bound>
 							<div class="prod">
 								<div class="topo">
-									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:40px">
+									<img src="./images/impressora_x.jpg" class="img-responsive" style="width:10%">
 									<div class="hover">
 										<div class="icone"></div>
 									</div>
@@ -694,10 +764,7 @@
 							</div>
 						</div>
 	<!-- CATEGORIA 5 -->						
-						
-						
-						
-										</div>
+		</div>
 			</div>
 		</div>
 	</section>
@@ -742,7 +809,7 @@ $(function(){
 </script>
 <footer class="rodape">
 <p>
-	SCSCyber Informática &middot; 2020	</p>
+	SCSCyber Informática &middot; 2021	</p>
 </footer>	
 	<script language="javascript" type="text/javascript">	
 		$(document).ready(function(){
