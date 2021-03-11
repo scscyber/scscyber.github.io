@@ -8,7 +8,7 @@ ul,li { list-style:none; }
 *:focus { outline:none; }
 .clear { clear:both; }
 a, a:hover, a:visited { text-decoration:none; border:0 none; color: inherit; }
-img { border:0 none; max-width: 80%; }
+img { border:0 none; max-width: 60%; }
 textarea { resize:none; }
 input, textarea, select { -webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none; -ms-appearance: none; -webkit-border-radius: 0; }
 select::-ms-expand { display: none; }
@@ -16,7 +16,7 @@ select { text-indent: 0.01px; text-overflow: ''; }
 select::-ms-expand { display: none; }
 body { margin: 0; }
 .row { margin: 0; }
-.container { width: 80%; max-width: 1140px; margin: 0 auto;}
+.container { width: 60%; max-width: 1140px; margin: 0 auto;}
 .swiper-container { position: relative; }
 .swiper-container, .swiper-wrapper, .swiper-slide { height: auto; -webkit-box-sizing: border-box !important; -moz-box-sizing: border-box !important; box-sizing: border-box !important; }
 .swiper-pagination { position: absolute; width: 80%; bottom: 25px; left: 0px; text-align: center; z-index: 1; }
@@ -52,25 +52,25 @@ background-color: #330000;
 
 /*BANNER*/
 .home .banner { display: block; }
-.bannerC { width: 80%; display: inline-block; overflow: hidden; position: relative; }
-.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 200px; display: block; }
+.bannerC { width: 60%; display: inline-block; overflow: hidden; position: relative; }
+.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; display: block; }
 
 @media (max-width: 1070px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 400px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; }
 }
 @media (max-width: 900px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 350px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; }
 }
 @media (max-width: 767px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 200px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; }
 	.swiper-button-next{ right: 15px; }
 	.swiper-button-prev { left: 15px; }
 }
 @media (max-width: 630px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 200px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; }
 }
 @media (max-width: 400px){
-	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 150px; }
+	.bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; }
 }
 
 /*MENU*/
@@ -154,7 +154,7 @@ h3 {
 	margin-right: 5px;
 }
 .produtos .branco {
-	background-color: #fff;
+	background-color: gray;
     padding: 20px;
     border-bottom: 1px solid #e9e9ef;
 }
