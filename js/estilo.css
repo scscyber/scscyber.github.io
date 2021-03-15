@@ -12,7 +12,7 @@ img { border:0 none; max-width: 60%; }
 textarea { resize:none; }
 input, textarea, select { -webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none; -ms-appearance: none; -webkit-border-radius: 0; }
 select::-ms-expand { display: none; }
-select { text-indent: 0.01px; text-overflow: ''; }
+select { text-indent: 20px; text-overflow: ''; }
 select::-ms-expand { display: none; }
 body { margin: 0; }
 .row { margin: 0; }
@@ -75,7 +75,7 @@ background-color: #330000;
 
 /*MENU*/
 .menuMobile { display: none; }
-.menu { background-color: #002194; padding: 20px 0; }
+.menu { background-color: #A6ACAF; padding: 20px 0; }
 .menu .container { display: flex; }
 .menu img { float: left; padding-right: 10px; display: inline-block; }
 .menu ul { margin: 0; }
@@ -96,7 +96,6 @@ background-color: #330000;
 .abre_menu span { width: 23px; height: 2px; display: block; background: #8090ca; margin-top: 0px; z-index: 99; -webkit-transition:all 300ms ease-in;-moz-transition:all 300ms ease-in;-o-transition:all 300ms ease-in;transition:all 300ms ease-in;}
 .abre_menu span:before { content: ''; width: 23px; height: 2px; display: block; background: #8090ca; margin-top: 8px; z-index: 99; position: absolute; -webkit-transition:all 300ms ease-in;-moz-transition:all 300ms ease-in;-o-transition:all 300ms ease-in;transition:all 300ms ease-in;}
 .abre_menu span:after { content: ''; width: 23px; height: 2px; display: block; background: #8090ca; margin-top: 16px; z-index: 99; position: absolute; -webkit-transition:all 300ms ease-in;-moz-transition:all 300ms ease-in;-o-transition:all 300ms ease-in;transition:all 300ms ease-in;}
-
 body {
 	background-color: #f1f1fb;
 }
@@ -104,15 +103,16 @@ body {
 	margin-bottom: 60px;
 }
 .produtos .itens img {
-    margin: 0 auto;
+    margin: 5px auto;
     display: block;
 }
 .produtos .fundo {
 	position: relative;
 	background-image: url('../images/Logo_02.jpg');
+		background-color: #f1f1fb;
     padding-top: 60px;
     background-position: center;
-    background-size: cover;
+
     background-repeat: no-repeat;
 }
 .produtos .overlay {
@@ -127,7 +127,7 @@ body {
 .produtos .container {
 	position: relative;
     z-index: 12;
-    color: #fff;
+    color: #A6ACAF;
 }
 h2 {
 	font-size: 1.6em;
@@ -155,20 +155,28 @@ h3 {
 }
 .produtos .branco {
 	background-color: gray;
-    padding: 20px;
+    padding: 5px;
     border-bottom: 1px solid #e9e9ef;
 }
-.produtos .branco select {
+.produtos .branco {
 	border: 1px solid #f1f1f1;
     width: 100%;
-    text-align: center;
+
     padding: 10px;
-    margin: 0 auto;
-    margin-top: 13px;
-    background: url('img/select.png') no-repeat center right;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.produtos select {
+	border: 1px solid #f1f1f1;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+
+    margin-top: 10px;
+    background: url('../images/Select.png') no-repeat left;
 }
 .produtos .itens .itemProduto {
-	margin-top: 25px;
+	margin-top: 10px;
 	display: none;
 	color: #8B0000;
 }
@@ -176,7 +184,7 @@ h3 {
 	background-color: #ffffff;
     border: 1px solid rgba(103, 103, 103, 0.1);
     cursor: pointer;
-	color: #8B0000;
+	color: #A6ACAF;
 }
 .produtos .itens .itemProduto .bottom {
     padding: 25px 30px;
@@ -192,7 +200,7 @@ h3 {
 }
 .produtos .itens .itemProduto .bottom .nome {
     width: 100%;
-	   color: #8B0000;
+	   color: #A6ACAF;
     font-size: 18px;
     min-height: 50px;
 }
@@ -202,8 +210,8 @@ h3 {
 } 
 .produtos .itens .itemProduto .prod .topo .hover {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 10px;
+    left: 10px;
     background-color: rgba(241, 241, 251, 0.5);
     width: 100%;
     height: 100%;
@@ -212,16 +220,16 @@ h3 {
 		   color: #8B0000;
 }
 .produtos .itens .itemProduto .prod:hover .topo .hover {
-    opacity: 1;
+    opacity: 0.5;
 	color: #8B0000;
 }
 .produtos .itens .itemProduto .prod .topo .hover .icone {
-	background: url('img/lupa.png') no-repeat center center;
+	background: url('../images/Lupa.png') no-repeat center center;
 	width: 100%;
     height: 60px;
     position: absolute;
-    top: 50%;
-    margin-top: -30px;
+
+    margin-top: 50px;
 		   color: #8B0000;
 }
 #produtoCategoria {
@@ -237,10 +245,8 @@ h3 {
     margin: 5px 0;
     font-size: 20px;
 }
-
-
 .rodape {
-	background-color: #002194;
+	background-color: #A6ACAF;
 	text-align: center;
     color: #fff;
     font-size: 14px;
@@ -249,7 +255,6 @@ h3 {
 .rodape p {
 	margin-bottom: 0;
 }
-
 @media (max-width: 767px){
 
 	.menu .abre_menu {
