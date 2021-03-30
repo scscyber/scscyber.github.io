@@ -131,37 +131,9 @@
 <body>
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:1">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button> 
-    <span class="w3-bar-item w3-center">Mapa Isocrone</span>
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>&nbsp&nbsp&nbsp&nbsp&nbsp Mapa Isocrone
   <span class="w3-bar-item w3-right">SCSCYBER</span>
-  
-                        <form id="params">
-                        <h4 class="txt-m txt-bold mx6 my6">Escolha um modo de viagem/Duração Aproximada e Clique no local de referência no mapa:</h4>
-                        <div id="modality" class="mx12 my12 mr12 toggle-group align-center"> <label
-                                class="toggle-container"> <input name="profile" type="radio" value="walking" checked="">
-                                <div class="toggle toggle--active-null toggle--null">A pé</div>
-                            </label><label class="toggle-container"> <input name="profile" type="radio" value="cycling"
-                                    >
-                                <div class="toggle toggle--active-null toggle--null">Bicicleta</div>
-                            </label> 
-                      
-                        <div id="duration" class="mb12 mr12 toggle-group align-center"> <label class="toggle-container">
-                                <input name="duration" type="radio" value="10" checked="">
-                                <div class="toggle toggle--active-null toggle--null">10 min</div>
-                            </label> <label class="toggle-container"> <input name="duration" type="radio" value="20">
-                                <div class="toggle toggle--active-null toggle--null">20 min</div>
-                            </label><label class="toggle-container"> <input name="duration" type="radio" value="30">
-                                <div class="toggle toggle--active-null toggle--null">30 min</div>
-                            </label> </div>
-							
-</form>
-
-  
-  
-  </div>
-<br/>
-  
 </div>
 
 <!-- Sidebar/menu -->
@@ -176,31 +148,36 @@
 
                     <p>Use o Mapbox GL JS v1.9.0 + para selecionar locais, dentro de um determinado tempo de viagem de um local clicado.
                     </p> 
-
+                    <form id="params">
+                        <h4 class="txt-m txt-bold mx6 my6">Escolha um modo de viagem:</h4>
+                        <div id="modality" class="mx12 my12 mr12 toggle-group align-center"> <label
+                                class="toggle-container"> <input name="profile" type="radio" value="walking" checked="">
+                                <div class="toggle toggle--active-null toggle--null">A pé</div>
+                            </label><label class="toggle-container"> <input name="profile" type="radio" value="cycling"
+                                    >
+                                <div class="toggle toggle--active-null toggle--null">Bicicleta</div>
+                            </label> </div>
+                        <h4 class="txt-m txt-bold mb6">Escolha a duração máxima:</h4>
+                        <div id="duration" class="mb12 mr12 toggle-group align-center"> <label class="toggle-container">
+                                <input name="duration" type="radio" value="10" checked="">
+                                <div class="toggle toggle--active-null toggle--null">10 min</div>
+                            </label> <label class="toggle-container"> <input name="duration" type="radio" value="20">
+                                <div class="toggle toggle--active-null toggle--null">20 min</div>
+                            </label><label class="toggle-container"> <input name="duration" type="radio" value="30">
+                                <div class="toggle toggle--active-null toggle--null">30 min</div>
+                            </label> </div>
+</form>
       
   </div>
 </nav>
 
-
-
-
-
 <!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
-
-
-
-</div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
     <div class='viewport-full relative scroll-hidden'>
         <div id='map' class='bg-darken10  viewport-full-ml viewport-full-xs absolute top left right bottom'></div>
 
-		
-		
-		
     </div>
-	
-	
     <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 var map = new mapboxgl.Map({
