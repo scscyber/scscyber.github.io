@@ -2,65 +2,62 @@
 <frame>
 <html lang="pt-br">
 	<head>
-	<meta charset="utf-8">
-	<title>Mapa Locais</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-	
-	<!-- ICONE TITULO/ABA -->
-<link rel="icon" href="./images/Logo_02.jpg" size="50x50" />
-<link rel="icon" href="./images/Logo_02.jpg" />
-<link rel="apple-touch-icon" href="./images/Logo_02.jpg" />
-<meta name="msapplication-TileImage" content="" />
-	<link rel="icon" href="./images/Logo_02.jpg">
-<!-- Mapbox  -->
-	<script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
-	<link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
-<!-- Mapbox Geocoder -->
-	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
-	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
-<!-- Tabletop (Dados planilha GoogleDrive ) -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-<!-- W3css -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- W3css -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- FontAwesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<!-- Estilo do Mapa -->
-	<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css' />
-<!-- Script p/desabilitar ver código botao direito -->
-	<script language="JavaScript">
-	function protegercodigo() {
-	if (event.button==2||event.button==3){
-		alert('');}
-	}
-	document.onmousedown=protegercodigo;
-	</script>
+		<meta charset="utf-8"/>
+		<title>Mapa Locais</title>
+		<meta name="description" content=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+		<!-- ICONE TITULO/ABA -->
+		<link rel="icon" href="./images/Logo_02.jpg" size="50x50" />
+		<link rel="icon" href="./images/Logo_02.jpg" />
+		<link rel="apple-touch-icon" href="./images/Logo_02.jpg" />
+		<meta name="msapplication-TileImage" content="" />
+		<link rel="icon" href="./images/Logo_02.jpg"/>
+		<!-- Mapbox  -->
+		<script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+		<!-- Mapbox Geocoder -->
+		<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+		<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+		<!-- Tabletop (Dados planilha GoogleDrive ) -->
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+		<!-- W3css -->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+		<!-- W3css -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<!-- FontAwesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+		<!-- Estilo do Mapa -->
+		<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css'/>
+		<!-- Script p/desabilitar ver código botao direito -->
+		<script language="JavaScript">
+			function protegercodigo() {
+			if (event.button==2||event.button==3){
+			alert('');}
+		}
+			document.onmousedown=protegercodigo;
+		</script>
 	</head>
 <body>
 <!-- Aproximar local -->
 	<div id='map'></div>
-<div id='draw' class='draw'>...</div>
-
+	<div id='draw' class='draw'>...</div>
 <!-- Top container -->
 	<div class="w3-bar w3-top w3-black w3-medium"  style="z-index:4">
-	<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
-	<i class="fa fa-bars"></i>Menu</button>
-	
-<div id='menu'>
-    <input id='basic-v9' type='radio' name='rtoggle' value='basic'>
-    <label for='basic'>Basic</label>
-    <input id='streets-v10' type='radio' name='rtoggle' value='streets'>
-    <label for='streets'>Streets</label>
+		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
+		<i class="fa fa-bars"></i>Menu</button>
+		<div id='menu'>
+			<input id='basic-v9' type='radio' name='rtoggle' value='basic'/>
+			<label for='basic'>Basic</label>
+			<input id='streets-v10' type='radio' name='rtoggle' value='streets'/>
+			<label for='streets'>Streets</label>
 <!-- ***
     <input id='bright-v9' type='radio' name='rtoggle' value='bright'>
     <label for='bright'>Bright</label>
@@ -73,29 +70,28 @@
     <input id='navigation-guidance-night-v2' type='radio' name='rtoggle' value='navigation-guidance-night'>
     <label for='navigation-guidance-night'>Naveg-Noite</label>
  -->
-    <input id='satellite-streets-v10' type='radio' name='rtoggle' value='satellite'>
-    <label for='satellite'>Satellite</label>
-    <input id='navigation-preview-day-v2' type='radio' name='rtoggle' value='navigation-preview-day'>
-    <label for='navigation-preview-day'> Dia</label>
-    <input id='navigation-preview-night-v2' type='radio' name='rtoggle' value='navigation-preview-night-v2'>
-    <label for='navigation-preview-night'> Noite</label>
-
-</div>
-	<button id='zoom'>Z+</button>
-	<button id='inicial'>Z- </button>
-
+		<input id='satellite-streets-v10' type='radio' name='rtoggle' value='satellite'/>
+		<label for='satellite'>Satellite</label>
+		<input id='navigation-preview-day-v2' type='radio' name='rtoggle' value='navigation-preview-day'/>
+		<label for='navigation-preview-day'> Dia</label>
+		<input id='navigation-preview-night-v2' type='radio' name='rtoggle' value='navigation-preview-night-v2'/>
+		<label for='navigation-preview-night'> Noite</label>
+	</div>
+	<div id='zoom'>	</div>
+	<div id='inicial'> 	</div>
 	Meu Mapa
 	<span class="w3-bar-item w3-right">SCSCYBER</span>
 	</div>
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:200px; height:230px; margin:60px 20px ; " id="mySidebar"><hr>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:5;width:200px; height:230px; margin:80px 20px ; " id="mySidebar"><hr>
 	<div class="w3-bar-block" style="text-align:justify; margin:10px; font-size:1em;">
-	<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
-	<i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-	<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
-	<i class="fa fa-map fa-fw"></i>PRINCIPAL</a>
-	<div id='geocoder' class='geocoder'></div>
-	<p style="text-align:justify; margin:20px; font-size:1em;">Locais Salvos</p> 
+		<div id='geocoder' class='geocoder'>
+		</div>
+		<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
+		<i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+		<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
+		<i class="fa fa-map fa-fw"></i>PRINCIPAL</a>
+		<p style="text-align:justify; margin:20px; font-size:1em;">Locais Salvos</p> 
 	</div>
 </nav>
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
@@ -117,10 +113,10 @@
 //LATITUDE/LOGITUDE VISUALIZAÇÃO
 var latY = '-22.8565832'; 	var longX = '-43.259645';	  
 //LIMITES DA VISUALIZAÇÃO
-//	var bounds = [
-//	[-43.34196124490532, -22.894960192923506], // COORDENADAS SUDOESTE
-//	[-43.20895130692733,-22.839096583402593]  // COORDENADAS NOROESTE
-//	];	  
+	var bounds = [
+	[-43.283818,-22.862598], // COORDENADAS SUDOESTE
+	[-43.256095,-22.838633]  // COORDENADAS NOROESTE
+	];	  
 //DEFINIR PARAMETROS MAPA
   var map = new mapboxgl.Map({
 	container: 'map', // container id
@@ -130,36 +126,33 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 	zoom: 12, // ZOOM INICIAL
 	minZoom: 11, // 
 	maxZoom: 18,
-	transformRequest: transformRequest
-//		maxBounds: bounds, // Sets bounds as max
+	transformRequest: transformRequest,
+		maxBounds: bounds // Sets bounds as max
   });
   //ESTILOS
-  
-  var layerList = document.getElementById('menu');
-var inputs = layerList.getElementsByTagName('input');
-
-function switchLayer(layer) {
+	var layerList = document.getElementById('menu');
+	var inputs = layerList.getElementsByTagName('input');
+		function switchLayer(layer) {
     var layerId = layer.target.id;
     map.setStyle('mapbox://styles/mapbox/' + layerId );
 }
-for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
+		for (var i = 0; i < inputs.length; i++) {
+		inputs[i].onclick = switchLayer;
 }
-  
 //ADICIONAR CONTROLE DE NAVEGAÇÃO
-		var nav = new mapboxgl.NavigationControl();
-		map.addControl(nav, 'top-right');
+	var nav = new mapboxgl.NavigationControl();
+	map.addControl(nav, 'top-right');
 //ADICIONAR CONTROLE TELA CHEIA
-		map.addControl(new mapboxgl.FullscreenControl());
+	map.addControl(new mapboxgl.FullscreenControl());
 //ADICIONAR ESCALA
-		map.addControl(new mapboxgl.ScaleControl({
-			maxWidth: 0,
-			unit: 'metric' //imperial for miles
+	map.addControl(new mapboxgl.ScaleControl({
+		maxWidth: 0,
+		unit: 'metric' //imperial for miles
 		}));
 //ADICIONAR CONTROLE DE GEOLOCALIZAÇÃO
-		map.addControl(new mapboxgl.GeolocateControl({
-			positionOptions: {
-				enableHighAccuracy: true
+	map.addControl(new mapboxgl.GeolocateControl({
+		positionOptions: {
+		enableHighAccuracy: true
 			},
 			trackUserLocation: true
 		}));	  
@@ -177,8 +170,8 @@ for (var i = 0; i < inputs.length; i++) {
         });
       }
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
-// CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
 
+// FUNÇÃO addPoints: BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
       function addPoints2(data) {
         // iterate through your table to set the marker to lat/long values for each row
         data.forEach(function(row) {
@@ -195,7 +188,6 @@ for (var i = 0; i < inputs.length; i++) {
             .addTo(map); // add the marker to the map
         });
       }
-		
 // add markers to map
       function addPoints(data) {
         // iterate through your table to set the marker to lat/long values for each row
@@ -204,11 +196,9 @@ for (var i = 0; i < inputs.length; i++) {
           var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
 			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
-			
   // Cria um elemento/Imagem para cada local(img definida em .marker no arquivo de estilos
   var el = document.createElement('div');
   el.className = 'marker_'+ row.Categoria;
-						
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker(el)
             .setLngLat([row.Longitude, row.Latitude])
@@ -216,39 +206,38 @@ for (var i = 0; i < inputs.length; i++) {
             .addTo(map); // add the marker to the map
         });
       }
-	  
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
 //	var marker = new mapboxgl.Marker({
 //draggable: true
 //	})
 //	.setLngLat([longX,latY])
 //	.addTo(map);
-map.touchZoomRotate.enable(); 
-map.touchZoomRotate.enableRotation();
-var geocoder = new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-flyTo: {
-bearing: 20,
-pitch: 10,
-speed: 0.5, 
-curve: 1, 
-zoom:18,
-easing: function (t) { return t; }
-},
-mapboxgl: mapboxgl
-});
-
-document.getElementById('draw').appendChild(nav.onAdd(map));
-
+	map.touchZoomRotate.enable(); 
+	map.touchZoomRotate.enableRotation();
+	var geocoder = new MapboxGeocoder({
+					accessToken: mapboxgl.accessToken,
+					flyTo: {
+					bearing: 20,
+					pitch: 10,
+					speed: 0.5, 
+					curve: 1, 
+					zoom:18,
+					easing: function (t) { return t; }
+					},
+					mapboxgl: mapboxgl
+	});
+	document.getElementById('draw').appendChild(nav.onAdd(map));
 //INSERE A MARCA NO DEVIDO LOCAL PESQUISADO
-document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+	document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 //Zoom Máximo 18
-document.getElementById('zoom').addEventListener('click', function () {
-    map.zoomTo(18, {duration: 30000});
+	document.getElementById('zoom').addEventListener('click', function () {
+    map.zoomTo(18,
+	{duration: 30000});
 });
 //Visualização padrão 12
-document.getElementById('inicial').addEventListener('click', function () {
-    map.zoomTo(12, {duration: 30000});
+	document.getElementById('inicial').addEventListener('click', function () {
+    map.zoomTo(12, 
+	{duration: 30000});
 });
 </script>
 <!-- FIM SCRIPT MAPA -->
@@ -275,9 +264,9 @@ overlayBg.style.display = "none";
 }
 </script>
 <!-- Rodapé -->
-<div class="rodape">
-<h5> Developer By SCSCYBER Informática </h5>
-</div>
+	<div class="rodape">
+	<h5> Developer By SCSCYBER Informática </h5>
+	</div>
 </body>
 </html>
 </frame>
