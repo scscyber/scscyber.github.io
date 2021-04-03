@@ -1,20 +1,23 @@
 	body {
-	margin: 0;
-	padding: 0;
+		margin: 0;
+		padding: 0;
 	}
-
-	#map { position:absolute; top:60px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
-			    #menu {
-	text-align: center;
-        background: black;
-        padding: 10px;
-        font-family: 'Open Sans', sans-serif;
+	#map { position:absolute; top:60px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; 
+	}
+    #menu {
+		text-align: center;
+		background: gray;
+		padding: 10px;
+		font-family: 'Open Sans', sans-serif;
+		height: 10%;
     }
 	.mapboxgl-popup {
 	padding-bottom: 5px;
+	width: auto;
+	height: auto;
 	}
 	.mapboxgl-popup-close-button {
-	display: block;
+	display: none;
 	}
 	.mapboxgl-popup-content {
 	padding: 0;
@@ -26,6 +29,8 @@
 	}
 	.mapboxgl-popup-content-wrapper {
 	padding: 1%;
+	width: auto;
+	height: auto;
 	}
 	.mapboxgl-popup-content h3 {
 	font: bold 15px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
@@ -36,6 +41,7 @@
 	padding: 5px;
 	margin-top: 5px;
 	line-height:1.2;
+	
 	}
 	.mapboxgl-popup-content h4 {
 	font: bold 12px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
@@ -191,13 +197,14 @@
 	width:40%;
 	left:1%;
 	margin-left:1%;
-	top:8%;
+	top:10%;
 	}
 	.rodape {
 	position:fixed;
 	margin-left:25%;
 	bottom:8px;
-    color: #800000;
+    color: black;
+	        background-color: transparent;
 	}
 	/*FORMATAR EXIBIÇÃO TELEFONE */
 	a[href^="tel:"]:before {
@@ -209,10 +216,9 @@
         display: block;
         position: absolute;
         margin: 1px 80px 20px;
-        width: 10%;
+        width: 8%;
         height: 2em;
         padding: 10px;
-        border: none;
         border-radius: 3px;
         font-size: 1em;
         text-align: center;
@@ -228,21 +234,17 @@
         display: block;
         position: absolute;
         margin: 1px 180px 20px;
-        width: 10%;
+        width: 8%;
         height: 2em;
         padding: 10px;
-        border: none;
         border-radius: 3px;
         font-size: 1em;
-        text-align: center;
-        color: #fff;
         background: #ee8a65;
         background-image: url('../MAPAS/img_mapa/search-minus.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-color: #fff; 
         border: 2px solid #000; 
-        text-indent: 25px; 		
 
     }
 .draw {
