@@ -34,6 +34,11 @@
 		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+		
+		
+		
+		
+		
 		<!-- Estilo do Mapa -->
 		<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css'/>
 		<!-- Script p/desabilitar ver código botao direito -->
@@ -155,7 +160,7 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
         data.forEach(function(row) {
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
-            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço_Calculado + '</h4>' 
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.End2 + '</h4>' 
 			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
           // create a variable for your markup and add it to the map 
           var marker = new mapboxgl.Marker({
@@ -176,7 +181,7 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 + '<h3><a class="btn btn-lg btn-success" href="https://www.google.com.br/maps/@' + row.Latitude + ',' + row.Longitude + ',20z"><i class="fa fa-map fa-lg"></i>Google Maps</a></h3>'
 
 
-			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' + row.Endereço_Calculado + '</h4>' 
+			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' + row.End2 + '</h4>' 
 			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' + row.Celular + '</h4>' ); 	
 			
 			// use the table to populate your popup with text
