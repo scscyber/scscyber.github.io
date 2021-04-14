@@ -88,7 +88,7 @@
 <div id='map'></div>
 <div class='map-overlay'>
     <fieldset>
-        <input id='feature-filter' type='text' placeholder='Filtrar por nome' />
+        <input id='feature-filter' type='text' placeholder='Filter results by name' />
     </fieldset>
     <div id='feature-listing' class='listing'></div>
 </div>
@@ -129,7 +129,7 @@ function renderListings(features) {
             var item = document.createElement('a');
             item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',20z';
             item.target = '_blank';
-            item.textContent = prop.Nome + ' ( ' + prop.End2 + ' )';
+            item.textContent = prop.Nome + ' (  ' + prop.End2 + '  )';
             item.addEventListener('mouseover', function() {
                 // Highlight corresponding feature on the map
                 popup.setLngLat(feature.geometry.coordinates)
@@ -177,25 +177,6 @@ function getUniqueFeatures(array, comparatorProperty) {
     return uniqueFeatures;
 }
 map.on('load', function() {
-        map.addSource('airports', {
-            'type': 'vector',
-            'url': 'scs999999.cknanmgot3x4k28qq7imq1mza-41v81'
-        });
-        map.addLayer({
-            'id': 'airport',
-            'source': 'airports',
-            'source-layer': 'ne_10m_airports',
-            'type': 'symbol',
-            'layout': {
-                'icon-image': 'airport-15',
-                'icon-padding': 0,
-                'icon-allow-overlap': true
-            }
-        });
-
-
-
-
     map.on('moveend', function() {
         var features = map.queryRenderedFeatures({layers:['locais']});
         if (features) {
@@ -216,7 +197,7 @@ map.on('load', function() {
         // Populate the popup and set its coordinates based on the feature.
         var feature = e.features[0];
         popup.setLngLat(feature.geometry.coordinates)
-            .setText(feature.properties.End2)
+            .setText(feature.properties.Nome + ' ( ' + feature.properties.End2 + ' )')
             .addTo(map);
     });
     map.on('mouseleave', 'locais', function() {

@@ -127,13 +127,13 @@ function renderListings(features) {
 		  var coordd2 = divideCoord2(feature.geometry.coordinates);
 		  var prop = feature.properties;
             var item = document.createElement('a');
-            item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',15.5z';
+            item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',20z';
             item.target = '_blank';
-            item.textContent = prop.place_name + ' ( População: ' + prop.pop + '  )';
+            item.textContent = prop.Nome + ' ( ' + prop.End2 + ' )';
             item.addEventListener('mouseover', function() {
                 // Highlight corresponding feature on the map
                 popup.setLngLat(feature.geometry.coordinates)
-                    .setText(feature.properties.place_name)
+                    .setText(feature.properties.Nome)
                     .addTo(map);
             });
             listingEl.appendChild(item);
@@ -149,12 +149,18 @@ function renderListings(features) {
         filterEl.parentNode.style.display = 'none';
 
         // remove features filter
-        map.setFilter('bairros', ['has', 'place_name']);
+        map.setFilter('locais', ['has', 'Nome']);
     }
 }
 function normalize(string) {
     return string.trim().toLowerCase();
 }
+
+
+
+
+
+
 function getUniqueFeatures(array, comparatorProperty) {
     var existingFeatureKeys = {};
     // Because features come from tiled vector data, feature geometries may be split
@@ -171,10 +177,29 @@ function getUniqueFeatures(array, comparatorProperty) {
     return uniqueFeatures;
 }
 map.on('load', function() {
+        map.addSource('airports', {
+            'type': 'vector',
+            'url': 'scs999999.cknanmgot3x4k28qq7imq1mza-41v81'
+        });
+        map.addLayer({
+            'id': 'airport',
+            'source': 'airports',
+            'source-layer': 'ne_10m_airports',
+            'type': 'symbol',
+            'layout': {
+                'icon-image': 'airport-15',
+                'icon-padding': 0,
+                'icon-allow-overlap': true
+            }
+        });
+
+
+
+
     map.on('moveend', function() {
-        var features = map.queryRenderedFeatures({layers:['bairros']});
+        var features = map.queryRenderedFeatures({layers:['locais']});
         if (features) {
-            var uniqueFeatures = getUniqueFeatures(features, "place_name");
+            var uniqueFeatures = getUniqueFeatures(features, "Nome");
             // Populate features for the listing overlay.
             renderListings(uniqueFeatures);
             // Clear the input container
@@ -184,17 +209,17 @@ map.on('load', function() {
             roads = uniqueFeatures;
         }
     });
-    map.on('mousemove', 'bairros', function(e) {
+    map.on('mousemove', 'locais', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
         // Populate the popup and set its coordinates based on the feature.
         var feature = e.features[0];
         popup.setLngLat(feature.geometry.coordinates)
-            .setText(feature.properties.place_name + ' ( ' + feature.properties.pop + ' Habitantes)')
+            .setText(feature.properties.End2)
             .addTo(map);
     });
-    map.on('mouseleave', 'bairros', function() {
+    map.on('mouseleave', 'locais', function() {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
@@ -202,14 +227,14 @@ map.on('load', function() {
         var value = normalize(e.target.value);
         // Filter visible features that don't match the input value.
         var filtered = roads.filter(function(feature) {
-            var name = normalize(feature.properties.place_name);
+            var name = normalize(feature.properties.Nome);
             return name.indexOf(value) > -1 ;
         });
         // Populate the sidebar with filtered results
         renderListings(filtered);
         // Set the filter to populate features into the layer.
-        map.setFilter('bairros', ['match', ['get', 'place_name'], filtered.map(function(feature) {
-            return feature.properties.place_name;
+        map.setFilter('locais', ['match', ['get', 'Nome'], filtered.map(function(feature) {
+            return feature.properties.Nome;
         }), true, false]);
     });
     // Call this function on initialization
