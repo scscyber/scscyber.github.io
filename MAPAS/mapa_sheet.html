@@ -155,8 +155,8 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
         data.forEach(function(row) {
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
-            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.End2 + '</h4>' 
-			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Telefone + '</h4>'); // use the table to populate your popup with text
           // Marker1
           var marker = new mapboxgl.Marker({
               color: 'purple'
@@ -173,13 +173,14 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + row.Nome + '</h3>'
-+ '<h3><a class="btn btn-lg btn-success" href="https://www.google.com.br/maps/@' + row.Latitude + ',' + row.Longitude + ',20z"><i class="fa fa-map fa-lg"></i>Google Maps</a></h3>'
-
-
-			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' + row.End2 + '</h4>' 
-			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' + row.Celular + '</h4>' ); 	
-			
-			// use the table to populate your popup with text
+			+ '<h3><a class="btn btn-lg btn-success" href="https://www.google.com.br/maps/@' 
+			+ row.Latitude + ',' 
+			+ row.Longitude + ',20z"><i class="fa fa-map fa-lg"></i>Google Maps</a></h3>'
+			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' 
+			+ row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' 
+			+ row.Telefone + '</h4>' ); 	
+	// use the table to populate your popup with text
   // Cria um elemento/Imagem para cada local(img definida em .marker no arquivo de estilos
   var el = document.createElement('div');
   el.className = 'marker_'+ row.Categoria;
