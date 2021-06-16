@@ -6,13 +6,10 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
-	
-	
 		<!-- W3css -->
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 		<!-- W3css -->
@@ -22,16 +19,9 @@
 		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>	
-	
-		
-	
-	
     <style>
         body { margin:0; padding:0; }
-
     </style>
-</head>
-<body>
 <style>
 #map {
     position:absolute;
@@ -42,7 +32,7 @@
 }
 .map-overlay {
     position: absolute;
-    width: 25%;
+    width: 20%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -68,7 +58,7 @@
 }
 .map-overlay .listing {
     overflow: auto;
-    max-height: 100%;
+    max-height: 60%;
     font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     background: #f0f0f0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -112,27 +102,42 @@
     margin: 0;
     color: blue;
 }
-</style>
+	.legend {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+	}
+	.legend h4 {
+    margin: 0 0 10px;
+	}
+	.legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+	}
+</style>	
+</head>
+<body>
 <div id='map'></div>
 <div class='map-overlay'>
 <div class='titulo'>
-<h3><center>Bairros</center></h3>
+<h3><center>Bairros - Rio de Janeiro</center></h3>
+<div id='state-legend' class='legend'>
+    <h4>Rio de Janeiro - Cidade</h4>
+    <h4>População</h4>
+<hr/>
+    <div><span style='background-color: #f5e4db'></span>Até 50.000</div>
+    <div><span style='background-color: #f28621'></span>De 50.000 a 100.000</div>
+    <div><span style='background-color: #4b0202'></span>Acima de 100.000</div>
 </div>
-
-<div class="btn-group open">
-  <a class="btn btn-primary" href="#"><i class=""></i> Legenda</a>
-  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-  </a>
-  <ul class="dropdown-menu">
-      <li><a href="#"><i class=""></i> População</a></li>
-	      <li class="divider"></li>
-    <li><a href="#"><i style="background-color:#e4bf62;">&nbsp;&nbsp;&nbsp;</i> Até 50 mil Habs</a></li>
-    <li><a href="#"><i style="background-color:#f28621;">&nbsp;&nbsp;&nbsp;</i> De 50 mil a 100 mil Habs</a></li>
-    <li><a href="#"><i style="background-color:#4a0202;">&nbsp;&nbsp;&nbsp;</i> Acima 100 mil Habs</a></li>
-
-
-  </ul>
 </div>
     <fieldset>
         <input id='feature-filter' type='text' placeholder='Filtrar por nome' />
@@ -266,5 +271,3 @@ map.on('load', function() {
 </script>
 </body>
 </html>
-
-

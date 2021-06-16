@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<!-- Required meta tags always come first -->
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+<meta name="theme-color" content="#33b5e5"/>
+<link rel="manifest" href="/manifest.json"/>
+<!-- Google Fonts Roboto -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+<title>SCSCyber</title>
+<!-- ICONE TITULO/ABA -->
+<link rel="shortcut icon" href="logo_02.jpg" size="50x50" />
+<link rel='dns-prefetch' href='//s.w.org' />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mdbootstrap.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.1"}};
+!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<link rel='stylesheet' id='dashicons-css'  href='https://mdbootstrap.com/wp-includes/css/dashicons.min.css?ver=5.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='admin-bar-css'  href='https://mdbootstrap.com/wp-includes/css/admin-bar.min.css?ver=5.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://mdbootstrap.com/wp-includes/css/dist/block-library/style.min.css?ver=5.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-block-vendors-style-css'  href='https://mdbootstrap.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/vendors-style.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-block-style-css'  href='https://mdbootstrap.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css?ver=3.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://mdbootstrap.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.2.2' type='text/css' media='all' />
+<!-- Compiled JS -->
+<script type='text/javascript' src='https://mdbootstrap.com/wp-admin/load-scripts.php?c=gzip&amp;load%5Bchunk_0%5D=hoverintent-js,admin-bar,wp-embed,jquery-ui-core,jquery-ui-widget,jquery-ui-mouse,jquery-ui-slider&amp;ver=5.5.1'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled.0.min.js?ver=4.19.1' id='mdb-js2-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/footer-functions.js?ver=4.19.1-update.8' id='footer-functions-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.2.2' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70' id='jquery-blockui-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4' id='js-cookie-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=4.4.1' id='woocommerce-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/mdb3/jquery.validate.js?ver=1.0.0' id='validate-script-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/ajax-auth-script.js?ver=4.19.1-update.6' id='ajax-auth-script-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/snippets-behavior.js?ver=4.19.1-update.9' id='snippets-behavior-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/pricing-modal.js?ver=4.19.1-update.2' id='pricing-modal-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/pages-rates.js?ver=4.19.1-update.1' id='example-ajax-script-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/dynamic-parts-loader.js?ver=4.19.1-update.17' id='dynamic-parts-loader-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js?ver=4.4.1' id='wc-jquery-ui-touchpunch-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce-currency-switcher/js/price-slider_33.js?ver=2.3.1' id='wc-price-slider_33-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce-currency-switcher/js/jquery.ddslick.min.js?ver=2.3.1' id='jquery.ddslick.min-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/woocommerce-currency-switcher/js/front.js?ver=2.3.1' id='woocommerce-currency-switcher-js'></script>	
+<link rel='stylesheet' id='wsl-widget-css'  href='https://mdbootstrap.com/wp-content/plugins/wordpress-social-login/assets/css/style.css?ver=5.5.1' type='text/css' media='all' />
+<link rel='stylesheet' id='compiled.css-css'  href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.19.1.min.css?ver=4.19.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://mdbootstrap.com/wp-admin/load-scripts.php?c=gzip&amp;load%5Bchunk_0%5D=jquery-core&amp;ver=5.5.1'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/bitpay-checkout-for-woocommerce/js/bitpayquickpay_js.js?ver=5.5.1' id='bitpayquickpay-js-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-woocommerce-classic.js?ver=1.11.4' id='gtm4wp-woocommerce-classic-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-woocommerce-enhanced.js?ver=1.11.4' id='gtm4wp-woocommerce-enhanced-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/mdb-search.js?ver=4.19.1-update.1' id='mdb-search.js-js'></script>
+<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/tutorial-share-counts.js?ver=4.19.1-update.4' id='tutorial-share-counts-js'></script>
+<link rel="https://api.w.org/" href="https://mdbootstrap.com/wp-json/" /><link rel="alternate" type="application/json" href="https://mdbootstrap.com/wp-json/wp/v2/pages/43907" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mdbootstrap.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mdbootstrap.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.5.1" />
+<meta name="generator" content="WooCommerce 4.4.1" />
+<link rel='shortlink' href='https://mdbootstrap.com/?p=43907' />
+<link rel="alternate" type="application/json+oembed" href="https://mdbootstrap.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmdbootstrap.com%2Fdocs%2Fjquery%2Fcomponents%2Fdemo%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://mdbootstrap.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmdbootstrap.com%2Fdocs%2Fjquery%2Fcomponents%2Fdemo%2F&#038;format=xml" />
+
+
+		<!-- W3css -->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+		<!-- W3css -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<!-- FontAwesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+		
+		<!-- Theme Made By www.w3schools.com - No Copyright -->
+<title>SCSCyber</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/> 
+<!-- ICONE TITULO/ABA -->
+<link rel="shortcut icon" href="./images/Logo_02.jpg" size="50x50" />
+<meta name="msapplication-TileImage" content="" />
+
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<style>
+.switch-version {
+z-index: 1000;
+}
+.switch-to {
+background-image: url('https://mdbootstrap.com/img/logo/mdb-switch.png');
+}
+.switch-to.mdb-standard {
+background-position: 0 -160px;
+}
+</style>
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}
+</style>	
+<style>
+@media only screen and (max-width: 768px) {
+/* Force table to not be like tables anymore */
+table,
+thead,
+tbody,
+th,
+td,
+tr {
+display: block;
+text-align: center;
+}
+table.table td {
+padding-top: 1.5rem;
+padding-bottom: .4rem;
+}
+img {}
+/* Hide table headers (but not display: none;, for accessibility) */
+thead tr {
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+img {
+display: block;
+margin: 0 auto;
+}
+}
+.card-body p {
+font-weight: 300;
+}
+.wow {
+visibility: hidden;
+}
+/*.view:not(.zoom) {
+overflow: visible;
+}*/
+</style>
+<style>
+#dynamicContentWrapper-docsPanel {
+display: none !important;
+}
+</style>
+<style>
+.container-fluid {
+padding: 10px 10px;
+}
+.bg-grey {
+background-color: #f6f6f6 ;
+}
+.thumbnail {
+padding: 0 0 15px 0;
+border: none;
+border-radius: 0;
+}
+.thumbnail img {
+width: 50%;
+height: 50%;
+margin-bottom: 10px;
+}
+.navbar {
+float:left;
+margin-bottom: 0;
+background-color: #1565c0;
+z-index: 9999;
+border: 0;
+font-size: 12px !important;
+line-height: 1.42857143 !important;
+letter-spacing: 4px;
+border-radius: 0;
+height:40px;
+}
+.navbar li a, .navbar .navbar-brand {
+float:left;
+color: #fff !important;
+background-color: #1565c0;
+border: 1px;
+font-size: 12px !important;
+line-height: 1.42857143 !important;
+letter-spacing: 4px;
+border-radius: 5px;		
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+color: #f4511e !important;
+background-color: #fff !important;
+}
+.navbar-default .navbar-toggle {
+float:left;
+border-color: #fff;
+color: #fff !important;
+}
+footer .glyphicon {
+font-size: 20px;
+margin-bottom: 20px;
+color: #f4511e;
+}
+@media screen and (max-width: 768px) {
+.col-sm-4 {
+text-align: center;
+margin: 25px 0;
+}
+}
+body{
+margin-top: 100px;
+}
+</style>
+<style>
+main input[type=email]:focus,
+main input[type=password]:focus,
+main input[type=text]:focus,
+main input[type=url]:focus,
+main textarea:focus {
+border: 0;
+}
+.embed-responsive-16by9-fix-contact-form::before {
+height: 450px;
+}
+@media (min-width:580px) {
+.modal-contact-form-fix,
+.modal-contact-form-fix * {
+box-sizing: content-box !important;
+}
+}
+@media (min-width: 1400px) {
+#modalPricing .modal-dialog {
+max-width: 80vw;
+}
+}
+</style>
+</head>
+
+<header>
+<!-- Sidebar navigation -->
+<div id="dpl-auth-modal">
+</div>
+<!--Section: Tabs and Pills-->
+<section id="tabs" class="text-center">
+<!--Section heading-->
+<h3 class="section-heading sm-4 mt-0">SCSCyber Informática</h3>
+<section id="miscellaneous" class="text-center">
+<!--Section heading-->
+<!--Grid row-->
+<div class="row">
+  <!--Grid column-->
+  <div class="col-sm-12">
+	  <div class="chip">
+		  <img src="logo_02.jpg" alt="Contact Person"> Xerox
+	  </div>
+	  <div class="chip">
+		  <img src="suporte.png" alt="Contact Person"> Impressão
+	  </div>
+	  
+	  <hr>
+  </div>
+</div>
+
+</section>
+</section>
+</header>
+<!-- Main layout-->
+<main class="pt-4">
+<div class="main-wrapper">
+<div class="container-fluid">
+<div class="row">
+	<!--Main column-->
+<div class="col-lg-10 col-md-12 col-sm-12">
+<div class="text-center">
+			
+				</div>
+<!--Category content-->
+<section class="dynamic-content">
+<div class="container">
+
+
+<script language="JavaScript">
+function protegercodigo() {
+if (event.button==2||event.button==3){
+alert('SCSCyber');}
+}
+document.onmousedown=protegercodigo;
+</script>	
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container ">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>                        
+</button>
+<img src="./images/Logo_02.jpg" class="img-responsive" style="height:30%;width:30%"/>
+	
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav navbar-right">
+<li><a href="index.html">INICIAL</a></li>
+<li><a href="#contact">CONTATO</a></li>
+<li>		<a href = "https://wa.me/message/HSK6T7NILIGGI1" target="_blank" ><span class="" title="WhatsApp"alt="WhatsApp">
+<img src="./images/whattsapp2.png" class="img-responsive" style="width:40px">
+</span></a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+<!--Section: Cards-->
+<section id="cards" class="text-center">
+<!--Grid row-->
+<div class="row">
+  <!--Grid column-->
+<div class="col-lg-4 col-md-12 sm-12">
+<!--Rotating card-->
+<div class="card-wrapper">
+<!-- Rotating card -->
+<div class="card-wrapper">
+<div id="card-1" class="card card-rotating text-center">
+<!-- Front Side -->
+<div class="face front">
+<!-- Image-->
+<div class="thumbnail">
+<img src="./images/mapa.jpg" alt="Mapa" width="50" height="50">
+</div>
+<!-- Content -->
+<div class="card-body">
+<h4 class="font-weight-bold sm-8">SCSCyber</h4>
+<p class="font-weight-bold blue-text">MAPAS</p>
+<!-- Triggering button -->
+<a class="rotate-btn  btn btn-default btn"" data-card="card-1"><i class="fa fa-cog"></i> Ver Informações</a>
+</div>
+</div>
+<!-- Front Side -->
+<!-- Back Side -->
+<div class="face back">
+<div class="card-body">
+<!-- Content -->
+<h4 class="font-weight-bold mb-0">Informações</h4>
+<hr/>
+<p>SCSCyber Informática</p>
+<hr/>
+<!-- Social Icons -->
+
+<ul class="fa-ul">
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class=" fa-li fa fa-map-o"></i><a href="MAPAS/mapa_sheet.html"  target="_blank">Mapa Locais</a></li>
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="fa-li fa fa-map"></i><a href="MAPAS/mapa_calculoRota.html" target="_blank">Mapa Cálculo Rota</a></li>
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="fa-li fa fa-map-o"></i><a href="MAPAS/mapa_isocrone.html"  target="_blank">Mapa Isocrone</a></li>
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="fa-li fa fa-map"></i><a href="MAPAS/mapa_filtro_Locais.html"  target="_blank">Pesquisa Locais</a></li>
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="fa-li fa fa-map-o"></i><a href="MAPAS/mapa_filtro_Bairros.html"  target="_blank">Pesquisa Bairros</a></li>
+<li class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="fa-li fa fa-map"></i><a href="MAPAS/mapa_filtro_layer.html"  target="_blank">População Bairros</a></li>
+
+</ul>
+
+<!-- Triggering button -->
+<a class="rotate-btn btn btn-default btn" data-card="card-1"><i class="btn btn-default btn fa fa-undo "></i> VOLTAR</a>
+</div>
+</div>
+<!-- Back Side -->
+</div>
+</div>
+<!-- Rotating card -->
+<!--/.Rotating card-->
+</div>
+</div>
+<!--Grid row-->
+</div>
+<!--Grid row 2 -->
+
+</section>
+
+</div>
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+<h2 class="text-center">CONTATO</h2>
+<div class="row">
+<div class="col-sm-5">
+<p>Contato</p>
+<p><span class="glyphicon glyphicon-map-marker"></span> Ramos, Rio de Janeiro</p>
+<p><span class="glyphicon glyphicon-phone"></span> (21) 96928-1234</p>
+<p><span class="glyphicon glyphicon-envelope"></span> scscyber999@gmail.com</p>
+</div>
+</div>
+<div>   
+</div>
+</div>
+<!--RODAPÉ-->
+<footer id="footer" class="page-footer unique-color-dark mt-4">
+</div>
+<!--/.Footer Links-->
+
+</footer>
+<!--/.Footer-->
+</script>
+</body>
+</section>
+<hr class="my-5">
+<!--Category content-->
+			</div>
+			<!--/.Main column-->
+									
+			<!-- Right Sidebar -->
+			</div>
+		</div>
+							
+</main>
+<!-- /.Main layout-->
+<!--RODAPÉ-->
+<footer id="footer" class="page-footer unique-color-dark mt-4">
+<div class="info-color-dark text-center py-4">
+<!--Newsletter-->
+<!--GitHub-->
+<a rel="nofollow" target="_blank" id="footer-link-github" href="https://github.com/">
+<i class="fa fa-github white-text mr-4"> </i>
+</a>
+<!--Youtube-->
+<a rel="nofollow" target="_blank" id="footer-link-youtube" href="https://www.youtube.com/">
+<i class="fa fa-youtube white-text mr-4"> </i>
+</a>
+<!--Facebook-->
+<a rel="nofollow" target="_blank" id="footer-link-facebook" href="https://www.facebook.com/">
+<i class="fa fa-facebook-f white-text mr-4"> </i>
+</a>
+<!--Twitter-->
+<a rel="nofollow" target="_blank" id="footer-link-twitter" href="https://twitter.com/">
+<i class="fa fa-twitter white-text"> </i>
+</a>
+</div>
+<!--Footer Links-->
+</div>
+<!--/.Footer Links-->
+<!-- Copyright-->
+<div class="footer-copyright py-3 text-center">
+&copy; 2021 Copyright:
+<a href="">
+<strong> SCSCyber</strong>
+</a>
+</div>
+<!--/.Copyright -->
+</footer>
+<!--/.Footer-->
+<!-- Modal: modalSnippetSettings -->
+<div class="modal fade" id="modalSnippetSettings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<!-- Modal content -->
+<div class="modal-content">
+<div id="snippets-settings-preloader" class="checkout-preloader-container d-none">
+<div class="preloader-wrapper big active">
+<div class="spinner-layer spinner-blue-only">
+<div class="circle-clipper left">
+  <div class="circle"></div>
+</div>
+<div class="gap-patch">
+  <div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+  <div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal header -->
+<div class="modal-header">
+<h5 class="modal-title" id="settings-modal">Snippet settings</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden=true>&times;</span>
+</button>
+</div>
+<!-- Modal body -->
+<div class="modal-body">
+<!--Grid row-->
+<div class="row">
+<!--Grid column-->
+<div class="col-md-6 mb-4">
+<!--Name-->
+<select class="browser-default custom-select" id="snippet-package-technology">
+  <option value="" disabled>MDB Technology</option>
+</select>
+<!--Name-->
+<select class="browser-default custom-select mt-2" id="snippet-package-version">
+  <option value="" disabled>MDB Version</option>
+</select>
+<!--Grid row-->
+<div class="row mt-2">
+  <!--Grid column-->
+  <div class="col-md-7 mb-4">
+	<!--Name-->
+	<select class="browser-default custom-select md-selected" id="snippet-package-type">
+	  <option value="" disabled>Type</option>
+	</select>
+  </div>
+ <!--Grid column-->
+  <div class="col-md-5 mb-4">
+	<a role="button" class="btn btn-info btn-md" target="_blank" id="go-pro">Go Pro</a>
+  </div>
+  <!--Grid column-->
+</div>
+<!--Grid row-->
+<div class="switch mb-2">
+  <label>
+  Public                <input id="snippet-status" type="checkbox">
+	<span class="lever"></span> Private              </label>
+</div>
+</div>
+</div>
+<!--Grid row-->
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+<button type="button" class="btn btn-outline-elegant" data-dismiss="modal">Close</button>
+<a role="button" class="btn btn-info" id="save-snippet-settings" data-action="" data-user-nicename="new">Create</a>
+</div>
+</div>
+<!-- Modal content -->
+</div>
+</div>
+<!-- Modal: modalSnippetSettings -->
+<!-- Modal: modalOpenSnippet -->
+<div class="modal fade" id="modalOpenSnippet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div id="open-modal-preloader" class="checkout-preloader-container d-none">
+<div class="preloader-wrapper big active">
+<div class="spinner-layer spinner-blue-only">
+<div class="circle-clipper left">
+  <div class="circle"></div>
+</div>
+<div class="gap-patch">
+  <div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+  <div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Open snippet</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p class="text-center">Your snippet is ready. Click to open</p>
+</div>
+<div class="modal-footer m-auto">
+<a type="button" class="btn btn-primary open-snippet" target="_blank">Open</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal: modalOpenSnippet -->
+<!-- Modal: modalPricing -->
+<div class='xlwcty_header_passed' style='display: none;'></div>
+<script>
+$(document).ready(function() {
+$(".button-collapse").sideNav();
+var el = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(el);
+});
+</script>
+						
+</body>
+</html>
+<!--Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+Page Caching using disk: enhanced 
+Served from: mdbootstrap.com @ 2020-09-23 18:10:32 by W3 Total Cache
+-->

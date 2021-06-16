@@ -8,11 +8,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 		<!-- ICONE TITULO/ABA -->
-		<link rel="icon" href="./images/Logo_02.jpg" size="50x50" />
-		<link rel="icon" href="./images/Logo_02.jpg" />
-		<link rel="apple-touch-icon" href="./images/Logo_02.jpg" />
+		<link rel="icon" href="../images/logo_02.jpg" size="50x50" />
+		<link rel="icon" href="../images/logo_02.jpg" />
+		<link rel="apple-touch-icon" href="../images/logo_02.jpg" />
 		<meta name="msapplication-TileImage" content="" />
-		<link rel="icon" href="./images/Logo_02.jpg"/>
+		<link rel="icon" href="../images/logo_02.jpg"/>
 		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<!-- Bootstrap -->		
@@ -173,9 +173,9 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + row.Nome + '</h3>'
-			+ '<h3><a class="btn btn-lg btn-success" href="https://www.google.com.br/maps/@' 
+			+ '<h2><a class="btn btn-sm btn-outline-success" href="https://www.google.com.br/maps/@' 
 			+ row.Latitude + ',' 
-			+ row.Longitude + ',20z"><i class="fa fa-map fa-lg"></i>Google Maps</a></h3>'
+			+ row.Longitude + ',20z" target="_blank"><i class="fa fa-map fa-lg"></i> Google Maps</a></h2>'
 			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' 
 			+ row.Endereço + '</h4>' 
 			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' 
@@ -219,7 +219,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
     map.zoomTo(18,
 	{duration: 30000});
 });
-//Visualização padrão 12
+//Visualização padrão 10
 	document.getElementById('inicial').addEventListener('click', function () {
     map.zoomTo(10, 
 	{duration: 20000});
