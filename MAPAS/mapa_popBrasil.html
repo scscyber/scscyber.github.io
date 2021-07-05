@@ -165,6 +165,7 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 	}
 // Função para exibir descrição dos atributos ao clicar
 	function onEachFeature(feature, layer) {
+	strg = (feature.properties.sigla).toLowerCase();// Coloca '-' no lugar dos espaços
 		var popupContent =
 			"Geocodigo: " + "<span style='color:"+ getColor(feature.properties.população/1000000) + "; font-size:30px;' >" + feature.properties.geocodigo + "</span>"
 			+ "</br>Descrição: <span style='color:"+ getColor(feature.properties.população/1000000) + "; font-size:25px;' >"
@@ -172,10 +173,13 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 			+ feature.properties.população + "</span>"
 			// Caso seja ponto as coordenadas sao mostradas é exibido
 				if (feature.properties && feature.properties.geocodigo && feature.geometry.type == 'MultiPolygon' ) {
-				popupContent += '</br><span style="color: red; font-size:20px;" ><a href = "http://www.ibge.gov.br/cidadesat/xtras/perfil.php?codmun='
-				+ feature.properties.geocodigo + '" target="blank" >'
+				popupContent += '</br><span style="color: red; font-size:20px;" ><a href = "https://cidades.ibge.gov.br/brasil/'
+				+ strg + '/panorama" target="blank" >'
 				+ 'IBGE/INFOCIDADE' +'</a> </span></a>';
 		}
+		
+		
+	
 // Ao clicar na feição abre um POPUP com as informações
 	layer.bindPopup(popupContent);
 		layer.bindTooltip("CLIQUE PARA EXIBIR");

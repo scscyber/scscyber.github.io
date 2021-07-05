@@ -6,7 +6,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
-	<script src="geojson/limite_ramos2.geojson" type="text/javascript"></script>	
+	<script src="geojson/limite_ramos.geojson" type="text/javascript"></script>	
 <style>
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -68,14 +68,14 @@ var map = new mapboxgl.Map({
 });
 var zoomThreshold = 14;
 map.on('load', function() {
-    map.addSource('population', {
+    map.addSource('bairros1', {
         'type': 'geojson',
-        'data': data
+        'data': limites
     });
     map.addLayer({
         'id': 'state-population',
-        'source': 'population',
-        'source-layer': 'population',
+        'source': 'bairros1',
+        'source-layer': 'bairros1',
         'maxzoom': zoomThreshold,
         'type': 'fill',
         'paint': {
@@ -98,8 +98,8 @@ map.on('load', function() {
     }, 'waterway-label');
     map.addLayer({
         'id': 'county-population',
-        'source': 'population',
-        'source-layer': 'population',
+        'source': 'bairros',
+        'source-layer': 'bairros2',
         'minzoom': zoomThreshold,
         'type': 'fill',
         'paint': {

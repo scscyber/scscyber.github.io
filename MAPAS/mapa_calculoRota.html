@@ -6,8 +6,10 @@
 <title>Calculo de Rota</title>
 
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -92,7 +94,7 @@ minZoom: 9 // keep it local
 
 
             //Add a 'full screen' button to the map
-            map.addControl(new mapboxgl.FullscreenControl());
+          //  map.addControl(new mapboxgl.FullscreenControl());
             
             //Add a Scale to the map
             map.addControl(new mapboxgl.ScaleControl({
@@ -254,8 +256,8 @@ map.on('draw.delete', removeRoute);
 var geocoder = new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 flyTo: {
-bearing: 280,
-pitch: 200,
+bearing: 0,
+pitch: 0,
 
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting

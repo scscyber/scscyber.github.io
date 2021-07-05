@@ -25,8 +25,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
 		<!-- Mapbox  -->
-		<script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
-		<link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
 		<!-- Mapbox Geocoder -->
 		<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 		<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
@@ -103,7 +106,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 	center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
 	zoom: 10, // ZOOM INICIAL
 	minZoom: 10, // 
-	maxZoom: 18
+	maxZoom: 20
 //	transformRequest: transformRequest
 //		maxBounds: bounds // Sets bounds as max
   });
@@ -217,12 +220,21 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 //Zoom Máximo 18
 	document.getElementById('zoom').addEventListener('click', function () {
     map.zoomTo(18,
-	{duration: 30000});
+	{				bearing: 280,
+					pitch: 200,
+					speed: 0.5, 
+					curve: 1,
+	duration: 30000});
 });
 //Visualização padrão 10
 	document.getElementById('inicial').addEventListener('click', function () {
     map.zoomTo(10, 
-	{duration: 20000});
+	{				bearing: 0,
+					pitch: 0,
+					speed: 0.5, 
+					curve: 1,
+	
+	duration: 20000});
 });
 </script>
 <!-- FIM SCRIPT MAPA -->

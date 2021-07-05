@@ -151,6 +151,8 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 	}
 // Função para exibir descrição dos atributos ao clicar
 	function onEachFeature(feature, layer) {
+		strg = (feature.properties.NM_MUNICIP).toLowerCase().split(" ").join("-");// Coloca '-' no lugar dos espaços
+		parsed = strg.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Retira caracteres especiais
 		var popupContent =
 			"Geocodigo: " + "<span style='color:"+ getColor(feature.properties.populacao/1.000) + "; font-size:30px;' >" + feature.properties.CD_GEOCMU + "</span>"
 			+ "</br>Descrição: <span style='color:"+ getColor(feature.properties.populacao/1.000) + "; font-size:25px;' >"
@@ -158,10 +160,11 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 			+ feature.properties.populacao + "</span>"
 			// Caso seja ponto as coordenadas sao mostradas é exibido
 				if (feature.properties && feature.properties.CD_GEOCMU && feature.geometry.type == 'MultiPolygon' ) {
-				popupContent += '</br><span style="color: red; font-size:20px;" ><a href = "http://www.ibge.gov.br/cidadesat/xtras/perfil.php?codmun='
-				+ feature.properties.CD_GEOCMU + '" target="blank" >'
+				popupContent += '</br><span style="color: red; font-size:20px;" ><a href = "https://cidades.ibge.gov.br/brasil/'
+				+ 'rj/' + parsed + '/panorama" target="blank" >'
 				+ 'IBGE/INFOCIDADE' +'</a> </span></a>';
 		}
+		
 // Ao clicar na feição abre um POPUP com as informações
 	layer.bindPopup(popupContent);
 		layer.bindTooltip("CLIQUE PARA EXIBIR");
