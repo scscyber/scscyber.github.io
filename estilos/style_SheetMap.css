@@ -63,7 +63,7 @@
 	}
 	/*Estilos dos marcadores */
 	.marker_Supermercado {
-	background-image: url('../MAPAS/img_mapa/grocery-15.svg');
+	background-image: url('../mapas/img_mapa/grocery-15.svg');
     background-color: #e5e5a8;
 	background-size: cover;
 	width: 25px;
@@ -72,7 +72,7 @@
 	cursor: pointer;
 	}
 	.marker_Escola {
-	background-image: url('../MAPAS/img_mapa/college-15.svg');
+	background-image: url('../mapas/img_mapa/college-15.svg');
         background-color: #e5fded;
 	background-size: cover;
 	width: 25px;
@@ -81,7 +81,7 @@
 	cursor: pointer;
 	}
 	.marker_Farmácia {
-	background-image: url('../MAPAS/img_mapa/pharmacy-15.svg');
+	background-image: url('../mapas/img_mapa/pharmacy-15.svg');
         background-color: #f3e699;
 	background-size: cover;
 	width: 25px;
@@ -90,7 +90,7 @@
 	cursor: pointer;
 	}
 		.marker_Mat.Construção {
-	background-image: url('../MAPAS/img_mapa/warehouse-15.svg');
+	background-image: url('../mapas/img_mapa/warehouse-15.svg');
         background-color: #f7f9b0;
 	background-size: cover;
 	width: 25px;
@@ -99,7 +99,7 @@
 	cursor: pointer;
 	}
 		.marker_Padaria {
-	background-image: url('../MAPAS/img_mapa/bakery-15.svg');
+	background-image: url('../mapas/img_mapa/bakery-15.svg');
         background-color: #f9fbcb;
 	background-size: cover;
 	width: 25px;
@@ -108,7 +108,7 @@
 	cursor: pointer;
 	}
 		.marker_Mobilidade {
-	background-image: url('../MAPAS/img_mapa/rail-15.svg');
+	background-image: url('../mapas/img_mapa/rail-15.svg');
         background-color: #eebcb6;
 	background-size: cover;
 	width: 25px;
@@ -117,7 +117,7 @@
 	cursor: pointer;
 	}
 		.marker_Comercio {
-	background-image: url('../MAPAS/img_mapa/ic_compras.svg');
+	background-image: url('../mapas/img_mapa/ic_compras.svg');
         background-color: #f1f57c;
 
 	background-size: cover;
@@ -127,7 +127,7 @@
 	cursor: pointer;
 	}
 		.marker_Utilidades {
-	background-image: url('../MAPAS/img_mapa/commercial-15.svg');
+	background-image: url('../mapas/img_mapa/commercial-15.svg');
         background-color: gray;
 	background-size: cover;
 	width: 25px;
@@ -136,7 +136,7 @@
 	cursor: pointer;
 	}
 		.marker_Banco {
-	background-image: url('../MAPAS/img_mapa/bank-15.svg');
+	background-image: url('../mapas/img_mapa/bank-15.svg');
         background-color: #89a6f6;
 	background-size: cover;
 	width: 25px;
@@ -145,7 +145,7 @@
 	cursor: pointer;
 	}
 		.marker_Serviço_Público {
-	background-image: url('../MAPAS/img_mapa/building-15.svg');
+	background-image: url('../mapas/img_mapa/building-15.svg');
         background-color: #7cf5a4;
 	background-size: cover;
 	width: 25px;
@@ -154,7 +154,7 @@
 	cursor: pointer;
 	}
 		.marker_Igreja {
-	background-image: url('../MAPAS/img_mapa/place-of-worship-15.svg');
+	background-image: url('../mapas/img_mapa/place-of-worship-15.svg');
         background-color: #b0f9c8;
 	background-size: cover;
 	width: 25px;
@@ -163,7 +163,7 @@
 	cursor: pointer;
 	}			
 		.marker_Lazer {
-	background-image: url('../MAPAS/img_mapa/theatre-15.svg');
+	background-image: url('../mapas/img_mapa/theatre-15.svg');
         background-color: #c2eaca;
 	background-size: cover;
 	width: 25px;
@@ -172,7 +172,7 @@
 	cursor: pointer;
 	}	
 		.marker_Ponto_de_Interesse {
-	background-image: url('../MAPAS/img_mapa/star-15.svg');
+	background-image: url('../mapas/img_mapa/star-15.svg');
         background-color: #dd7a6d;
 	background-size: cover;
 	width: 25px;
@@ -182,7 +182,7 @@
 	}		
 
 		.marker_Outros  {
-	background-image: url('../MAPAS/img_mapa/marker-15.svg');
+	background-image: url('../mapas/img_mapa/marker-15.svg');
         background-color: #cdcbcb;
 	background-size: cover;
 	width: 25px;
@@ -223,7 +223,7 @@
         font-size: 1em;
         text-align: center;
         background: #ee8a65;
-        background-image: url('../MAPAS/img_mapa/search-plus.svg');
+        background-image: url('../mapas/img_mapa/search-plus.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-color: #fff;
@@ -240,7 +240,7 @@
         border-radius: 3px;
         font-size: 1em;
         background: #ee8a65;
-        background-image: url('../MAPAS/img_mapa/search-minus.svg');
+        background-image: url('../mapas/img_mapa/search-minus.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-color: #fff; 
