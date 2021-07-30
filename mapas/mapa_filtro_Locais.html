@@ -6,19 +6,6 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
-		<!-- W3css -->
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-		<!-- W3css -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-		<!-- FontAwesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>		
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -48,7 +35,7 @@
     display: none;
     background: #ddd;
     border: none;
-    padding: 5px;
+    padding: 10px;
     margin: 0;
 }
 .map-overlay input {
@@ -56,7 +43,7 @@
     border: none;
     width: 100%;
     border-radius: 3px;
-    padding: 5px;
+    padding: 10px;
     margin: 0;
 }
 .map-overlay .listing {
@@ -97,159 +84,163 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #404;
 }
-.map-overlay .titulo {
-    display: block;
-    background: #ddd;
-    border: none;
-    padding: 5px;
-    margin: 0;
-    color: blue;
-}
 </style>
 <div id='map'></div>
 <div class='map-overlay'>
-<div class='titulo'>
-<h3><center>Locais</center></h3>
-<div class="btn-group open">
-  <a class="btn btn-primary" href="#"><i class=""></i> Legenda</a>
-  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-  </a>
-  <ul class="dropdown-menu">
-      <li><a href="#"><i class=""></i> População</a></li>
-	      <li class="divider"></li>
-    <li><a href="#"><i style="background-color:#e4bf62;">&nbsp;&nbsp;&nbsp;</i> Até 50 mil Habs</a></li>
-    <li><a href="#"><i style="background-color:#f28621;">&nbsp;&nbsp;&nbsp;</i> De 50 mil a 100 mil Habs</a></li>
-    <li><a href="#"><i style="background-color:#4a0202;">&nbsp;&nbsp;&nbsp;</i> Acima 100 mil Habs</a></li>
-  </ul>
-</div>
-</div>
     <fieldset>
-        <input id='feature-filter' type='text' placeholder='Pesquisa por nome' />
+        <input id='feature-filter' type='text' placeholder='Filter results by name' />
     </fieldset>
     <div id='feature-listing' class='listing'></div>
 </div>
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
-		var coord1 = '-22.86264189'; 	var coord2 = '-43.26269047';
-	var map = new mapboxgl.Map({
-		container: 'map',
-		style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
-		center: [coord2,coord1],
-		maxZoom: 18,
-		minZoom: 6,
-		zoom: 12
-	});
-	function divideCoord1(coords) {
-		return coords.slice(1,2);
-	}
-	function divideCoord2(coords) {
-		return coords.slice(0,1);
-	}
-	// Holds visible road features for filtering
-	var roads = [];
-	// Create a popup, but don't add it to the map yet.
-	var popup = new mapboxgl.Popup({
-		closeButton: false
-	});
-	var filterEl = document.getElementById('feature-filter');
-	var listingEl = document.getElementById('feature-listing');
-	function renderListings(features) {
-		// Clear any existing listings
-		listingEl.innerHTML = '';
-		if (features.length) {
-			features.forEach(function(feature) {
-			  var coordd1 = divideCoord1(feature.geometry.coordinates);
-			  var coordd2 = divideCoord2(feature.geometry.coordinates);
-			  var prop = feature.properties;
-				var item = document.createElement('a');
-				item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',20z';
-				item.target = '_blank';
-				item.textContent = prop.Nome + ' (  ' + prop.End2 + '  )';
-				item.addEventListener('mouseover', function() {
-					// Highlight corresponding feature on the map
-					popup.setLngLat(feature.geometry.coordinates)
-						.setText(feature.properties.Nome)
-						.addTo(map);
-				});
-				listingEl.appendChild(item);
-			});
-			// Show the filter input
-			filterEl.parentNode.style.display = 'block';
-		} else {
-			var empty = document.createElement('p');
-			empty.textContent = 'Arraste/Zoom mapa para preencher os resultados';
-			listingEl.appendChild(empty);
-			// Hide the filter input
-			filterEl.parentNode.style.display = 'none';
-			// remove features filter
-			map.setFilter('locais', ['has', 'Nome']);
-		}
-	}
-	function normalize(string) {
-		return string.trim().toLowerCase();
-	}
-	function getUniqueFeatures(array, comparatorProperty) {
-		var existingFeatureKeys = {};
-		// Because features come from tiled vector data, feature geometries may be split
-		// or duplicated across tile boundaries and, as a result, features may appear
-		// multiple times in query results.
-		var uniqueFeatures = array.filter(function(el) {
-			if (existingFeatureKeys[el.properties[comparatorProperty]]) {
-				return false;
-			} else {
-				existingFeatureKeys[el.properties[comparatorProperty]] = true;
-				return true;
-			}
-		});
-		return uniqueFeatures;
-	}
-	map.on('load', function() {
-		map.on('moveend', function() {
-			var features = map.queryRenderedFeatures({layers:['locais']});
-			if (features) {
-				var uniqueFeatures = getUniqueFeatures(features, "Nome");
-				// Populate features for the listing overlay.
-				renderListings(uniqueFeatures);
-				// Clear the input container
-				filterEl.value = '';
-				// Store the current features in sn `roads` variable to
-				// later use for filtering on `keyup`.
-				roads = uniqueFeatures;
-			}
-		});
-		map.on('mousemove', 'locais', function(e) {
-			// Change the cursor style as a UI indicator.
-			map.getCanvas().style.cursor = 'pointer';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
+	var coord1 = '-22.86264189'; 	var coord2 = '-43.26269047';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
+    center: [coord2,coord1],
+    maxZoom: 18,
+    minZoom: 6,
+    zoom: 12
+});
 
-			// Populate the popup and set its coordinates based on the feature.
-			var feature = e.features[0];
-			popup.setLngLat(feature.geometry.coordinates)
-				.setText(feature.properties.Nome + ' ( ' + feature.properties.End2 + ' )')
-				.addTo(map);
-		});
-		map.on('mouseleave', 'locais', function() {
-			map.getCanvas().style.cursor = '';
-			popup.remove();
-		});
-		filterEl.addEventListener('keyup', function(e) {
-			var value = normalize(e.target.value);
-			// Filter visible features that don't match the input value.
-			var filtered = roads.filter(function(feature) {
-				var name = normalize(feature.properties.Nome);
-				return name.indexOf(value) > -1 ;
-			});
-			// Populate the sidebar with filtered results
-			renderListings(filtered);
-			// Set the filter to populate features into the layer.
-			map.setFilter('locais', ['match', ['get', 'Nome'], filtered.map(function(feature) {
-				return feature.properties.Nome;
-			}), true, false]);
-		});
-		// Call this function on initialization
-		// passing an empty array to render an empty state
-		renderListings([]);
-	});
+function divideCoord1(coords) {
+    return coords.slice(1,2);
+}
+function divideCoord2(coords) {
+    return coords.slice(0,1);
+}
+// Holds visible road features for filtering
+var roads = [];
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+var filterEl = document.getElementById('feature-filter');
+var listingEl = document.getElementById('feature-listing');
+function renderListings(features) {
+    // Clear any existing listings
+    listingEl.innerHTML = '';
+    if (features.length) {
+        features.forEach(function(feature) {
+		  var coordd1 = divideCoord1(feature.geometry.coordinates);
+		  var coordd2 = divideCoord2(feature.geometry.coordinates);
+		  var prop = feature.properties;
+            var item = document.createElement('a');
+            item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',20z';
+            item.target = '_blank';
+            item.textContent = prop.Nome + ' ( ' + prop.End2 + ' )';
+            item.addEventListener('mouseover', function() {
+                // Highlight corresponding feature on the map
+                popup.setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.Nome)
+                    .addTo(map);
+            });
+            listingEl.appendChild(item);
+        });
+        // Show the filter input
+        filterEl.parentNode.style.display = 'block';
+    } else {
+        var empty = document.createElement('p');
+        empty.textContent = 'Arraste o mapa para preencher os resultados';
+        listingEl.appendChild(empty);
+
+        // Hide the filter input
+        filterEl.parentNode.style.display = 'none';
+
+        // remove features filter
+        map.setFilter('locais', ['has', 'Nome']);
+    }
+}
+function normalize(string) {
+    return string.trim().toLowerCase();
+}
+
+
+
+
+
+
+function getUniqueFeatures(array, comparatorProperty) {
+    var existingFeatureKeys = {};
+    // Because features come from tiled vector data, feature geometries may be split
+    // or duplicated across tile boundaries and, as a result, features may appear
+    // multiple times in query results.
+    var uniqueFeatures = array.filter(function(el) {
+        if (existingFeatureKeys[el.properties[comparatorProperty]]) {
+            return false;
+        } else {
+            existingFeatureKeys[el.properties[comparatorProperty]] = true;
+            return true;
+        }
+    });
+    return uniqueFeatures;
+}
+map.on('load', function() {
+        map.addSource('airports', {
+            'type': 'vector',
+            'url': 'scs999999.cknanmgot3x4k28qq7imq1mza-41v81'
+        });
+        map.addLayer({
+            'id': 'airport',
+            'source': 'airports',
+            'source-layer': 'ne_10m_airports',
+            'type': 'symbol',
+            'layout': {
+                'icon-image': 'airport-15',
+                'icon-padding': 0,
+                'icon-allow-overlap': true
+            }
+        });
+
+
+
+
+    map.on('moveend', function() {
+        var features = map.queryRenderedFeatures({layers:['locais']});
+        if (features) {
+            var uniqueFeatures = getUniqueFeatures(features, "Nome");
+            // Populate features for the listing overlay.
+            renderListings(uniqueFeatures);
+            // Clear the input container
+            filterEl.value = '';
+            // Store the current features in sn `roads` variable to
+            // later use for filtering on `keyup`.
+            roads = uniqueFeatures;
+        }
+    });
+    map.on('mousemove', 'locais', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates based on the feature.
+        var feature = e.features[0];
+        popup.setLngLat(feature.geometry.coordinates)
+            .setText(feature.properties.End2)
+            .addTo(map);
+    });
+    map.on('mouseleave', 'locais', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
+    filterEl.addEventListener('keyup', function(e) {
+        var value = normalize(e.target.value);
+        // Filter visible features that don't match the input value.
+        var filtered = roads.filter(function(feature) {
+            var name = normalize(feature.properties.Nome);
+            return name.indexOf(value) > -1 ;
+        });
+        // Populate the sidebar with filtered results
+        renderListings(filtered);
+        // Set the filter to populate features into the layer.
+        map.setFilter('locais', ['match', ['get', 'Nome'], filtered.map(function(feature) {
+            return feature.properties.Nome;
+        }), true, false]);
+    });
+    // Call this function on initialization
+    // passing an empty array to render an empty state
+    renderListings([]);
+});
 </script>
 </body>
 </html>

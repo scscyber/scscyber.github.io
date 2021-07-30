@@ -15,7 +15,7 @@ alert("Você tem "+attempt+" tentativas...");
 // Disabling fields after 3 attempts.
 if( attempt == 0){
 		alert("ACESSO NEGADO !!!");
-		window.location = "../../Projetos/Login/cd404.html"; // Redirecting to other page.
+		window.location = "cd404.html"; // Redirecting to other page.
 document.getElementById("username").disabled = true;
 document.getElementById("password").disabled = true;
 document.getElementById("submit").disabled = true;

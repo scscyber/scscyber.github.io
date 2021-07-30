@@ -26,6 +26,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
 		<!-- Mapbox  -->
 
+
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -49,7 +50,7 @@
 	<div id='map'></div>
 	<div id='draw' class='draw'></div>
 <!-- Top container -->
-	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:10%;">
+	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4">
 		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
 		<i class="fa fa-bars"></i>Menu</button>
 <!-- Estilos Mapas Mapbox -->		
@@ -103,7 +104,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 	style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
 //SELECIONAR ESTILO MAPBOX https://docs.mapbox.com/api/maps/#styles
 	center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
-	zoom: 11, // ZOOM INICIAL
+	zoom: 10, // ZOOM INICIAL
 	minZoom: 10, // 
 	maxZoom: 20
 //	transformRequest: transformRequest
@@ -175,9 +176,9 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + row.Nome + '</h3>'
-			+ '<h2><button type="button" class="btn btn-dark-green"> <a href="https://www.google.com.br/maps/@' 
+			+ '<h2><a class="btn btn-sm btn-outline-success" href="https://www.google.com.br/maps/@' 
 			+ row.Latitude + ',' 
-			+ row.Longitude + ',20z" target="_blank"><i class="fa fa-map fa-lg"></i> Google Maps</a></button></h2>'
+			+ row.Longitude + ',20z" target="_blank"><i class="fa fa-map fa-lg"></i> Google Maps</a></h2>'
 			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' 
 			+ row.Endereço + '</h4>' 
 			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' 
@@ -227,11 +228,12 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 });
 //Visualização padrão 10
 	document.getElementById('inicial').addEventListener('click', function () {
-    map.zoomTo(11, 
+    map.zoomTo(10, 
 	{				bearing: 0,
 					pitch: 0,
 					speed: 0.5, 
-					curve: 1,	
+					curve: 1,
+	
 	duration: 20000});
 });
 </script>

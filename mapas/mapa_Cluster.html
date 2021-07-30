@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mapa Cluster</title>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cluster</title>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <!-- MAPBOX -->
-
-
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
 <!-- MAPBOX DIRECTIONS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
@@ -27,97 +24,58 @@
 <!-- ARQUIVOS EXTERNOS -->
 <!-- 
 	<script src='bairros_rj.geojson'></script>
+	<script src='limite_ramos.geojson'></script>
  -->
 	<script src='dados_cad.geojson'></script>
-	<script src='./geojson/bairros_RJ.geojson'></script>
 <style>
-	body { margin:0; padding:0; }
-	#map { position:absolute; top:0; bottom:0; width:100%; }
-	.draw {
-	position: absolute;
-	z-index:1;
-	width:100%;
-	margin-left:1%;
-	top:50px;
-	height: 80px;
-	width: 80px;
-	font:300 16px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-	}
-	.draw:after {
-	//content: "Desenho";
-	}
-	.geocoder {
-	position:absolute;
-	top:4px;
-	margin-left:1%;
-	height: 120px;
-	width: 150px;
-	}
-	#legend {
-	padding: 10px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-	line-height: 18px;
-	height: 150px;
-	margin-bottom: 40px;
-	width: 120px;
-	opacity:0.8;
-	}
-	.legend-key {
-	display: inline-block;
-	border-radius: 20%;
-	width: 10px;
-	height: 10px;
-	margin-right: 5px;
-	}
-	.map-overlay {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	background: rgba(255, 255, 255, 0.8);
-	margin-right: 20px;
-	font-family: Arial, sans-serif;
-	overflow: auto;
-	border-radius: 3px;
-	}
-	.legend {
-	background-color: #fff;
-	opacity:0.8;
-	border-radius: 3px;
-	bottom: 30px;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.10);
-	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	padding: 10px;
-	position: absolute;
-	right: 10px;
-	z-index: 1;
-	}
-	.legend h4 {
-	margin: 0 0 10px;
-	}
-	.legend div span {
-	border-radius: 50%;
-	display: inline-block;
-	height: 10px;
-	margin-right: 5px;
-	width: 10px;
-	opacity:0.8;
-	}
+body { margin:0; padding:0; }
+#map { position:absolute; right:1%; left:1%; top:1%; bottom:1%; width:98%; }
+.draw {
+position: absolute;
+z-index:1;
+width:100%;
+margin-left:1%;
+top:50px;
+height: 80px;
+width: 80px;
+font:300 16px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+}
+.geocoder {
+position:absolute;
+top:3%;
+margin-left:1%;
+height: 5%;
+width: 10%;
+}
+      #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 150px;
+        margin-bottom: 40px;
+        width: 120px;
+      }
+      .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+      }
+        .map-overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.8);
+        margin-right: 20px;
+        font-family: Arial, sans-serif;
+        overflow: auto;
+        border-radius: 3px;
+      }
 </style>
 </head>
 <body>
-<div id='state-legend' class='legend'>
-    <center><h5>RJ - Rio de Janeiro</h5>
-	    <h6>Bairros</h6></center>
-    <div><span style='background-color: #f5e4db'></span>Até 50.000</div>
-    <div><span style='background-color: #f28621'></span>De 50.000 a 100.000</div>
-    <div><span style='background-color: #4b0202'></span>Acima de 100.000</div>
-</div>
-<div id='county-legend' class='legend' style='display: none;'>
-    <h4>População</h4>
-    <div><span style='background-color: #f5e4db'></span>Até 50.000</div>
-    <div><span style='background-color: #f28621'></span>De 50.000 a 100.000</div>
-    <div><span style='background-color: #4b0202'></span>Acima de 100.000</div>
-</div>
+<div id='calculated-line'></div>
 <div id='draw' class='draw'></div>
 <div id='geocoder' class='geocoder'></div>
     <div id="map" class="mapboxgl-map">
@@ -138,30 +96,27 @@
 	<div class="mapboxgl-ctrl-attrib-inner">
 	<a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> 
 	<a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> 
-	<a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=examples&amp;id=cjgioozof002u2sr5k7t14dim&amp;access_token=pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg" target="_blank" rel="noopener nofollow"></a>
+	<a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=scs999999&;id=ckrf1z81h0muq17qvs5u85gq1&;access_token=pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA" target="_blank" rel="noopener nofollow">Improve this map</a>
 	</div>
 	</div>
 	</div>
 	</div>
 	</div>
     <div class="map-overlay" id="legend"></div>
-	<div>
-</div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 var map = new mapboxgl.Map({
 container: 'map', // container id
 style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
 center: [-43.265983,-22.855412], // starting position
-zoom: 9, // starting zoom
-minZoom: 8 // keep it local
+zoom: 13, // starting zoom
+minZoom: 9 // keep it local
 });
-var zoomThreshold = 12;
             //Add Navigation controls to the map to the top-right corner of the map
             var nav = new mapboxgl.NavigationControl();
             map.addControl(nav, 'top-right');
             //Add a 'full screen' button to the map
-        //    map.addControl(new mapboxgl.FullscreenControl());
+       //     map.addControl(new mapboxgl.FullscreenControl());
             //Add a Scale to the map
             map.addControl(new mapboxgl.ScaleControl({
                 maxWidth: 100,
@@ -174,18 +129,22 @@ var zoomThreshold = 12;
                 },
                 trackUserLocation: true
             }));
-
+var draw = new MapboxDraw({
+displayControlsDefault: false,
+controls: {
+},
+});
 var geocoder = new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 flyTo: {
-bearing: 00,
+bearing: 0,
 pitch: 0,
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting
 // to pan.
 speed: 0.5, // make the flying slow
 curve: 1, // change the speed at which it zooms out
-zoom:16,
+zoom:18,
 // This can be any easing function: it takes a number between
 // 0 and 1 and returns another number between 0 and 1.
 easing: function (t) { return t; }
@@ -194,84 +153,73 @@ mapboxgl: mapboxgl
 });
 //CRIA CAMPOS LOCALIZAR E DESENHO
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
-map.on('load', function () {
+document.getElementById('draw').appendChild(draw.onAdd(map));
 //ADICIONAR CLUSTERS
 // FILTRO DE ACORDO COM O SCORE DE CADA PONTO
-var Score1 = ["<", ["get", "Score"], 50000]; // AZUL
-var Score2 = ["all", [">=", ["get", "Score"], 50000], ["<", ["get", "Score"], 100000]]; // amarelo
-var Score3 = [">=", ["get", "Score"], 100000]; // VIOLETA
+var Score1 = ["all", [">=", ["get", "Score"], 1], ["<", ["get", "Score"], 2]]; // verde
+var Score2 = ["all", [">=", ["get", "Score"], 2], ["<", ["get", "Score"], 3]]; // azul
+var Score3 = ["all", [">=", ["get", "Score"], 3], ["<", ["get", "Score"], 4]]; // amarelo
+var Score4 = ["all", [">=", ["get", "Score"], 4], ["<", ["get", "Score"], 5]]; // verde
+var Score5 = ["all", [">=", ["get", "Score"], 5], ["<", ["get", "Score"], 6]]; // verde
+var Score6 = ["all", [">=", ["get", "Score"], 6], ["<", ["get", "Score"], 7]]; // verde
+var Score7 = ["all", [">=", ["get", "Score"], 7], ["<", ["get", "Score"], 8]]; // verde
 // CORES DE PREENCHIMENTO DOS CIRCULOS
-//colors = [preto, amarelo, azul, verde, vermelho];
-var colors = ['#f5e4db', '#f28621', '#4b0202'];
+//colors = [cinza, amarelo, azul, verde, vermelho];
+var colors = ['#A9A9A9', '#FFFF00', '#87CEEB', '#90EE90', '#FF4500', 'green', 'brown'];
+map.on('load', function () {
     // add a clustered GeoJSON source for a sample set of earthquakes
     map.addSource('earthquakes', {
         "type": "geojson",
-        "data": bairros,
+        "data": pontos,
         "cluster": true,
-        "clusterRadius": 50,
+        "clusterRadius": 10,
         "clusterProperties": { // keep separate counts for each Scorenitude category in a cluster
             "Score1": ["+", ["case", Score1, 1, 0]],
             "Score2": ["+", ["case", Score2, 1, 0]],
-            "Score3": ["+", ["case", Score3, 1, 0]]
-        }
+            "Score3": ["+", ["case", Score3, 1, 0]],
+            "Score4": ["+", ["case", Score4, 1, 0]],
+            "Score5": ["+", ["case", Score5, 1, 0]],
+            "Score6": ["+", ["case", Score6, 1, 0]],
+            "Score7": ["+", ["case", Score7, 1, 0]]
+
+			}
     });
     // circle and symbol layers for rendering individual earthquakes (unclustered points)
     map.addLayer({
         "id": "earthquake_circle",
         "type": "circle",
         "source": "earthquakes",
-        'minzoom': zoomThreshold,
         "filter": ["!=", "cluster", true],
         "paint": {
             "circle-color": ["case",
                 Score1, colors[0], // cinza
                 Score2, colors[1], // amarelo
                 Score3, colors[2], // azul
-				colors[3]], // vermelho
-            "circle-opacity": 0.5,
-            "circle-radius": 50
+                Score4, colors[3], // verde
+				Score5, colors[4], // vermelho
+				Score6, colors[5], // vermelho
+				Score7, colors[6]], // vermelho
+
+				"circle-opacity": 0.5,
+            "circle-radius": 20
         }
     });
-	
     map.addLayer({
         "id": "earthquake_label",
         "type": "symbol",
         "source": "earthquakes",
-		        'minzoom': 12.5,
         "filter": ["!=", "cluster", true],
         "layout": {
-            "text-field":  [ "number-format",
-			["get", "Score"], {"min-fraction-digits": 0, "max-fraction-digits": 0}
-			
-			] ,
+            "text-field": ["format", ["get", "Nome"], {"min-fraction-digits": 1, "max-fraction-digits": 1}],
             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-size": 18
+			'text-offset': [0, 0.25],
+			'text-anchor': 'top',
+            "text-size": 15
         },
         "paint": {
-            "text-color": ["case", ["<", ["get", "Score"], 60000], "red", "black"]
+            "text-color": "black"
         }
     });
-
-    map.addLayer({
-        "id": "earthquake_label2",
-        "type": "symbol",
-        "source": "earthquakes",
-		        'maxzoom': 12.5,
-        "filter": ["!=", "cluster", true],
-        "layout": {
-            "text-field": ["get", "place_name"],
-            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-size": 20
-        },
-        "paint": {
-            "text-color": ["case", ["<", ["get", "Score"], 1], "red", "black"]
-        }
-    });	
-	
-	
-	
-	
     // objects for caching and keeping track of HTML marker objects (for performance)
     var markers = {};
     var markersOnScreen = {};
@@ -307,23 +255,12 @@ var colors = ['#f5e4db', '#f28621', '#4b0202'];
         map.on('move', updateMarkers);
         map.on('moveend', updateMarkers);
         updateMarkers();
-    });	
-// Change the cursor to a pointer when the mouse is over the states layer.
-map.on('mouseenter', 'earthquake_label', function () {
-map.getCanvas().style.cursor = 'pointer';
-});
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', 'earthquake_label', function () {
-map.getCanvas().style.cursor = '';
-});
-map.on('mouseleave', 'earthquake_label2', function () {
-map.getCanvas().style.cursor = '';
-});
+    });
 });
 // CRIA CIRCULO(DONUT) AGRUPANDO PONTOS
 function createDonutChart(props) {
     var offsets = [];
-    var counts = [props.Score1, props.Score2, props.Score3];
+    var counts = [props.Score1, props.Score2, props.Score3, props.Score4, props.Score5, props.Score6, props.Score7];
     var total = 0;
     for (var i = 0; i < counts.length; i++) {
         offsets.push(total);
@@ -336,7 +273,7 @@ function createDonutChart(props) {
     var html = '<svg width="' + w + '" height="' + w + '" viewbox="0 0 ' + w + ' ' + w +
         '" text-anchor="middle" style="font: ' + fontSize + 'px sans-serif">';
     for (i = 0; i < counts.length; i++) {
-        html += donutSegment(offsets[i] / total, (offsets[i] + counts[i]) / total, r, r0, colors2[i]);
+        html += donutSegment(offsets[i] / total, (offsets[i] + counts[i]) / total, r, r0, colors[i]);
     }
     html += '<circle cx="' + r + '" cy="' + r + '" r="' + r0 +
         '" fill="gray" /><text dominant-baseline="central" transform="translate(' +
@@ -358,47 +295,140 @@ function donutSegment(start, end, r, r0, color) {
         r0, r0, 0, largeArc, 0, r + r0 * x0, r + r0 * y0,
         '" fill="' + color + '" />'].join(' ');
 }
+//ADICIONAR POLIGONOS
+// FILTRO DE ACORDO COM AREA DO POLIGONO
+map.on('load', function () {
+// Add a layer showing the state polygons.
+//SHAPESTAre": 4623394.3422851563
+// When a click event occurs on a feature in the states layer, open a popup at the
+// location of the click, with description HTML from its properties.
+map.on('click', 'earthquake_label', function (e) {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML(e.features[0].properties.Endereco)
+.addTo(map);
+});
+// Change the cursor to a pointer when the mouse is over the states layer.
+map.on('mouseenter', 'earthquake_label', function () {
+map.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'earthquake_label', function () {
+map.getCanvas().style.cursor = '';
+});
+});
+    map.on('load', function() {
+      map.addSource('earthquakes2', {
+        'type': 'geojson',
+        'data': pontos
+      });
+      map.addLayer({
+        'id': 'earthquakes-viz',
+        'type': 'circle',
+        'source': 'earthquakes2',
+        'paint': {
+          // The feature-state dependent circle-radius expression will render
+          // the radius size according to its magnitude when
+          // a feature's hover state is set to true
+          'circle-radius': ['case',
+            ['boolean',
+              ['feature-state', 'hover'],
+              true
+            ],
+            ['interpolate', ['linear'],
+              ['get', 'Score'],
+              1, 5,
+              2, 5,
+              3, 5,
+              4, 5,
+              5, 5,
+              6, 5,
+              7, 5
+            ],
+            5
+          ],
+          'circle-stroke-color': '#000',
+          'circle-stroke-width': 1,
+          // The feature-state dependent circle-color expression will render
+          // the color according to its magnitude when
+          // a feature's hover state is set to true
+          'circle-color': [
+            'case',
+            ['boolean',
+              ['feature-state', 'hover'],
+              true
+            ],
+            ['interpolate', ['linear'],
+              ['get', 'Score'],
+              1, '#A9A9A9',
+              2, '#FFFF00',
+              3, '#87CEEB',
+              4, '#90EE90',
+              5, '#FF4500',
+              6, 'green',
+              7, 'brown'
+
+            ],
+            '#000'
+          ],
+            'circle-opacity': 0.2,
+        }
+      });
+    });
+    var quakeID = null;
     map.on('mousemove', 'earthquakes-viz', (e) => {
-      map.getCanvas().style.cursor = 'pointer';
     });
     map.on("mouseleave", "earthquakes-viz", function() {
-
-	// Reset the cursor style
+      if (quakeID) {
+        map.setFeatureState({
+          source: 'earthquakes',
+          id: quakeID
+        }, {
+          hover: false
+        });
+      }
+      quakeID = null;
+      // Remove the information from the previously hovered feature from the sidebar
+      magDisplay.textContent = '';
+      locDisplay.textContent = '';
+      dateDisplay.textContent = '';
+      // Reset the cursor style
       map.getCanvas().style.cursor = '';
     });
-        // define layer names
-        var layers = [
+        // Define nomes camadas
+        var layers = 
+		[ 'Comércio',
+          'Serviços',
+          'Bancos',
+		  'Refeição',
+		  'Lazer',
+          'Educação',
+          'Religião'
+
         ];
-        var colors2 = [
-          '#f5e4db',
-          '#f28621',
-          '#4b0202'
+        var colors = 
+		[ '#A9A9A9',
+          '#FFFF00',
+          '#87CEEB',
+          '#FD8D3C',
+          '#FC4E2A',
+          'green',
+		'brown'		
         ];
-        // CRIAR LEGENDA
+        // Criar Legenda
         for (i = 0; i < layers.length; i++) {
-          var layer = layers[i];
-          var color9 = colors2[i];
-          var item = document.createElement('div');
-          var key = document.createElement('span');
-          key.className = 'legend-key';
-          key.style.backgroundColor = color9;
-          var value = document.createElement('span');
-          value.innerHTML = layer;
-          item.appendChild(key);
-          item.appendChild(value);
-          legend.appendChild(item);
+			var layer = layers[i];
+			var color = colors[i];
+			var item = document.createElement('div');
+			var key = document.createElement('span');
+			key.className = 'legend-key';
+			key.style.backgroundColor = color;
+			var value = document.createElement('span');
+			value.innerHTML = layer;
+			item.appendChild(key);
+			item.appendChild(value);
+			legend.appendChild(item);
         }	
-var stateLegendEl = document.getElementById('state-legend');
-var countyLegendEl = document.getElementById('county-legend');
-map.on('zoom', function() {
-    if (map.getZoom() > zoomThreshold) {
-        stateLegendEl.style.display = 'none';
-        countyLegendEl.style.display = 'block';
-    } else {
-        stateLegendEl.style.display = 'block';
-        countyLegendEl.style.display = 'none';
-    }
-});
 </script>
 </body>
 </html>

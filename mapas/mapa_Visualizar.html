@@ -15,11 +15,12 @@ body { margin: 0; padding: 0; }
 <div id="map"></div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
+var latY = '-22.8565832'; 	var longX = '-43.259645';	  
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
         zoom: 12,
-        center: [-122.447303, 37.753574]
+	center: [longX,latY] // POSIÇÃO INICIAL [LONG, LAT]
     });
 
     map.on('load', function () {
