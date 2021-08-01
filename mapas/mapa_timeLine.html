@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Create a time slider</title>
+    <title>Time Slider</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
@@ -49,7 +49,7 @@
     background-color: transparent;
     display: inline-block;
 	height:10px;
-    width: 90%;
+    width: 80%;
     position: relative;
     margin: 30px;
     cursor: ew-resize;
@@ -66,7 +66,7 @@
 
 <div class='map-overlay top'>
     <div class='map-overlay-inner'>
-        <h2>Linha do Tempo</h2>
+        <h3>Linha do Tempo</h3>
 
         <input id='slider' type='range' min='0' max='11' step='1' value='0' />
         <label id='month'></label>		
@@ -85,7 +85,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
     center: [-43.190164,-22.903664],
-    zoom: 8
+    zoom: 2
 });
 var months = [
     'Janeiro',
