@@ -241,10 +241,10 @@ var colors = ['#f5e4db', '#f28621', '#4b0202'];
 		        'minzoom': 12.5,
         "filter": ["!=", "cluster", true],
         "layout": {
-            "text-field":  [ "number-format",
+            "text-field":  [ 'concat', ["number-format",
 			["get", "Score"], {"min-fraction-digits": 0, "max-fraction-digits": 0}
 			
-			] ,
+			]," Habitantes"] ,
             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
             "text-size": 18
         },
