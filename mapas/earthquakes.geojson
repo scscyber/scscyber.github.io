@@ -2,5 +2,5 @@
 {"generated":1455162818000},
 "features":[
 
-{"type":"Feature","properties":{"mag":12.3,"place":"42km WSW of Ashkasham, Afghanistan","time":"January","updated":1455030240063,"tz":270},"geometry":{"type":"Point","coordinates":[-43.190164,-22.903664,206]},"id":"us100049i1"},
+{"type":"Feature","properties":{"mag":12.3,"place":"42km WSW of Ashkasham, Afghanistan","time":"2021/01/07","updated":1455030240063,"tz":270},"geometry":{"type":"Point","coordinates":[-43.190164,-22.903664,206]},"id":"us100049i1"},
 ],"bbox":[-178.7298,-55.755,5,179.1278,59.8935,664]}
