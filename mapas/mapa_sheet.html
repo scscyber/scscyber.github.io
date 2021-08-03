@@ -52,10 +52,12 @@
 	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:12%;">
 		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
 		<i class="fa fa-bars"></i>Menu</button>
-<!-- Estilos Mapas Mapbox -->		
+<!-- Estilos Mapas Mapbox 		
 			<input id='scs999999/cjxryon3s6xpo1dpl62xinjwy' type='radio' name='rtoggle' value='streets'/>
+			-->
+						<input id='scs999999/ckri4q4ad5ci019og9ek9aaki' type='radio' name='rtoggle' value='streets'/>
 			<label for='streets'>Principal</label>
-		<input id='mapbox/satellite-streets-v10' type='radio' name='rtoggle' value='satellite'/>
+		<input id='mapbox/satellite-streets-v11' type='radio' name='rtoggle' value='satellite'/>
 		<label for='satellite'>Satellite</label>
 <!-- ZOOM -->
 		<span id='zoom'>	</span>
@@ -94,7 +96,7 @@
 //ADICIONAR Mapbox access token 
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 //LATITUDE/LOGITUDE VISUALIZAÇÃO
-var latY = '-22.884495'; 	var longX = ' -43.444612';	  
+var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';	  
 
 //LIMITES DA VISUALIZAÇÃO
 	var bounds = [
@@ -107,7 +109,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 	style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
 //SELECIONAR ESTILO MAPBOX https://docs.mapbox.com/api/maps/#styles
 	center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
-	zoom: 11, // ZOOM INICIAL
+	zoom: 16, // ZOOM INICIAL
 	minZoom: 10, // 
 	maxZoom: 20
 //	transformRequest: transformRequest
@@ -231,7 +233,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 });
 //Visualização padrão 10
 	document.getElementById('inicial').addEventListener('click', function () {
-    map.zoomTo(11, 
+    map.zoomTo(16, 
 	{				bearing: 0,
 					pitch: 0,
 					speed: 0.5, 

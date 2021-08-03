@@ -92,7 +92,7 @@
 	border-radius: 50%;
 	cursor: pointer;
 	}
-		.marker_Mat.Construção {
+		.marker_Mat_Construção {
 	background-image: url('../mapas/img_mapa/warehouse-15.svg');
         background-color: #f7f9b0;
 	background-size: cover;
@@ -102,7 +102,7 @@
 	cursor: pointer;
 	}
 		.marker_Padaria {
-	background-image: url('../mapas/img_mapa/bakery-15.svg');
+	background-image: url('../mapas/img_mapa/Padaria.svg');
         background-color: #f9fbcb;
 	background-size: cover;
 	width: 25px;
@@ -175,7 +175,7 @@
 	cursor: pointer;
 	}	
 		.marker_Ponto_de_Interesse {
-	background-image: url('../mapas/img_mapa/star-15.svg');
+	background-image: url('../mapas/img_mapa/tourist_view_point.svg');
         background-color: #dd7a6d;
 	background-size: cover;
 	width: 25px;
@@ -202,8 +202,33 @@
 	cursor: pointer;
 	}
 
-
-	
+		.marker_Informática {
+	background-image: url('../mapas/img_mapa/logo_01.jpg');
+        background-color: #f9fbcb;
+	background-size: cover;
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	cursor: pointer;
+	}
+		.marker_Oficina_auto {
+	background-image: url('../mapas/img_mapa/Oficina_auto.svg');
+        background-color: #f9fbcb;
+	background-size: cover;
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	cursor: pointer;
+	}	
+			.marker_Floricultura {
+	background-image: url('../mapas/img_mapa/Flor.svg');
+        background-color: #f9fbcb;
+	background-size: cover;
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	cursor: pointer;
+	}	
 	.geocoder {
 	position:fixed;
 	z-index:2;
