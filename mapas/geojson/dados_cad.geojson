@@ -4,7 +4,10 @@ var pontos ={
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4674" } },
 "features": [
 
-{ "type": "Feature", "properties": { "id": 109, "Score": 2, "icon": "circle", "Nome": "Auto Escola Pinheiro", "Endereco": "Rua Uranos", "tipo": "Serviços" }, "geometry": { "type": "Point", "coordinates": [ -43.260143323074843, -22.855385599979371 ] } },
+{ "type": "Feature", "properties": 
+{ "id": 109, "Score": 2, "icon": "circle", "Nome": "Auto Escola Pinheiro", "Endereco": "Rua Uranos", "tipo": "Serviços" },
+ "geometry": { "type": "Point", "coordinates": [ -43.260143323074843, -22.855385599979371 ] } },
+
 { "type": "Feature", "properties": { "id": 990, "Score": 3, "icon": "bank", "Nome": "Banco do Brasil", "Endereco": "Rua Prof.Lace", "tipo": "Banco" }, "geometry": { "type": "Point", "coordinates": [ -43.261118117382246, -22.855036943068406 ] } },
 { "type": "Feature", "properties": { "id": 116, "Score": 4, "icon": "restaurant", "Nome": "Bobs", "Endereco": "Rua Euclides Farias", "tipo": "Refeição" }, "geometry": { "type": "Point", "coordinates": [ -43.26337080282952, -22.85516843174446 ] } },
 { "type": "Feature", "properties": { "id": 101, "Score": 2, "icon": "circle", "Nome": "Bombeiros", "Endereco": "Rua Euclides Farias", "tipo": "Serviços" }, "geometry": { "type": "Point", "coordinates": [ -43.264289363263039, -22.855585891775899 ] } },

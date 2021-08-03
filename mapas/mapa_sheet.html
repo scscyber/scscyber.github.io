@@ -49,7 +49,7 @@
 	<div id='map'></div>
 	<div id='draw' class='draw'></div>
 <!-- Top container -->
-	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:10%;">
+	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:12%;">
 		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
 		<i class="fa fa-bars"></i>Menu</button>
 <!-- Estilos Mapas Mapbox -->		
@@ -60,10 +60,10 @@
 <!-- ZOOM -->
 		<span id='zoom'>	</span>
 			<span id='inicial'> 	</span>
-	</div>
+
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:5;width:200px; height:230px; margin:80px 20px ; " id="mySidebar"><hr>
-	<div class="w3-bar-block" style="text-align:justify; margin:10px; font-size:1em;">
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:5;width:auto; height:auto; margin:90px 5px ; " id="mySidebar"><hr>
+	<div class="w3-bar-block" style="text-align:justify; margin:auto; font-size:1em;">
 		<div id='geocoder' class='geocoder'>
 		</div>
 		<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
@@ -73,6 +73,10 @@
 		<p style="text-align:justify; margin:20px; font-size:1em;">Locais</p> 
 	</div>
 </nav>
+
+	</div>
+
+
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <!-- Script do Mapa -->
@@ -123,7 +127,7 @@ var latY = '-22.884495'; 	var longX = ' -43.444612';
 	var nav = new mapboxgl.NavigationControl();
 	map.addControl(nav, 'top-right');
 //ADICIONAR CONTROLE TELA CHEIA
-	map.addControl(new mapboxgl.FullscreenControl());
+	//map.addControl(new mapboxgl.FullscreenControl());
 //ADICIONAR ESCALA
 	map.addControl(new mapboxgl.ScaleControl({
 		maxWidth: 0,

@@ -6,17 +6,13 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-	
-	
-			  <script type="text/javascript" src="geojson/dados_cad.geojson"></script>
-	
-	
-	
-	
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
+	
+	    <script type="text/javascript" src="geojson\dados_cad (3).geojson"></script>
+	
 </head>
 <body>
 
@@ -75,12 +71,81 @@
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 
-
+/**
+var places = {
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "icon": "marker"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-43.260043,-22.855134]
+        }
+    },
+	{
+        "type": "Feature",
+        "properties": {
+            "icon": "theatre"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-43.185801, -22.903367]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "icon": "bar"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-43.181720, -22.902780]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "icon": "bicycle"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-43.178472, -22.908178]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "icon": "music"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-43.175676, -22.911073]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "icon": "music"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.020945, 38.878241]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "icon": "music"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-77.007481, 38.876516]
+        }
+    }]
+};
+**/
 var filterGroup = document.getElementById('filter-group');
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
-    center: [-43.260043,-22.855134],
+    center: [-43.190164,-22.903664],
     zoom: 11.15
 });
 
@@ -88,13 +153,14 @@ map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
     map.addSource("places", {
         "type": "geojson",
-        "data": pontos
+        "data": dados_cad
     });
 
-    pontos.features.forEach(function(feature) {
-        var symbol = feature.properties['icon'];
+    dados_cad.features.forEach(function(feature) {
+        var symbol = feature.properties['tipo'];
+        var symbol2 = feature.properties['icon'];
+
         var layerID = 'poi-' + symbol;
-         var tipo = feature.properties['tipo'];
 
         // Add a layer for this symbol type if it hasn't been added already.
         if (!map.getLayer(layerID)) {
@@ -103,10 +169,10 @@ map.on('load', function() {
                 "type": "symbol",
                 "source": "places",
                 "layout": {
-                    "icon-image": symbol + "-15",
+                    "icon-image": symbol2 + "-15",
                     "icon-allow-overlap": true
                 },
-                "filter": ["==", "icon", symbol]
+                "filter": ["==", "icon", symbol2]
             });
 
             // Add checkbox and label elements for the layer.
@@ -118,7 +184,7 @@ map.on('load', function() {
 
             var label = document.createElement('label');
             label.setAttribute('for', layerID);
-            label.textContent = tipo;
+            label.textContent = symbol;
             filterGroup.appendChild(label);
 
             // When the checkbox changes, update the visibility of the layer.

@@ -6,46 +6,36 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-	
-	
-			  <script type="text/javascript" src="geojson/dados_cad.geojson"></script>
-	
-	
-	
-	
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
+	  <script type="text/javascript" src="geojson/dados_cad.geojson"></script>
 </head>
 <body>
 
 <style>
     .filter-group {
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font: 16px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         font-weight: 600;
         position: absolute;
         top: 10px;
         right: 10px;
         z-index: 1;
         border-radius: 3px;
-        width: 120px;
+        width: 150px;
         color: #fff;
     }
-
     .filter-group input[type=checkbox]:first-child + label {
         border-radius: 3px 3px 0 0;
     }
-
     .filter-group label:last-child {
         border-radius: 0 0 3px 3px;
         border: none;
     }
-
     .filter-group input[type=checkbox] {
         display: none;
     }
-
     .filter-group input[type=checkbox] + label {
         background-color: #3386c0;
         display: block;
@@ -53,62 +43,84 @@
         padding: 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     }
-
     .filter-group input[type=checkbox] + label {
         background-color: #3386c0;
         text-transform: capitalize;
     }
-
     .filter-group input[type=checkbox] + label:hover,
     .filter-group input[type=checkbox]:checked + label {
+	
         background-color: #4ea0da;
     }
-
     .filter-group input[type=checkbox]:checked + label:before {
         content: '✔';
-        margin-right: 5px;
+        margin-right: 10px;
     }
 </style>
 <div id='map'></div>
 <nav id='filter-group' class='filter-group'></nav>
 
 <script>
+
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA';
 
+var bounds = [
+[-43.280, -22.866], // Southwest coordinates
+[-43.240, -22.847]  // Northeast coordinates
+];
 
 var filterGroup = document.getElementById('filter-group');
+
+	var latY = '-22.903664'; 	var longX = '-43.190164';
+
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
-    center: [-43.260043,-22.855134],
-    zoom: 11.15
+    center: [longX,latY],
+    zoom: 8,
+	maxZoom: 18,
+	maxBounds: bounds // Sets bounds as max
 });
 
 map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
     map.addSource("places", {
         "type": "geojson",
-        "data": pontos
+        "data": dados_cad
     });
 
-    pontos.features.forEach(function(feature) {
+    dados_cad.features.forEach(function(feature) {
         var symbol = feature.properties['icon'];
-        var layerID = 'poi-' + symbol;
-         var tipo = feature.properties['tipo'];
+        var tipo = feature.properties['tipo'];
+        var nome = feature.properties['Nome'];
+        var layerID ='poi-' + symbol;
 
+		
+		
         // Add a layer for this symbol type if it hasn't been added already.
         if (!map.getLayer(layerID)) {
-            map.addLayer({
+           map.addLayer({
                 "id": layerID,
                 "type": "symbol",
                 "source": "places",
                 "layout": {
+						"text-field": "{Nome}" +"\n" + "{Endereco}" ,
+						"text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+						"text-size": 9,
+						"text-offset": [0,0],
+						"text-anchor": "top",
+						"text-transform" : "uppercase",
+						"text-pitch-alignment": "viewport",
+					"icon-pitch-alignment": "viewport",	
                     "icon-image": symbol + "-15",
+                    "icon-size": 1,
+//					"icon-color": "#000000",
+					"icon-anchor": "bottom",
                     "icon-allow-overlap": true
                 },
                 "filter": ["==", "icon", symbol]
             });
-
+			
             // Add checkbox and label elements for the layer.
             var input = document.createElement('input');
             input.type = 'checkbox';
@@ -120,6 +132,8 @@ map.on('load', function() {
             label.setAttribute('for', layerID);
             label.textContent = tipo;
             filterGroup.appendChild(label);
+			
+			
 
             // When the checkbox changes, update the visibility of the layer.
             input.addEventListener('change', function(e) {
