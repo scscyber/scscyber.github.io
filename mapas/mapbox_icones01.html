@@ -86,10 +86,10 @@ map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.
     map.addSource("places", {
         "type": "geojson",
-        "data": dados_cad
+        "data": pontos
     });
 
-    dados_cad.features.forEach(function(feature) {
+    pontos.features.forEach(function(feature) {
         var symbol = feature.properties['icon'];
         var tipo = feature.properties['tipo'];
         var nome = feature.properties['Nome'];
