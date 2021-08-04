@@ -8,7 +8,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+
     </style>
 </head>
 <body>
@@ -22,7 +22,7 @@
 }
 .map-overlay {
     position: absolute;
-    width: auto;
+    width: 40%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -38,11 +38,12 @@
     border: none;
     padding: 10px;
     margin: 0;
+    width: 30%;
 }
 .map-overlay input {
     display: block;
     border: none;
-    width: 100%;
+    width: auto;
     border-radius: 3px;
     padding: 10px;
     margin: 0;
@@ -54,16 +55,19 @@
     color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: transparent;
+    width: 50%;
 }
 .map-overlay .listing > * {
     display: block;
     padding: 5px 10px;
     margin: 0;
+    width: 50%;
 }
 .map-overlay .listing a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #fff;
     text-decoration: none;
+    width: 50%;
 }
 .map-overlay .listing a:last-child {
     border: none;
@@ -71,12 +75,14 @@
 .map-overlay .listing a:hover {
     background: white;
     color: blue;
-    font: 18px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    width: auto;
 }
 .map-overlay .listing a:hover a:before {
     background: white;
     color: blue;
     font: 18px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    width: 50%;
 }
 .mapboxgl-popup {
     max-width: 400px;
