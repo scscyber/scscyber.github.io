@@ -211,24 +211,7 @@
 	border-radius: 50%;
 	cursor: pointer;
 	}
-		.marker_Oficina_auto {
-	background-image: url('../mapas/img_mapa/Oficina_auto.svg');
-        background-color: #f9fbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-	border-radius: 50%;
-	cursor: pointer;
-	}	
-			.marker_Floricultura {
-	background-image: url('../mapas/img_mapa/Flor.svg');
-        background-color: #f9fbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-	border-radius: 50%;
-	cursor: pointer;
-	}	
+
 	.geocoder {
 	position:fixed;
 	z-index:2;
