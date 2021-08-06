@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <frame>
 <html lang="pt-br">
-	<head>
+
 		<meta charset="utf-8"/>
 		<title>Mapa Locais</title>
-		<meta name="description" content=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<!-- ICONE TITULO/ABA -->
-		<link rel="icon" href="../images/logo_02.jpg" size="50x50" />
-		<link rel="icon" href="../images/logo_02.jpg" />
-		<link rel="apple-touch-icon" href="../images/logo_02.jpg" />
-		<meta name="msapplication-TileImage" content="" />
-		<link rel="icon" href="../images/logo_02.jpg"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 , shrink-to-fit=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<!-- ICONE TITULO/ABA -->
+    <link rel="shortcut icon" href="./images/logo_01.jpg" size="50x50" />
+	<meta name="msapplication-TileImage" content="" />
 		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<!-- Bootstrap -->		
@@ -25,7 +28,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
 		<!-- Mapbox  -->
-
+	<head>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -35,7 +38,7 @@
 		<!-- Tabletop (Dados planilha GoogleDrive ) -->
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 		<!-- Estilo do Mapa -->
-		<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css'/>
+		<link rel="stylesheet" href="../estilos/style_SheetMap2.css" type='text/css'/>
 		<!-- Script p/desabilitar ver código botao direito -->
 		<script language="JavaScript">
 			function protegercodigo() {
@@ -44,6 +47,8 @@
 		}
 			document.onmousedown=protegercodigo;
 		</script>
+		
+
 	</head>
 <body>
 	<div id='map'></div>
@@ -58,7 +63,8 @@
 						<input id='scs999999/ckri4q4ad5ci019og9ek9aaki' type='radio' name='rtoggle' value='streets'/>
 			<label for='streets'>Principal</label>
 		<input id='scs999999/cjxryon3s6xpo1dpl62xinjwy' type='radio' name='rtoggle' value='Basic Template'/>
-		<label for='Basic Template'>Personalizado</label><!-- ZOOM -->
+		<label for='Basic Template'>Personalizado</label>
+<!-- ZOOM -->
 		<span id='zoom'>	</span>
 			<span id='inicial'> 	</span>
 
@@ -74,10 +80,7 @@
 		<p style="text-align:justify; margin:20px; font-size:1em;">Locais</p> 
 	</div>
 </nav>
-
 	</div>
-
-
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 <!-- Script do Mapa -->
