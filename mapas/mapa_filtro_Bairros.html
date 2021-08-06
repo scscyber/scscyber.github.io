@@ -22,12 +22,12 @@
 }
 .map-overlay {
     position: absolute;
-    width: 40%;
+    width: 50%;
     top: 0;
     bottom: 0;
     left: 0;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    background-color: transparent;
+
     max-height: 100%;
     overflow: hidden;
 }
@@ -37,7 +37,7 @@
     border: none;
     padding: 10px;
     margin: 0;
-    width: 30%;
+    width: 50%;
 }
 .map-overlay input {
     display: block;
@@ -51,20 +51,22 @@
     overflow: auto;
     max-height: 100%;
     font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color: #fff;
+    color: black;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: transparent;
+    background-color: gray;
     width: 50%;
+	opacity:0.9;
 }
 .map-overlay .listing > * {
     display: block;
     padding: 5px 10px;
     margin: 0;
     width: 50%;
+	    color: black;
 }
 .map-overlay .listing a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: black;
     text-decoration: none;
     width: 50%;
 }
@@ -72,13 +74,13 @@
     border: none;
 }
 .map-overlay .listing a:hover {
-    background: white;
+    color: black;
     color: blue;
     font: 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     width: auto;
 }
 .map-overlay .listing a:hover a:before {
-    background: white;
+    color: black;
     color: blue;
     font: 18px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     width: 50%;
@@ -115,15 +117,16 @@
 	}
 </style>
 <div id='map'></div>
+
 <div id='state-legend' class='legend'>
     <h4>Rio de Janeiro - Cidade</h4>
     <h4>População - Bairros</h4>
 <hr/>
-    <div><span style='background-color: #f5e4db'></span>Até 50.000</div>
-    <div><span style='background-color: #f28621'></span>De 50.000 a 100.000</div>
-    <div><span style='background-color: #4b0202'></span>Acima de 100.000</div>
+
 	    <h6> * Proj 2020</h6>
 </div>
+
+
 <div id='county-legend' class='legend' style='display: none;'>
     <h4>...</h4>
 </div>
