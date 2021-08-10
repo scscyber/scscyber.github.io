@@ -3,16 +3,12 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8"/>
+
 		<title>Mapa Locais</title>
 		<meta name="description" content=""/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<!-- ICONE TITULO/ABA -->
-		<link rel="icon" href="../images/logo_02.jpg" size="50x50" />
-		<link rel="icon" href="../images/logo_02.jpg" />
-		<link rel="apple-touch-icon" href="../images/logo_02.jpg" />
-		<meta name="msapplication-TileImage" content="" />
-		<link rel="icon" href="../images/logo_02.jpg"/>
+
 		<!-- FontAwesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<!-- Bootstrap -->		
@@ -34,6 +30,28 @@
 		<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
 		<!-- Tabletop (Dados planilha GoogleDrive ) -->
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+		
+<!-- Google Fonts  -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/> 
+<!-- Bootstrap -->
+	<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled.0.min.js?ver=4.19.1' id='mdb-js2-js'></script>
+	<script type='text/javascript' src='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/footer-functions.js?ver=4.19.1-update.8' id='footer-functions-js'></script>
+	<link rel='stylesheet' id='compiled.css-css'  href='https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.19.1.min.css?ver=4.19.1' type='text/css' media='all' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- W3css -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<!-- AJAX -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		
+			<!-- ICONE TITULO/ABA -->
+	<link rel="shortcut icon" href="../images/logo_01.jpg" size="50x50" />	
+		
+		
 		<!-- Estilo do Mapa -->
 		<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css'/>
 		<!-- Script p/desabilitar ver código botao direito -->
@@ -46,6 +64,7 @@
 		</script>
 	</head>
 <body>
+
 	<div id='map'></div>
 	<div id='draw' class='draw'></div>
 <!-- Top container -->
@@ -223,9 +242,9 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 	document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 //Zoom Máximo 18
 	document.getElementById('zoom').addEventListener('click', function () {
-    map.zoomTo(18,
-	{				bearing: 60,
-					pitch: 80,
+    map.zoomTo(20,
+	{				bearing: 0,
+					pitch: 0,
 					speed: 1, 
 					curve: 1,
 	duration: 30000});
@@ -263,10 +282,17 @@ mySidebar.style.display = "none";
 overlayBg.style.display = "none";
 }
 </script>
-<!-- Rodapé -->
-	<div class="rodape">
-	<i><b><h5> SCSCYBER 2021 </h5></b></i>
+<!--RODAPÉ-->
+<div id="foot" class="">
+<!--/.Footer Links-->
+<!-- Copyright-->
+	<div class="">
+	&copy; 2021 
+	<a href="">	<strong> SCSCYBER</strong></a>
 	</div>
+<!--/.Copyright -->
+</div>
+<!--/.Footer-->
 </body>
 
 </html>

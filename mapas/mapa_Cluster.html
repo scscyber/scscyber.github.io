@@ -21,6 +21,32 @@
 <!-- MAPBOX DRAW -->
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
+	<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	<!-- ICONE TITULO/ABA -->
+	<link rel="icon" href="../images/logo_02.jpg" size="50x50" />
+	<link rel="icon" href="../images/logo_02.jpg" />
+	<link rel="apple-touch-icon" href="../images/logo_02.jpg" />
+	<meta name="msapplication-TileImage" content="" />
+	<link rel="icon" href="../images/logo_02.jpg"/>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<!-- Bootstrap -->		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- W3css -->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+	<!-- GoogleApis -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+	<!-- Mapbox  -->
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+		<!-- Mapbox Geocoder -->
+		<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+		<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
 <!-- ARQUIVOS EXTERNOS -->
 <!-- 
 	<script src='bairros_rj.geojson'></script>
@@ -53,7 +79,7 @@ width: 10%;
         line-height: 18px;
         height: 150px;
         margin-bottom: 40px;
-        width: 120px;
+        width: 150px;
       }
       .legend-key {
         display: inline-block;
@@ -112,9 +138,9 @@ center: [-43.265983,-22.855412], // starting position
 zoom: 13, // starting zoom
 minZoom: 9 // keep it local
 });
-            //Add Navigation controls to the map to the top-right corner of the map
-            var nav = new mapboxgl.NavigationControl();
-            map.addControl(nav, 'top-right');
+//ADICIONAR CONTROLE DE NAVEGAÇÃO
+	var nav = new mapboxgl.NavigationControl();
+	map.addControl(nav, 'top-right');
             //Add a 'full screen' button to the map
        //     map.addControl(new mapboxgl.FullscreenControl());
             //Add a Scale to the map
@@ -165,7 +191,7 @@ var Score6 = ["all", [">=", ["get", "Score"], 6], ["<", ["get", "Score"], 7]]; /
 var Score7 = ["all", [">=", ["get", "Score"], 7], ["<", ["get", "Score"], 8]]; // verde
 // CORES DE PREENCHIMENTO DOS CIRCULOS
 //colors = [cinza, amarelo, azul, verde, vermelho];
-var colors = ['#A9A9A9', '#FFFF00', '#87CEEB', '#90EE90', '#FF4500', 'green', 'brown'];
+var colors = ['#A9A9A9', '#FFFF00', '#87CEEB', '#90EE90', '#FF4500', 'green', '#964b00'];
 map.on('load', function () {
     // add a clustered GeoJSON source for a sample set of earthquakes
     map.addSource('earthquakes', {
@@ -201,7 +227,7 @@ map.on('load', function () {
 				Score7, colors[6]], // vermelho
 
 				"circle-opacity": 0.5,
-            "circle-radius": 20
+            "circle-radius": 50
         }
     });
     map.addLayer({
@@ -366,12 +392,12 @@ map.getCanvas().style.cursor = '';
               4, '#90EE90',
               5, '#FF4500',
               6, 'green',
-              7, 'brown'
+              7, '#964b00'
 
             ],
             '#000'
           ],
-            'circle-opacity': 0.2,
+            'circle-opacity': 0.8,
         }
       });
     });
@@ -400,21 +426,13 @@ map.getCanvas().style.cursor = '';
 		[ 'Comércio',
           'Serviços',
           'Bancos',
+		  'Educação_Lazer',
 		  'Refeição',
-		  'Lazer',
-          'Educação',
-          'Religião'
+          'Religião',
+          'Outros'
 
         ];
-        var colors = 
-		[ '#A9A9A9',
-          '#FFFF00',
-          '#87CEEB',
-          '#90EE90',
-          '#FF4500',
-          'green',
-		'brown'		
-        ];
+
         // Criar Legenda
         for (i = 0; i < layers.length; i++) {
 			var layer = layers[i];

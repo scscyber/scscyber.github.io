@@ -148,6 +148,11 @@ var map = new mapboxgl.Map({
     minZoom: 10,
     zoom: 12
 });
+
+//Controle de Navegação
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-right');
+
 var zoomThreshold = 14;
 function divideCoord1(coords) {
     return coords.slice(1,2);

@@ -81,6 +81,10 @@ var map = new mapboxgl.Map({
 	maxZoom: 18,
 	maxBounds: bounds // Sets bounds as max
 });
+//ADICIONAR CONTROLE DE NAVEGAÇÃO
+	var nav = new mapboxgl.NavigationControl();
+	map.addControl(nav, 'top-right');
+
 
 map.on('load', function() {
     // Add a GeoJSON source containing place coordinates and information.

@@ -229,7 +229,7 @@ var colors = ['#f5e4db', '#f28621', '#4b0202'];
                 Score2, colors[1], // amarelo
                 Score3, colors[2], // azul
 				colors[3]], // vermelho
-            "circle-opacity": 0.5,
+            "circle-opacity": 0.9,
             "circle-radius": 50
         }
     });
@@ -246,7 +246,8 @@ var colors = ['#f5e4db', '#f28621', '#4b0202'];
 			
 			]," Habitantes"] ,
             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-size": 18
+            "text-size": ["case", ["<", ["get", "Score"], 60000], 20, 25]
+
         },
         "paint": {
             "text-color": ["case", ["<", ["get", "Score"], 60000], "red", "black"]
@@ -266,6 +267,7 @@ var colors = ['#f5e4db', '#f28621', '#4b0202'];
         },
         "paint": {
             "text-color": ["case", ["<", ["get", "Score"], 1], "red", "black"]
+			
         }
     });	
 	

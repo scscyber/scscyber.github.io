@@ -92,6 +92,11 @@ var map = new mapboxgl.Map({
 	center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
     zoom: 11
 });
+
+//ADICIONAR CONTROLE DE NAVEGAÇÃO
+	var nav = new mapboxgl.NavigationControl();
+	map.addControl(nav, 'top-right');
+
 var swatches1 = document.getElementById('swatches1');
 var swatches2 = document.getElementById('swatches2');
 var swatches3 = document.getElementById('swatches3');

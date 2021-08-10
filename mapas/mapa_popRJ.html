@@ -7,13 +7,26 @@
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
 <!-- Estilo/CSS -->
 	<style>
-#map { margin-top: 5px; margin-left: 0px; height: 700px;}
+#map { position:absolute; top:40px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
 .info {	width: 150px; height: 200px; padding: 2px 8px; font: 14px/16px Arial, Helvetica, sans-serif;
 	background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 10px rgba(0,0,0,0.2);	border-radius: 5px;}
 .info h4 { text-align:center; margin: 0 0 5px; color: #777; }
-.legend { text-align: left;	line-height: 18px; color: #555; }
+.legend {
+width: 150px; 
+height: 150px; 
+padding: 2px 8px; 
+font: 14px/16px Arial, Helvetica, sans-serif;
+background: white; 
+background: rgba(255,255,255,0.8); 
+box-shadow: 0 0 10px rgba(0,0,0,0.2);	
+border-radius: 5px;
+text-align: left;
+line-height: 18px; 
+color: #555;
+ }
 .legend i {	width: 18px; height: 18px; float: left;	margin-right: 8px; opacity: 0.7;}
 .teste_1{ position:absolute; margin-top: 10px; margin-left: 1px; height: 800px;	width:400px;
 	box-shadow: 0 0 15px rgba(0,0,0,0.2); }
@@ -36,8 +49,8 @@
   <script type="text/javascript" src="geojson/mapaPopRj2019.geojson"></script>
  </head>
 	<body>
-		<h3><center>Rio de Janeiro - Cidades</center></h3>
-				<h4><center>População - 2020</center></h4>
+		<h4><center>Rio de Janeiro - Cidades - População - 2020 </center></h4>
+
 		<div id='map'>
 <script type="text/javascript">
 //Define a variavel do arquivo GEOJSON de pontos (clientes)
@@ -68,7 +81,7 @@
 	var map = L.map('map', {
 	center: [coord1 ,coord2],
 	zoom: 9,
-	maxBounds: bounds, // Sets bounds as max
+//	maxBounds: bounds, // Sets bounds as max
 	layers: []
 	});
 //	var map = L.map('map').setView([-22.858301185701318,-43.265667844388076], 16);
@@ -235,9 +248,9 @@ var myIcon = L.icon({
 // Função para adicionar/exibir legenda
 	var legend = L.control({position: 'bottomright'});
 	legend.onAdd = function (map) {
-		var div = L.DomUtil.create('div', 'info legend'),
+		var div = L.DomUtil.create('div', 'legend'),
 			grades = [0, op1, op2, op3],
-			labels = ["População ( x 1.000 Habitantes) <hr/>"],
+			labels = ["População \n ( x 1.000 Habitantes) <hr/>"],
 			from, to;
 		for (var i = 0; i < grades.length; i++) {
 			from = grades[i];

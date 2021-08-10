@@ -1,5 +1,5 @@
 body { margin:0; padding:0; }
-	#map { position:absolute; top:40px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
+#map { position:absolute; top:40px; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
 .info-box {
 height: auto;
 width: 100px;
@@ -7,47 +7,39 @@ position: absolute;
 background-color: rgba(255, 255, 255, .9);
 padding: 5px;
 text-align: justify;
-font:600 16px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-margin: 2% 2% 2% 2%;
-font-size: 13px;
+font:400 15px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+margin: 1% 1% 1% 1%;
 }
-
 #calculated-line {
 border:1px solid black;
-height: 130px;
-width: 200px;
+height: auto;
+width: 220px;
 position: absolute;
-top: 60px;
-right: 60px;
+top: 150px;
+left: 10px;
 background-color:#F0F8FF;
-padding: 5px;
+padding: 2px;
 text-align: left;
-line-height:1em;
+line-height:1;
 margin: 1px 1px;
-color:#2F4F4F;
-font:600 16px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+color:blue;
+font:600 14px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 }
-
 #calculated-line:before {
-content: "******* CÁLCULO *******";
+content: 'Utilize a FERRAMENTA DE DESENHO para adicionar pontos e traçar a rota(25 pontos max).  Para finalizar clique novamente no último ponto.  Para mover o Ponto/Linha, com um clique no mesmo. Para excluir a rota, selecione-a e clique no icone de lixeira.(Se preferir, utilize a caixa de pesquisa no MENU, para ir para um local específico.)';
+font:500 14px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+text-align: center;
+line-height:1;
 }
-
 .draw {
 position:fixed;
 z-index:1;
-width:10%;
-right:20px;
+width:5%;
+right:5%;
 top:30%;
-
+font:600 14px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+line-height:1;
 }
-.draw:before {
-content: "Definir";
-}
-
-.draw:after {
-content: "Rota";
-}
-
 .geocoder {
 position:fixed;
 z-index:1;
@@ -55,9 +47,6 @@ width:50%;
 left:10%;
 top:40px;
 }
-
 p{
 line-height:0.6;	
-	
-	
 }
