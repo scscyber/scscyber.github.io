@@ -68,7 +68,7 @@
 	<div id='map'></div>
 	<div id='draw' class='draw'></div>
 <!-- Top container -->
-	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:12%;">
+	<div  id='menu' class="w3-bar w3-top w3-black w3-medium"  style="z-index:4; height:10%;">
 		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
 		<i class="fa fa-bars"></i>Menu</button>
 <!-- Estilos Mapas Mapbox 		
@@ -199,9 +199,9 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
           // create a variable for your popup and populate your popup with information from your table
           var popup = new mapboxgl.Popup()
             .setHTML('<h3>' + row.Nome + '</h3>'
-			+ '<h2><button type="button" class="btn btn-dark-green"> <a href="https://www.google.com.br/maps/@' 
+			+ '<h3><button type="button" class="btn btn-green"> <a href="https://www.google.com.br/maps/@' 
 			+ row.Latitude + ',' 
-			+ row.Longitude + ',20z" target="_blank"><i class="fa fa-map fa-lg"></i> Google Maps</a></button></h2>'
+			+ row.Longitude + ',20z" target="_blank"><i class="fa fa-map fa-lg"></i> Google Maps</a></button></h3>'
 			+ '<h4>' + '<b>' + '<i class="fa fa-map-marker fa-lg " ></i> ' + '</b>' 
 			+ row.Endereço + '</h4>' 
 			+ '<h4>' + '<b>' + '<i class="fa fa-phone-square fa-lg"></i> ' + '</b>' 
@@ -283,7 +283,7 @@ overlayBg.style.display = "none";
 }
 </script>
 <!--RODAPÉ-->
-<div id="foot" class="">
+<div id="footer" class="">
 <!--/.Footer Links-->
 <!-- Copyright-->
 	<div class="">

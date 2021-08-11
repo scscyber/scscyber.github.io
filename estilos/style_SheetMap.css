@@ -1,9 +1,5 @@
-body{
-margin-top: 5px;
-height:90%;
-}
-	#map { position:absolute; top:12%; bottom:3%; width:98%; margin: 1% 1% 10% 1% ; padding: 1% 1% 1% 1%; 
-	}
+	body { margin:0; padding:0; }
+	#map { position:absolute; top:10%; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
     #menu {
 		text-align: center;
 		background: gray;
@@ -69,8 +65,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/grocery-15.svg');
     background-color: #e5e5a8;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #ffd208;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -78,8 +77,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/college-15.svg');
         background-color: #e5fded;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #42f5bc;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -96,8 +98,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/warehouse-15.svg');
         background-color: #f7f9b0;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #fcde47;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -105,8 +110,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/Padaria.svg');
         background-color: #f9fbcb;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #fcd847;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -114,18 +122,23 @@ height:90%;
 	background-image: url('../mapas/img_mapa/rail-15.svg');
         background-color: #eebcb6;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #ff0000;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
 		.marker_Comercio {
 	background-image: url('../mapas/img_mapa/ic_compras.svg');
         background-color: #f1f57c;
-
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #f5da42;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -133,8 +146,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/commercial-15.svg');
         background-color: gray;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #575654;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -142,8 +158,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/bank-15.svg');
         background-color: #89a6f6;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #4275f5;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -151,8 +170,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/building-15.svg');
         background-color: #7cf5a4;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #42f578;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -160,8 +182,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/place-of-worship-15.svg');
         background-color: #b0f9c8;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #42f5ad;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}			
@@ -169,8 +194,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/theatre-15.svg');
         background-color: #c2eaca;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #42f5e3;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}	
@@ -178,8 +206,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/tourist_view_point.svg');
         background-color: #dd7a6d;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #ff2a26;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}		
@@ -187,8 +218,11 @@ height:90%;
 	background-image: url('../mapas/img_mapa/marker-15.svg');
         background-color: #cdcbcb;
 	background-size: cover;
-	width: 25px;
-	height: 25px;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #6e6b6b;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}	
@@ -196,18 +230,23 @@ height:90%;
 	background-image: url('../mapas/img_mapa/restaurant-15.svg');
         background-color: #f9fbcb;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #f5e942;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
-
 		.marker_Informática {
 	background-image: url('../mapas/img_mapa/logo_01.jpg');
         background-color: #f9fbcb;
 	background-size: cover;
-	width: 2em;
-	height: 2em;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #0000ff;
+    border-width:5px;  
 	border-radius: 50%;
 	cursor: pointer;
 	}
@@ -270,6 +309,18 @@ top:20%;
 
 #footer  {
 font-size: 20px;
-margin-bottom: 10%;
+
 color: red;
 }
+
+	.nome {
+	font: bold 15px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
+	color: #0404B4;
+	text-align: left;
+	margin: 0;
+	display: block;
+	padding: 5px;
+	margin-top: 5px;
+	line-height:1.2;
+	word-wrap: break-word;
+	}
