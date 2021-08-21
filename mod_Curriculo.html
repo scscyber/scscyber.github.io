@@ -22,7 +22,7 @@
 		line-height: 1 em;
 		font-weight: 300;
 		font-style: italic;
-				padding: 2px 2px;
+				padding: 1px 40px;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -127,7 +127,7 @@ height:800px;
 		cursor: pointer;
 		margin-bottom: 0px;
 		line-height: 1;
-		padding: 1px 1px;
+		padding: 1px 40px;
 		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 		text-transform: capitalize;
 	  }
@@ -206,15 +206,15 @@ height:800px;
 	  }
 
 	textarea {
-		padding: 1px 1px;
+		padding: 1px 40px;
 		box-sizing: border-box;
 		border-style: hidden;
 		background-color: #f8f8f8;
-		font: 20px/20px "Arial", serif;
+		font: 16px/20px "Arial", serif;
 		margin-left: 5px;
 		line-height: 1.2;
 		text-align: left;
-		text-transform: uppercase;
+
 	  }
 	  
 	  .titulo {
@@ -232,10 +232,37 @@ text-align:center;
 		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
 	}
 
+	  .titulo2 {
+		color: #000000;	
+		font: 30px/42px "Arial", serif;
+		font-weight: bold;
+		margin:1px;
+text-align:left;
+		background-color: #f8f8f8;
+		text-decoration: none;
+		text-shadow: 0 1px rgba(255, 255, 255, .75);
+		margin-bottom: 0px;
+		line-height: 1.2;
+		padding: 1px 1px;
+		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	}
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: 1px;
+  color:black;
+  background-color:black;
+}
 
-
-
-
+::placeholder {
+  color: black;
+  text-align:left;
+    opacity: 0.7;
+}
 
 
 </style>
@@ -259,7 +286,7 @@ text-align:center;
 	<div class="w3-row-padding">
 
 		
-<br>
+
 			<div class=" w3-row-padding">	
 		<h3 class="titulo"><input type="text" size="30" style="text-align:center;font-size:45px; align:center;" placeholder="clique para inserir o nome"/></h3>
 		<!-- row 1 -->
@@ -267,39 +294,40 @@ text-align:center;
 			<!-- Type = text -->
 			<div class=" w3-row-padding">
 	<hr>
-	<h3 class="titulo"  > APRESENTAÇÃO</h3>
+	<h3 class="titulo2"  > APRESENTAÇÃO</h3>
+	<hr>
 		
-<br>
 <textarea rows="3" cols="100" 
-placeholder="    • Boa apresentação e postura profissional;
-    • Fluência verbal, comunicação e facilidade para atuação em equipe;
-    • Organização e profissionalismo; • Facilidade de adaptação a novas formas de trabalho."></textarea>	
+placeholder="    • Boa apresentação e postura profissional; Fluência verbal, comunicação e facilidade para atuação em equipe; Organização e profissionalismo; Facilidade de adaptação a novas formas de trabalho."></textarea>	
 			</div>
 
 <hr>
 
 			<!-- Type = text -->
 			<div class="">
-				<h3 class="titulo"> OBJETIVO PROFISSIONAL</h3>
+				<h3 class="titulo2"> OBJETIVO PROFISSIONAL</h3>
+	<hr>
 		
-<br/>
+
 <textarea rows="3" cols="100" 
 placeholder="   Atuar em qualquer área que necessite de pessoa esforçada e disposta a aprender, contribuindo para o bom    funcionamento da empresa, e relação interpessoal, além de adquirir experiência para meu crescimento profissional."></textarea>				
-<hr>
+
 
 
 					</div>
+					
+					<hr>
 		<!-- row 3 -->
 			<!-- Type = date -->
 			<div class="">
-				<h3 class="titulo"> DADOS PESSOAIS</h3>
-<br>
+				<h3 class="titulo2"> DADOS PESSOAIS</h3>
+<hr>
 				<span class="" style="font-size:25px;"><i class="glyphicon glyphicon-calendar"></i> Data de Nascimento:
     <input type="text"  style="text-align:center;font-size:25px;"placeholder="clique aqui" name="data" maxlength="10" OnKeyPress="formatar('##/##/####', this)" size="8" ></span>	
-</br>
+<br/>
 				<!-- Type = search -->
 				<span class="" style="font-size:25px;"><i class="glyphicon glyphicon-user"></i> Estado Civil:
-				<input type="search" list="online-stores" placeholder="clique aqui"></span>
+				<input type="text" list="online-stores" placeholder="clique aqui"></span>
 				<datalist id="online-stores" style="display:hidden;">
 					<option value="SOLTEIRO(A)"></option>
 					<option value="CASADO(A)"></option>
@@ -307,15 +335,15 @@ placeholder="   Atuar em qualquer área que necessite de pessoa esforçada e dis
 					<option value="VIÚVO(A)"></option>
 				</datalist>
 
-</br>
+<br/>
 				<!-- Type = tel -->
 				<span class="" style="font-size:25px;"><i class="glyphicon glyphicon-phone glyphicon-earphonee"></i> Telefone:
 				<input type="tel" placeholder="clique aqui" pattern="[(][0-9]{2}[)] [0-9]{5}-[0-9]{4}"  maxlength="14" OnKeyPress="formatar('##-#####-####', this)"  size="10">
 				<input type="tel" placeholder="clique aqui/espaço p/deixar em branco" pattern="[0-9]{10}"  maxlength="14" OnKeyPress="formatar('##########', this)" size="10" ></span>
-</br>			
+<br/>			
 				<span class="" style="font-size:25px;" class=""><i class="glyphicon glyphicon-envelope"></i> E-mail:
-				<input type="email" placeholder="" size="35"></span>
-</br>
+				<input type="email" placeholder="clique aqui/espaço p/deixar em branco" size="35"></span>
+<br/>
 
 				<span class="" style="font-size:25px;"><i class="glyphicon glyphicon-map-marker"></i> Endereço:
 
@@ -326,9 +354,9 @@ placeholder="   Atuar em qualquer área que necessite de pessoa esforçada e dis
 			<div class="">
 
 
-				<h3 class="titulo"> ESCOLARIDADE/FORMAÇÃO </h3>
-				</br>
-				<input type="search" list="escolaridade" size="28" placeholder="clique aqui/espaço p/deixar em branco">
+				<h3 class="titulo2"> ESCOLARIDADE/FORMAÇÃO </h3>
+<hr>
+				<input type="search" list="escolaridade" size="28" placeholder="clique aqui">
 				<datalist id="escolaridade" style="display:hidden;">
 					<option value="ALFABETIZADO"></option>
 					<option value="FUNDAMENTAL INCOMPLETO"></option>
@@ -343,16 +371,16 @@ placeholder="   Atuar em qualquer área que necessite de pessoa esforçada e dis
 <hr>	
 			<!-- Type = text -->
 			<div class="">
-				<h3 class="titulo"> CURSOS/OUTRAS ESPECIALIZAÇÕES</h3>
-<br>
-				<textarea rows="3" cols="100">
+				<h3 class="titulo2"> CURSOS/OUTRAS ESPECIALIZAÇÕES</h3>
+<hr>
+				<textarea rows="3" cols="100" placeholder="***">
 				</textarea>
 			</div>			
 <hr>
 			<div class="">
 
-				<h3 class="titulo"> EXPERIÊNCIA PROFISSIONAL</h3>
-<br>
+				<h3 class="titulo2"> EXPERIÊNCIA PROFISSIONAL</h3>
+<hr>
 <textarea rows="3" cols="100" 
 placeholder="Empresa1"></textarea>	
 <textarea rows="3" cols="100" 
@@ -360,7 +388,7 @@ placeholder="Empresa2"></textarea>
 <textarea rows="3" cols="100" 
 placeholder="Empresa3"></textarea>	
 
-				</br>				
+			
 				
 				
 			</div>
@@ -369,9 +397,9 @@ placeholder="Empresa3"></textarea>
 			<!-- Type = text -->
 			<div class="">
 
-				<h3 class="titulo"> OUTRAS INFORMAÇÕES</h3>
-<br>
-				<textarea  rows="2" cols="100">
+				<h3 class="titulo2">INFORMAÇÕES ADICIONAIS</h3>
+<hr>
+				<textarea  rows="2" cols="100" placeholder="clique aqui/espaço p/deixar em branco">
 				</textarea>
 			</div>		
 	</div>
