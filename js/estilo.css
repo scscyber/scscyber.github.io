@@ -52,7 +52,7 @@ background-color: #330000;
 
 /*BANNER*/
 .home .banner { display: block; }
-.bannerC { width: 60%; display: inline-block; overflow: hidden; position: relative; }
+.bannerC { width: 80%; display: inline-block; overflow: hidden; position: relative; }
 .bannerC, .bannerC .swiper-slide, .bannerC .imagem { height: 60%; display: block; }
 
 @media (max-width: 1070px){
@@ -195,7 +195,7 @@ h3 {
     width: 100%;
 	color: #8B0000;
 	text-transform: uppercase;
-    font-size: 12px;
+    font-size: 18px;
     margin-bottom: 3px;
 	
 }
@@ -240,11 +240,11 @@ h3 {
     padding: 10px 0;
     width: 100%;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 30px;
 }
 #produtoEspecificao p {
     margin: 5px 0;
-    font-size: 20px;
+    font-size: 30px;
 }
 .rodape {
 	background-color: #A6ACAF;
