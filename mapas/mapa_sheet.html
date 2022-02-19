@@ -136,7 +136,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
                 'data': data
               },
               'paint': {
-                'circle-radius': 10,
+                'circle-radius': 5,
                 'circle-color': "purple"
               }
             });
@@ -178,7 +178,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
             });
 
             var bbox = turf.bbox(data);
-            map.fitBounds(bbox, { padding: 50 });
+            map.fitBounds(bbox, { padding: 100 });
 
           });
 
