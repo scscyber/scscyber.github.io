@@ -72,6 +72,22 @@
     .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
       border-bottom-color: rgb(61, 59, 59);
     }
+
+	/*Estilos dos marcadores */
+	.marker_Sul {
+	background-image: url('../mapas/img_mapa/star-15.svg');
+    background-color: #e5e5a8;
+	background-size: cover;
+	width: 3em;
+	height: 3em;
+    border-style:groove;
+	border-color: #ffd208;
+    border-width:5px;  
+	border-radius: 50%;
+	cursor: pointer;
+	}
+	  
+	  
   </style>
 </head>
 
@@ -163,6 +179,14 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 
               //add Popup to map
 
+  var el = document.createElement('div');
+  el.className = 'marker_'+ row.Região;
+          // create a variable for your markup and add it to the map 
+          var marker = new mapboxgl.Marker(el)
+            .setLngLat([row.Longitude, row.Latitude])
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map		    
+		    
               new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
