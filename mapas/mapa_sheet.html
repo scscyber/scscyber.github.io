@@ -152,12 +152,29 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
                 'data': data
               },
             'layout': {
-                'icon-image': 'star-15',
+                'icon-image': 'star-11',
                 'icon-size': 2,
                 'icon-padding': 0,
-                'icon-color': 'blue',
                 'icon-allow-overlap': true
-            }
+            },
+'paint': {
+'icon-color': [
+'match', // Use the 'match' expression: https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+['get', 'Região'], // Use the result 'STORE_TYPE' property
+'Sul',
+'#FF8C00',
+'Norte',
+'#FF8C00',
+'Nordeste',
+'#FF8C00',
+'Sudeste',
+'#9ACD32',
+'Centro-Oeste',
+'#008000',
+'#FF0000' // any other store type
+]
+}
+		    
             });
 
 
