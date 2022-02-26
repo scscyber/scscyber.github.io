@@ -160,17 +160,11 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 'paint': {
 'icon-color': [
 'match', // Use the 'match' expression: https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-['get', 'Região'], // Use the result 'STORE_TYPE' property
-'Sul',
+['get', 'População'], // Use the result 'STORE_TYPE' property
+[< 50000],
 '#FF8C00',
-'Norte',
+[> 50000],
 '#FF8C00',
-'Nordeste',
-'#FF8C00',
-'Sudeste',
-'#9ACD32',
-'Centro-Oeste',
-'#008000',
 '#FF0000' // any other store type
 ]
 }
