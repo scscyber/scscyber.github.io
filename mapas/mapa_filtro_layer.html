@@ -159,10 +159,8 @@
 
 <div class='map-overlay'>
 <div class='titulo'>
-<h3><center>Bairros</center></h3>
+<h3><center>População / Bairros</center></h3>
 </div>
-
-
     <fieldset>
         <input id='feature-filter' type='text' placeholder='Filtrar por nome' />
     </fieldset>
@@ -207,7 +205,7 @@ function renderListings(features) {
             var item = document.createElement('a');
             item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',15.5z';
             item.target = '_blank';
-            item.textContent = prop.place_name + ' (  )';
+            item.textContent = prop.place_name + '('+ feature.properties.pop +')';
             item.addEventListener('mouseover', function() {
                 // Highlight corresponding feature on the map
                 popup.setLngLat(feature.geometry.coordinates)
@@ -249,12 +247,7 @@ function getUniqueFeatures(array, comparatorProperty) {
     return uniqueFeatures;
 }
 
-
-
 //FIM ADICIONADO	
-	
-	
-	
 	
 		// Wait until the map has finished loading.
 
@@ -358,10 +351,6 @@ function getUniqueFeatures(array, comparatorProperty) {
     // Call this function on initialization
     // passing an empty array to render an empty state
     renderListings([]);			
-			
-			
-			
-			
 		});
 </script>
 </body>

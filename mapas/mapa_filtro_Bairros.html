@@ -54,7 +54,7 @@
     color: black;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: gray;
-    width: 50%;
+    width: 40%;
 	opacity:0.9;
 }
 .map-overlay .listing > * {
@@ -62,7 +62,7 @@
     padding: 5px 10px;
     margin: 0;
     width: 50%;
-	    color: black;
+    color: black;
 }
 .map-overlay .listing a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -74,15 +74,15 @@
     border: none;
 }
 .map-overlay .listing a:hover {
-    color: black;
+
     color: blue;
-    font: 12px/18px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 18px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     width: auto;
 }
 .map-overlay .listing a:hover a:before {
-    color: black;
+
     color: blue;
-    font: 18px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 18px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     width: 50%;
 }
 .mapboxgl-popup {
@@ -126,12 +126,14 @@
 	    <h6> * Proj 2020</h6>
 </div>
 
-
 <div id='county-legend' class='legend' style='display: none;'>
     <h4>...</h4>
 </div>
 
 <div class='map-overlay'>
+<div class='titulo'>
+<h3><center>População</center></h3>
+</div>
     <fieldset>
         <input id='feature-filter' type='text' placeholder='Filtrar por nome' />
     </fieldset>
@@ -179,7 +181,7 @@ function renderListings(features) {
             var item = document.createElement('a');
             item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',15.5z';
             item.target = '_blank';
-            item.textContent = prop.place_name + ' ( População: ' + prop.pop + '  )';
+            item.textContent = prop.place_name + ' ( ' + prop.pop + '  )';
             item.addEventListener('mouseover', function() {
                 // Highlight corresponding feature on the map
                 popup.setLngLat(feature.geometry.coordinates)
