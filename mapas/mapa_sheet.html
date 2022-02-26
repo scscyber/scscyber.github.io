@@ -117,7 +117,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 	style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy',
 //SELECIONAR ESTILO MAPBOX https://docs.mapbox.com/api/maps/#styles
 	center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
-	zoom: 11, // ZOOM INICIAL
+	zoom: 8, // ZOOM INICIAL
 	minZoom: 4, // 
 	maxZoom: 22
 //	transformRequest: transformRequest
@@ -152,7 +152,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
                 'data': data
               },
             'layout': {
-                'icon-image': marker,
+                'icon-image': 'star-15',
                 'icon-size': 2,
                 'icon-padding': 0,
                 'icon-allow-overlap': true
@@ -168,7 +168,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
               //set popup text
               //You can adjust the values of the popup to match the headers of your CSV.
               // For example: e.features[0].properties.Name is retrieving information from the field Name in the original CSV.
-              var description = '<h3>' + e.features[0].properties.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + e.features[0].properties.Endereço + '</h4>' + '<h4>' + '<b>' + 'Telefone: ' + '</b>' + e.features[0].properties.Telefone + '</h4>';
+              var description = '<h3>' + e.features[0].properties.UF + '</h3>' + '<h4>' + '<b>' + 'Capital: ' + '</b>' + e.features[0].properties.Capital + '</h4>' + '<h4>' + '<b>' + 'Telefone: ' + '</b>' + e.features[0].properties.Telefone + '</h4>';
 
               // Ensure that if the map is zoomed out such that multiple
               // copies of the feature are visible, the popup appears
@@ -179,13 +179,13 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 
               //add Popup to map
 
-  var el = document.createElement('div');
-  el.className = 'marker_'+ e.features[0].properties.Região;
+//  var el = document.createElement('div');
+ // el.className = 'marker_'+ e.features[0].properties.Região;
           // create a variable for your markup and add it to the map 
-          var marker = new mapboxgl.Marker(el)
-            .setLngLat(coordinates)
-            .setPopup(popup)
-            .addTo(map); // add the marker to the map		    
+//          var marker = new mapboxgl.Marker(el)
+//            .setLngLat(coordinates)
+//            .setPopup(popup)
+//            .addTo(map); // add the marker to the map		    
 		    
               new mapboxgl.Popup()
                 .setLngLat(coordinates)
@@ -200,7 +200,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 
             // Change it back to a pointer when it leaves.
             map.on('mouseleave', 'places', function () {
-              map.getCanvas().style.cursor = '';
+              map.getCanvas().style.cursor = 'crosshair';
             });
 
             var bbox = turf.bbox(data);
