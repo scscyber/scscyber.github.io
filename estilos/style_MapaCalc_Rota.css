@@ -26,7 +26,7 @@ color:blue;
 font:600 14px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 }
 #calculated-line:before {
-content: 'Utilize a FERRAMENTA DE DESENHO para adicionar pontos e traçar a rota(25 pontos max).  Para finalizar clique novamente no último ponto.  Para mover o Ponto/Linha, com um clique no mesmo. Para excluir a rota, selecione-a e clique no icone de lixeira.(Se preferir, utilize a caixa de pesquisa no MENU, para ir para um local específico.)';
+content: '';
 font:500 14px/30px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 text-align: center;
 line-height:1;
@@ -45,7 +45,7 @@ position:fixed;
 z-index:1;
 width:50%;
 left:10%;
-top:40px;
+top:50px;
 }
 p{
 line-height:0.6;	
