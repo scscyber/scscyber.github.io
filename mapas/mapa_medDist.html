@@ -2,10 +2,12 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Measure distances</title>
+    <title>Medir distancias</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -37,22 +39,42 @@
 
 <div id='map'>
 <h1><center>Medir Distancias </center> </h1>
-
+<button class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="glyphicon glyphicon-map-marker"></i><a href="mapa_contaKm.html"  target="_blank">Por terra</a></button>
 </div>
 <div id='distance' class='distance-container'></div>
-
+	<div id='geocoder' class='geocoder'></div>
 <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-43.190164,-22.903664],
-    zoom: 12
+center: [-46.70975000181015,-23.595420498741674], // starting position
+    zoom: 17
 });
 
 var distanceContainer = document.getElementById('distance');
 
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+flyTo: {
+bearing: 0,
+pitch: 0,
+
+// These options control the flight curve, making it move
+// slowly and zoom out almost completely before starting
+// to pan.
+speed: 0.5, // make the flying slow
+curve: 1, // change the speed at which it zooms out
+zoom:10,
+// This can be any easing function: it takes a number between
+// 0 and 1 and returns another number between 0 and 1.
+easing: function (t) { return t; }
+},
+mapboxgl: mapboxgl
+});
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 // GeoJSON object to hold our measurement features
 var geojson = {
     "type": "FeatureCollection",
