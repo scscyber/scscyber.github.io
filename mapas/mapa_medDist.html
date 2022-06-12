@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
+	<meta charset="utf-8">
     <title>Medir distancias</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
 	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css' type='text/css' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
+
+<!-- CSS(Estilo) do Mapa 
+	<link rel="stylesheet" href="../estilos/style_MapaCalc_Rota.css" type='text/css' /> -->
+	
+<!-- Script p/desabilitar ver código botao direito -->
+	<script language="JavaScript">
+	function protegercodigo() {
+	if (event.button==2||event.button==3){
+		alert('');}
+	}
+	document.onmousedown=protegercodigo;
+	</script>
+	
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -29,23 +55,86 @@
     border-radius: 3px;
 }
 
+.tooltip {
+  position: relative;
+
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 		</style>
 </head>
-<body>
+<body style="text-align:center;">
+
+<div class="tooltip">AJUDA
+  <span class="tooltiptext">Clique no local para inicio, em seguida clique no ponto final para medir.</span>
+</div>
 
 
-<style>
-</style>
 
 <div id='map'>
+
 <h1><center>Medir Distancias </center> </h1>
 <button class=" btn btn-outline-default btn-rounded waves-effect btn btn-yellow"><i class="glyphicon glyphicon-map-marker"></i><a href="mapa_contaKm.html"  target="_blank">Por terra</a></button>
 </div>
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-medium" style="z-index:4">
+	    <a href="mapa_contaKm.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>POR TERRA</a>
+
+<!--<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button> -->
+    <div class="w3-bar-item w3-center">Cálculo Rotas ( Por Ar)</div>
+  <div class="w3-bar-item w3-right">SCSCYBER</div>
+</div>
+
+<!-- Sidebar/menu 
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:auto; margin:5px; " id="mySidebar"><hr>
+
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
+	    <a href="mapa_medDist.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>POR AR</a>
+	<div id='geocoder' class='geocoder'></div>
+  </div>
+</nav>
+-->
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
 <div id='distance' class='distance-container'></div>
 	<div id='geocoder' class='geocoder'></div>
 <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA&language=pt-BR';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
@@ -64,9 +153,9 @@ pitch: 0,
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting
 // to pan.
-speed: 0.5, // make the flying slow
+speed: 3, // make the flying slow
 curve: 1, // change the speed at which it zooms out
-zoom:10,
+zoom:18,
 // This can be any easing function: it takes a number between
 // 0 and 1 and returns another number between 0 and 1.
 easing: function (t) { return t; }

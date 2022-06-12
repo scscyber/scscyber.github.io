@@ -123,7 +123,7 @@
         cursor: pointer;
         height: 30px;
         width: 30px;
-        background-image: url(img_mapa/marker-15.svg);
+        background-image: url(img_mapa/print.svg);
 		background-repeat: no-repeat; /* Do not repeat the image */
 		background-size: cover; /* Resize the background image to cover the entire container */
       }
@@ -498,7 +498,7 @@ var poi = pontos;
       function flyToStore(currentFeature) {
         map.flyTo({
             center: currentFeature.geometry.coordinates,
-            curve: 1,
+            curve: 2,
             zoom: 18
           });
       }

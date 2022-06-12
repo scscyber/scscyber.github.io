@@ -15,6 +15,17 @@
 	<!-- Mapbox Geocoder -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 		<style>
 			body {
 			margin: 0;
@@ -179,8 +190,8 @@
 		container: 'map', // container id
 		style: 'mapbox://styles/scs999999/cjxryon3s6xpo1dpl62xinjwy', //hosted style id
 			center: [longX,latY], // POSIÇÃO INICIAL [LONG, LAT]
-		zoom: 10, // starting zoom
-		minZoom:5 // keep it local
+		zoom: 13, // starting zoom
+		minZoom:9 // keep it local
 		});
         function getIsochroneURL(modality, time, long, lat) {
             var isochrone_url = "https://api.mapbox.com/isochrone/v1/mapbox/" +

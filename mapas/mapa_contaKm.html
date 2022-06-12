@@ -18,12 +18,6 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
 
-<!--
-
-	-->
-<style>
-
-</style>
 
 <!-- CSS(Estilo) do Mapa -->
 	<link rel="stylesheet" href="../estilos/style_MapaCalc_Rota.css" type='text/css' />
@@ -36,18 +30,19 @@
 	document.onmousedown=protegercodigo;
 	</script>
 </head>
+
 <body>
-
 <div id='map'></div>
-
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-medium" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button> 
-    <div class="w3-bar-item w3-center">Cálculo Rotas ( MAP)</div>
+	    <a href="mapa_medDist.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-map fa-fw"></i>POR AR</a>
+<!--<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button> -->
+    <div class="w3-bar-item w3-center">Cálculo Rotas ( Por Terra)</div>
+		<div id='geocoder' class='geocoder'></div>
   <div class="w3-bar-item w3-right">SCSCYBER</div>
 </div>
 
-<!-- Sidebar/menu -->
+<!-- Sidebar/menu 
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:auto; margin:5px; " id="mySidebar"><hr>
 
   <div class="w3-bar-block">
@@ -56,6 +51,7 @@
 	<div id='geocoder' class='geocoder'></div>
   </div>
 </nav>
+-->
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -69,7 +65,7 @@ container: 'map', // container id
 style: 'mapbox://styles/mapbox/streets-v9?optimize=true', //hosted style id
 center: [-46.70975000181015,-23.595420498741674], // starting position
 zoom: 17, // starting zoom
-minZoom: 9 // keep it local
+minZoom: 7 // keep it local
 });
           //Controle de Navegação
             var nav = new mapboxgl.NavigationControl();
@@ -245,9 +241,9 @@ pitch: 0,
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting
 // to pan.
-speed: 0.5, // make the flying slow
+speed: 3, // make the flying slow
 curve: 1, // change the speed at which it zooms out
-zoom:10,
+zoom:9,
 // This can be any easing function: it takes a number between
 // 0 and 1 and returns another number between 0 and 1.
 easing: function (t) { return t; }

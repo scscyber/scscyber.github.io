@@ -179,7 +179,7 @@ function renderListings(features) {
 		  var coordd2 = divideCoord2(feature.geometry.coordinates);
 		  var prop = feature.properties;
             var item = document.createElement('a');
-            item.href ='https://www.google.com.br/maps/@'+ coordd1 + ',' + coordd2 + ',15.5z';
+            item.href ='https://www.google.com.br/maps?q='+ feature.properties.place_name + '&amp;output=embed';
             item.target = '_blank';
             item.textContent = prop.place_name + ' ( ' + prop.pop + '  )';
             item.addEventListener('mouseover', function() {

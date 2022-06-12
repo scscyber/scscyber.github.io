@@ -119,8 +119,8 @@ var canvas = map.getCanvasContainer();
 function getFence(loc) {
     // make directions request using cycling profile
 
-    var url = 'https://api.mapbox.com/isochrone/v1/mapbox/cycling/' + loc + '?contours_minutes=5,10,15&contours_colors=1084a8,1084a8,1084a8&polygons=true&access_token=' + mapboxgl.accessToken;
-
+    var url = 'https://api.mapbox.com/isochrone/v1/mapbox/cycling/' + loc + '?contours_minutes=5,10,15&contours_colors=6706ce,04e813,4286f4&polygons=true&access_token=' + mapboxgl.accessToken;
+// https://api.mapbox.com/isochrone/v1/{profile}/{coordinates}?{contours_minutes|contours_meters}
     // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
     var req = new XMLHttpRequest();
     req.responseType = 'json';
