@@ -218,6 +218,7 @@
 <div class='titulo'>
 <h3><center>Censo - 2022</center></h3>
 <h4><center>Complexo do Alemão</center></h4>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Principal</a>
 </div>
     <fieldset>
         <input id='feature-filter' type='text' placeholder='Locais(Filtrar por nome)' />
@@ -277,7 +278,7 @@ function renderListings(features) {
             item.addEventListener('mouseover', function() {
                 // Highlight corresponding feature on the map
                 popup.setLngLat(feature.geometry.coordinates)
-            .setText(feature.properties.name + ' ( ' + feature.properties.pop + ' Habitantes)')
+            .setText(feature.properties.name + ' ( ' + feature.properties.pop + ' )')
                     .addTo(map);
             });
             listingEl.appendChild(item);
@@ -395,7 +396,7 @@ function getUniqueFeatures(array, comparatorProperty) {
         // Populate the popup and set its coordinates based on the feature.
         var feature = e.features[0];
         popup.setLngLat(feature.geometry.coordinates)
-            .setText(feature.properties.name + ' ( ' + feature.properties.pop + ' Habitantes)')
+            .setText(feature.properties.name + ' ( ' + feature.properties.pop + ' )')
             .addTo(map);
     });
     map.on('mouseleave', 'pontos_interesse', function() {
