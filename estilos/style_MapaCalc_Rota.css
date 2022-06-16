@@ -13,7 +13,7 @@ margin: 1% 1% 1% 1%;
 #calculated-line {
 border:1px solid black;
 height: auto;
-width: 220px;
+width: auto;
 position: absolute;
 top: 150px;
 left: 10px;

@@ -151,7 +151,7 @@
   }
 	.map-overlay {
     position: absolute;
-    max-width: 60%;
+    max-width: 70%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -374,14 +374,14 @@ getMatch(newCoords);
 // make a directions request
 function getMatch(e) {
 // https://www.mapbox.com/api-documentation/#directions
-var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + e +'?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
+var url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + e +'?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
 
 var req = new XMLHttpRequest();
 req.responseType = 'json';
 req.open('GET', url, true);
 req.onload  = function() {
 var jsonResponse = req.response;
-var distance = jsonResponse.routes[0].distance*0.001; // convert to km
+var distance = jsonResponse.routes[0].distance; // convert to m
 // var duration = jsonResponse.routes[0].duration/60; // convert to minutes
 var tempoHora = Math.floor(jsonResponse.routes[0].duration/3600);
 var tempoMinut = Math.floor(jsonResponse.routes[0].duration/60);
@@ -394,9 +394,9 @@ tempoMinut = tempoMinut;
 var tempoSeg = Math.floor(jsonResponse.routes[0].duration%60);
 
 // Adiciona os totais na caixa de informação
-document.getElementById('calculated-line').innerHTML = '<p> <span style="color:red; font-size: 20px; background-color: lightgrey; " >&nbsp Distância: ' + distance.toFixed(2)+ ' km&nbsp</span> </p>'
-+'<p> <span style="color:red; font-size: 20px; background-color: lightgrey; " >&nbsp Duração: ' + tempoHora + ':' + tempoMinut + ':'+ tempoSeg + '&nbsp</span></p>' 
-+'<p> <span style="color:red; font-size: 20px; background-color: lightgrey; " >&nbsp'  
+document.getElementById('calculated-line').innerHTML = '<p> <span style="color:red; font-size: 20px; background-color: ; " >&nbsp Distância: ' + distance.toFixed(2)+ ' m&nbsp</span> </p>'
++'<p> <span style="color:red; font-size: 18px; background-color: ; " >&nbsp Duração: ' + tempoHora + ':' + tempoMinut + ':'+ tempoSeg + '(H:MM:SS)</span></p>' 
++'<p> <span style="color:red; font-size: 20px; background-color: ; " >&nbsp'  
 
 //+ (jsonResponse.routes[0].distance*0.00225).toFixed(2) +'&nbsp</span></p>'
 ;
@@ -431,9 +431,9 @@ map.addLayer({
 "line-cap": "round"
 },
 "paint": {
-"line-color": "gray",
+"line-color": "black",
 "line-width": 6,
-"line-opacity": 0.9
+"line-opacity": 1
 }
 
 });
