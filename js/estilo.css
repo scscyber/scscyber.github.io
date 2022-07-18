@@ -192,10 +192,10 @@ h3 {
 	color: #8B0000;
 }
 .produtos .itens .itemProduto .bottom .categoria {
-    width: 100%;
+    width: 80%;
 	color: #8B0000;
 	text-transform: uppercase;
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 3px;
 	
 }
@@ -236,15 +236,15 @@ h3 {
 #produtoCategoria {
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 18px;
-    padding: 10px 0;
-    width: 100%;
+    font-size: 14px;
+    padding: 1px 0;
+    width: 80%;
     margin-bottom: 15px;
-    font-size: 30px;
+
 }
 #produtoEspecificao p {
-    margin: 5px 0;
-    font-size: 30px;
+    margin: 1px 0;
+    font-size: 20px;
 }
 .rodape {
 	background-color: #A6ACAF;
