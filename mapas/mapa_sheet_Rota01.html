@@ -93,10 +93,11 @@
     //YOUR TURN: add your Mapbox token
     
   mapboxgl.accessToken = 'pk.eyJ1Ijoic2NzOTk5OTk5IiwiYSI6ImNqd2NtZzcyazAydmwzem4yamhma3lndmQifQ.90vf0GojkCydVu979c-CoA'; //Mapbox token 
-    var map = new mapboxgl.Map({
+	var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';	  
+  var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // YOUR TURN: choose a style: https://docs.mapbox.com/api/maps/#styles
-      center: [-122.411, 37.785], // starting position [lng, lat]
+      center: [longX,latY], // starting position [lng, lat]
       zoom: 10,// starting zoom
       transformRequest: transformRequest
     });
@@ -105,7 +106,7 @@
       $.ajax({
         type: "GET",
         //YOUR TURN: Replace with csv export link
-        url: 'https://docs.google.com/spreadsheets/d/1xfQ_UwG_DDsJ-gdcR3seCoM_ShsTgxpWW6UK4yJg034/gviz/tq?tqx=out:csv&sheet=plan1',
+        url: 'https://docs.google.com/spreadsheets/d/1mJmEYJV_Oyuw9tQvE1_hbcUp_7DnZlDJ6ILQ83Qg4KM/gviz/tq?tqx=out:csv&sheet=Pagina1',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
