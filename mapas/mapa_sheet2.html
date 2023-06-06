@@ -378,7 +378,8 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
       $.ajax({
         type: 'GET',
         //YOUR TURN: Replace with csv export link
-        url: "https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/gviz/tq?tqx=out:csv&sheet=Pagina1",
+    
+         url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRgm2ZCS-xIhg0jBbnaYNC6rQuvTTJ1OflepvqKVIdqxH3ff2K-sWnVCYUggnllT_lqtmwDPELNsh07/gviz/tq?tqx=out:csv&sheet=Pagina1",
 	    dataType: 'text',
         success: function (csvData) { makeGeoJSON(csvData); }
       });
