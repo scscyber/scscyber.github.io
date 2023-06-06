@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <frame>
-<html>
+<html lang="pt-br">
 	<head>
 	<meta charset="utf-8">
-	<title>Sheet Mapper</title>
+	<title>Mapa Locais</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	
+	<!-- ICONE TITULO/ABA -->
+<link rel="icon" href="./images/Logo_02.jpg" size="50x50" />
+<link rel="icon" href="./images/Logo_02.jpg" />
+<link rel="apple-touch-icon" href="./images/Logo_02.jpg" />
+<meta name="msapplication-TileImage" content="" />
+	<link rel="icon" href="./images/Logo_02.jpg">
 <!-- Mapbox  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
-  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
-
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
 <!-- Mapbox Geocoder -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
@@ -24,7 +32,9 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <!-- Estilo do Mapa -->
 	<link rel="stylesheet" href="../estilos/style_SheetMap.css" type='text/css' />
 <!-- Script p/desabilitar ver código botao direito -->
@@ -35,355 +45,57 @@
 	}
 	document.onmousedown=protegercodigo;
 	</script>
-	  <style>
-body { margin:0; padding:0; }
-	#map { position:absolute; top:10%; bottom:0; width:98%; margin: 1% 1% 1% 1% ; padding: 1% 1% 1% 1%; }
-    #menu {
-		text-align: center;
-		background: gray;
-		padding: 10px;
-		font-family: 'Open Sans', sans-serif;
-		height: 15%;
-    }
-	.mapboxgl-popup {
-	padding-bottom: 5px;
-	width: auto;
-	height: auto;
-	}
-	.mapboxgl-popup-close-button {
-	display: none;
-	}
-	.mapboxgl-popup-content {
-	padding: 0;
-	width: auto;
-	height: auto;
-	border-radius: 10%;
-	opacity: 0.9;
-	line-height:0.8;
-		word-wrap: break-word;
-	}
-	.mapboxgl-popup-content-wrapper {
-	padding: 1%;
-	width: auto;
-	height: auto;
-	word-wrap: break-word;
-	}
-	.mapboxgl-popup-content h3 {
-	font: bold 15px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
-	color: #0404B4;
-	text-align: left;
-	margin: 0;
-	display: block;
-	padding: 5px;
-	margin-top: 5px;
-	line-height:1.2;
-		word-wrap: break-word;
-	}
-	.mapboxgl-popup-content h4 {
-	font: bold 12px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-	text-align: left;
-	margin: 0;
-	display: block;
-	padding: 5px;
-	line-height:0.9;
-	color: #0174DF;
-		word-wrap: break-word;
-	}
-	.mapboxgl-container {
-	cursor: pointer;
-	}
-	.mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
-	margin-top: 3px;
-	}
-	.mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
-	border-bottom-color: rgb(61, 59, 59);
-	}
-	/*Estilos dos marcadores */
-	.marker_Supermercado {
-	background-image: url('../mapas/img_mapa/grocery-15.svg');
-    background-color: #e5e5a8;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #ffd208;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-	.marker_Escola {
-	background-image: url('../mapas/img_mapa/college-15.svg');
-        background-color: #e5fded;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #42f5bc;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-	.marker_Farmácia {
-	background-image: url('../mapas/img_mapa/pharmacy-15.svg');
-        background-color: #f3e699;
-	background-size: cover;
-	width: 2em;
-	height: 2em;
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Mat_Construção {
-	background-image: url('../mapas/img_mapa/warehouse-15.svg');
-        background-color: #f7f9b0;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #fcde47;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Padaria {
-	background-image: url('../mapas/img_mapa/Padaria.svg');
-        background-color: #f9fbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #fcd847;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Mobilidade {
-	background-image: url('../mapas/img_mapa/rail-15.svg');
-        background-color: #eebcb6;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #ff0000;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Comercio {
-	background-image: url('../mapas/img_mapa/ic_compras.svg');
-        background-color: #f1f57c;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #f5da42;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Utilidades {
-	background-image: url('../mapas/img_mapa/commercial-15.svg');
-        background-color: gray;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #575654;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Banco {
-	background-image: url('../mapas/img_mapa/bank-15.svg');
-        background-color: #89a6f6;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #4275f5;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Serviço_Público {
-	background-image: url('../mapas/img_mapa/building-15.svg');
-        background-color: #7cf5a4;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #42f578;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Igreja {
-	background-image: url('../mapas/img_mapa/place-of-worship-15.svg');
-        background-color: #b0f9c8;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #42f5ad;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}			
-		.marker_Lazer {
-	background-image: url('../mapas/img_mapa/theatre-15.svg');
-        background-color: #c2eaca;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #42f5e3;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}	
-		.marker_Ponto_de_Interesse {
-	background-image: url('../mapas/img_mapa/tourist_view_point.svg');
-        background-color: #dd7a6d;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #ff2a26;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}		
-		.marker_Outros  {
-	background-image: url('../mapas/img_mapa/marker-15.svg');
-        background-color: #cdcbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #6e6b6b;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}	
-		.marker_Alimentação {
-	background-image: url('../mapas/img_mapa/restaurant-15.svg');
-        background-color: #f9fbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #f5e942;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-		.marker_Informática {
-	background-image: url('../mapas/img_mapa/logo_01.jpg');
-        background-color: #f9fbcb;
-	background-size: cover;
-	width: 3em;
-	height: 3em;
-    border-style:groove;
-	border-color: #0000ff;
-    border-width:5px;  
-	border-radius: 50%;
-	cursor: pointer;
-	}
-
-	.geocoder {
-	position:fixed;
-	z-index:2;
-	width:40%;
-	left:1%;
-	margin-left:1%;
-	top:10%;
-	}
-
-	/*FORMATAR EXIBIÇÃO TELEFONE */
-	a[href^="tel:"]:before {
-    content: "\260E";
-	color: #800000;
-    margin-right: 0.5em;
-}
-    #zoom  {
-        display: block;
-        position: fixed;
-        margin: 1px 80px 20px;
-        width: 8%;
-        height: 6%;
-        padding: 10px;
-        border-radius: 3px;
-        font-size: 1em;
-        text-align: center;
-        background: #ee8a65;
-        background-image: url('../mapas/img_mapa/search-plus.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: #fff;
-        border: 2px solid #000;	
-    }
-	    #inicial  {
-        display: block;
-        position: fixed;
-        margin: 1px 180px 20px;
-        width: 8%;
-        height: 6%;
-        padding: 10px;
-        border-radius: 3px;
-        font-size: 1em;
-        background: #ee8a65;
-        background-image: url('../mapas/img_mapa/search-minus.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: #fff; 
-        border: 2px solid #000; 
-    }
-.draw {
-position:absolute;
-z-index:1;
-width:auto;
-right:20px;
-top:20%;
-}
-
-#footer  {
-font-size: 20px;
-
-color: red;
-}
-
-	.nome {
-	font: bold 15px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
-	color: #0404B4;
-	text-align: left;
-	margin: 0;
-	display: block;
-	padding: 5px;
-	margin-top: 5px;
-	line-height:1.2;
-	word-wrap: break-word;
-	}
-  </style>
 	</head>
 <body>
 <!-- Aproximar local -->
 	<div id='map'></div>
-	<button id='zoom'>Zoom Máximo</button>
-	<button id='inicial'>Exibição Normal </button>
+<div id='draw' class='draw'>...</div>
+
 <!-- Top container -->
 	<div class="w3-bar w3-top w3-black w3-medium"  style="z-index:4">
 	<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();">
-	<i class="fa fa-bars"></i>  Menu</button> Sheet Mapper
+	<i class="fa fa-bars"></i>Menu</button>
+	
+<div id='menu'>
+    <input id='basic-v9' type='radio' name='rtoggle' value='basic'>
+    <label for='basic'>Basic</label>
+    <input id='streets-v10' type='radio' name='rtoggle' value='streets'>
+    <label for='streets'>Streets</label>
+<!-- ***
+    <input id='bright-v9' type='radio' name='rtoggle' value='bright'>
+    <label for='bright'>Bright</label>
+    <input id='light-v9' type='radio' name='rtoggle' value='light'>
+    <label for='light'>Light</label>
+    <input id='dark-v9' type='radio' name='rtoggle' value='dark'>
+    <label for='dark'>Dark</label>
+    <input id='navigation-guidance-day-v2' type='radio' name='rtoggle' value='navigation-guidance-day'>
+    <label for='navigation-guidance-day'>Naveg-Dia</label>
+    <input id='navigation-guidance-night-v2' type='radio' name='rtoggle' value='navigation-guidance-night'>
+    <label for='navigation-guidance-night'>Naveg-Noite</label>
+ -->
+    <input id='satellite-streets-v10' type='radio' name='rtoggle' value='satellite'>
+    <label for='satellite'>Satellite</label>
+    <input id='navigation-preview-day-v2' type='radio' name='rtoggle' value='navigation-preview-day'>
+    <label for='navigation-preview-day'> Visual Dia</label>
+    <input id='navigation-preview-night-v2' type='radio' name='rtoggle' value='navigation-preview-night-v2'>
+    <label for='navigation-preview-night'>Visual Noite</label>
+
+</div>
+	<button id='zoom'>Z+</button>
+	<button id='inicial'>Z- </button>
+
+	Meu Mapa
 	<span class="w3-bar-item w3-right">SCSCYBER</span>
 	</div>
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:220px; height:350px; margin:40px; " id="mySidebar"><hr>
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left " style="z-index:3;width:200px; height:230px; margin:60px 20px ; " id="mySidebar"><hr>
 	<div class="w3-bar-block" style="text-align:justify; margin:10px; font-size:1em;">
 	<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
 	<i class="fa fa-remove fa-fw"></i>  Fechar Menu</a>
-	<a href="..\Serv_07.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
-	<i class="fa fa-map fa-fw"></i>MAPAS</a>
+	<a href="./../index.html" target="_self" class="w3-bar-item w3-button w3-padding w3-blue">
+	<i class="fa fa-map fa-fw"></i>PRINCIPAL</a>
 	<div id='geocoder' class='geocoder'></div>
-	<p style="text-align:justify; margin:20px; font-size:1em;"> Localização de pontos de interesse - salvos em planilha Google Sheet.</p> <br>
+	<p style="text-align:justify; margin:20px; font-size:1em;">Locais Salvos</p> 
 	</div>
 </nav>
 <!-- Efeito de sobreposição ao abrir a barra lateral em telas pequenas -->
@@ -421,6 +133,19 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 	transformRequest: transformRequest
 //		maxBounds: bounds, // Sets bounds as max
   });
+  //ESTILOS
+  
+  var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
+
+function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId );
+}
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+}
+  
 //ADICIONAR CONTROLE DE NAVEGAÇÃO
 		var nav = new mapboxgl.NavigationControl();
 		map.addControl(nav, 'top-right');
@@ -442,50 +167,63 @@ var latY = '-22.8565832'; 	var longX = '-43.259645';
 	init();
   });
 // INICIALIZAR Tabletop PARA ACESSAR A TABELA(PLANILHA)
-  function init() {
-	Tabletop.init({
-// LINK COMPARTILHAVEL DA PLANILHA
-	  key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
-// CHAMAR A FUNÇÃO ADDPOINTS
-	  callback: addPoints,
-	  simpleSheet: true
-	});
-  }
+      function init() {
+        Tabletop.init({
+          // YOUR TURN: change 'key' value to point to your spreadsheet
+          key: 'https://docs.google.com/spreadsheets/d/1mJmEYJV_Oyuw9tQvE1_hbcUp_7DnZlDJ6ILQ83Qg4KM/edit?usp=sharing',
+          // once Tabletop has loaded the data, it passes it to the 'callback' function, 'addPoints', defined below
+          callback: addPoints,
+          simpleSheet: true
+        });
+      }
 //https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing  
 // CRIAR FUNÇÃO addPoints BUSCANDO OS DADOS DA TABELA LINHA POR LINHA PARA CRIAR MARCAS E POPUPS
-  function addPoints(data) {
-	data.forEach(function(row) {
-//TRECHO ADICIONADO		
-// CODIGO PARA MARCA PERSONALIZADA
-var el = document.createElement('div');
-el.className = 'marker';
-el.style.backgroundImage = 'url(../mapas/img_mapa/marker-15.svg)';
 
-//TRECHO ADICIONADO		
-// INFORMAÇÕES EXIBIDAS NO POPUP
-	var popup = new mapboxgl.Popup()
-		.setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + '' + '</b>' 
-						+ row.Endereço + '</h4>' + '<h4><a href= "tel:  '+ row.Celular +' " >'
-						+ row.Celular +' </a></h4>'+ '<h4><a href = "https://www.google.com.br/maps/@'
-						+row.Latitude + ','+ row.Longitude +',20z" target="_blank"> Ver no Google Maps </h4></a>');
-// use a tabela para preencher seu pop-up com texto
-//TRECHO ALTERADO		
-//SUBSTITUIDO PARAMETRO MARKER(el)
-//PASSANDO 
-// crie uma variável para sua marcação e adicione-a ao mapa
-	  var marker = new mapboxgl.Marker(el)
-		.setLngLat([row.Longitude, row.Latitude])
-		.setPopup(popup)
-		.addTo(map); // add the marker to the map
-	});
-  }
+      function addPoints2(data) {
+        // iterate through your table to set the marker to lat/long values for each row
+        data.forEach(function(row) {
+          // create a variable for your popup and populate your popup with information from your table
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
+          // create a variable for your markup and add it to the map 
+          var marker = new mapboxgl.Marker({
+              color: 'purple'
+            })
+            .setLngLat([row.Longitude, row.Latitude])
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map
+        });
+      }
+		
+// add markers to map
+      function addPoints(data) {
+        // iterate through your table to set the marker to lat/long values for each row
+        data.forEach(function(row) {
+          // create a variable for your popup and populate your popup with information from your table
+          var popup = new mapboxgl.Popup()
+            .setHTML('<h3>' + row.Nome + '</h3>' + '<h4>' + '<b>' + 'Endereço: ' + '</b>' + row.Endereço + '</h4>' 
+			+ '<h4>' + '<b>' + 'Telefone: ' + '</b>' + row.Celular + '</h4>'); // use the table to populate your popup with text
+			
+  // Cria um elemento/Imagem para cada local(img definida em .marker no arquivo de estilos
+  var el = document.createElement('div');
+  el.className = 'marker_'+ row.Categoria;
+						
+          // create a variable for your markup and add it to the map 
+          var marker = new mapboxgl.Marker(el)
+            .setLngLat([row.Longitude, row.Latitude])
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map
+        });
+      }
+	  
 //CRIA UMA MARCA AO SELECIONAR ENDEREÇO NA CAIXA DE PESQUISA
 //	var marker = new mapboxgl.Marker({
 //draggable: true
 //	})
 //	.setLngLat([longX,latY])
 //	.addTo(map);
-map.touchZoomRotate.enable();
+map.touchZoomRotate.enable(); 
 map.touchZoomRotate.enableRotation();
 var geocoder = new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
@@ -499,14 +237,18 @@ easing: function (t) { return t; }
 },
 mapboxgl: mapboxgl
 });
+
+document.getElementById('draw').appendChild(nav.onAdd(map));
+
 //INSERE A MARCA NO DEVIDO LOCAL PESQUISADO
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-//Zoom
+//Zoom Máximo 18
 document.getElementById('zoom').addEventListener('click', function () {
-    map.zoomTo(18, {duration: 9000});
+    map.zoomTo(18, {duration: 30000});
 });
+//Visualização padrão 12
 document.getElementById('inicial').addEventListener('click', function () {
-    map.zoomTo(12, {duration: 9000});
+    map.zoomTo(12, {duration: 30000});
 });
 </script>
 <!-- FIM SCRIPT MAPA -->
@@ -532,9 +274,9 @@ mySidebar.style.display = "none";
 overlayBg.style.display = "none";
 }
 </script>
-<!-- Info Rodapé -->
+<!-- Rodapé -->
 <div class="rodape">
-<h5> Desenvolvido por SCSCYBER Informática </h5>
+<h5> Developer By SCSCYBER Informática </h5>
 </div>
 </body>
 </html>
