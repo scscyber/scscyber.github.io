@@ -25,7 +25,7 @@
 	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.min.js'></script>
 	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.0/mapbox-gl-geocoder.css' type='text/css' />
 <!-- Tabletop (Dados planilha GoogleDrive ) -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.6.3/tabletop.min.js'></script>
 <!-- W3css -->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- W3css -->
@@ -170,7 +170,7 @@ for (var i = 0; i < inputs.length; i++) {
       function init() {
         Tabletop.init({
           // YOUR TURN: change 'key' value to point to your spreadsheet
-          key: 'https://docs.google.com/spreadsheets/d/1_srcsJvvoVN9x4kCAetvvX4qbvqAU23lxXL1KSqs-7I/edit?usp=sharing',
+          key: 'https://docs.google.com/spreadsheets/d/1mJmEYJV_Oyuw9tQvE1_hbcUp_7DnZlDJ6ILQ83Qg4KM/edit?usp=sharing',
           // once Tabletop has loaded the data, it passes it to the 'callback' function, 'addPoints', defined below
           callback: addPoints,
           simpleSheet: true
@@ -244,7 +244,7 @@ document.getElementById('draw').appendChild(nav.onAdd(map));
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 //Zoom Máximo 18
 document.getElementById('zoom').addEventListener('click', function () {
-    map.zoomTo(18, {duration: 30000});
+	map.zoomTo(18, {duration: 30000});
 });
 //Visualização padrão 12
 document.getElementById('inicial').addEventListener('click', function () {
