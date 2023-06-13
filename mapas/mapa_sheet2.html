@@ -440,7 +440,7 @@ el.style.backgroundImage = 'url(img_mapa/marca_azul.svg)';
 //PASSANDO 
 // crie uma variável para sua marcação e adicione-a ao mapa
 	  var marker = new mapboxgl.Marker(el)
-		.setLngLat([row.Longitude, row.Latitude])
+		.setLngLat([coordinates])
 		.setPopup(popup)
 		.addTo(map); // add the marker to the map
             // Change the cursor to a pointer when the mouse is over the places layer.
