@@ -151,7 +151,7 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
                 'data': data
               },
             'layout': {
-              'icon-image': 'star-11',
+              'icon-image': marker1 ,
               'icon-size': 2,
              'icon-padding': 0,
             'icon-allow-overlap': true
@@ -179,13 +179,13 @@ var latY = '-22.857908530829693'; 	var longX = ' -43.26589696787081';
 
               //add Popup to map
 
-//  var el = document.createElement('div');
- // el.className = 'marker_'+ e.features[0].properties.Região;
-          // create a variable for your markup and add it to the map 
-//          var marker = new mapboxgl.Marker(el)
-//            .setLngLat(coordinates)
-//            .setPopup(popup)
-//            .addTo(map); // add the marker to the map		    
+  var el = document.createElement('div');
+ el.className = 'marker_'+ e.features[0].properties.Região;
+ //   create a variable for your markup and add it to the map 
+          var marker1 = new mapboxgl.Marker(el)
+            .setLngLat(coordinates)
+            .setPopup(popup)
+            .addTo(map); // add the marker to the map		    
 		    
               new mapboxgl.Popup()
                 .setLngLat(coordinates)
