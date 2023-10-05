@@ -3,7 +3,7 @@ var attempt = 3; // Variable to count number of attempts.
 function validate(){
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-if ( username == "admin" && password == "admin"){
+if ( username == "admin" && password == "aN954@"){
 alert ("Efetuado com sucesso !!!");
 window.location = "https://scscyber.github.io/index.html"; // Redirecting to other page.
 return false;
